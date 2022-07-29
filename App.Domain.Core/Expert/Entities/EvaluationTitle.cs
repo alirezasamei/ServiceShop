@@ -7,7 +7,6 @@ namespace App.Domain.Core.Expert.Entities
         public int Id { get; set; }
         [StringLength(50)]
         public string Name { get; set; }
-
-        public List<Evaluation> Evaluations { get; set; }
+        public bool IsDeleted { get; set; }
     }
 }

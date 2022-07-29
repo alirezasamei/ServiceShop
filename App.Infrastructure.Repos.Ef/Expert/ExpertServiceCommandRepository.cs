@@ -20,8 +20,8 @@ namespace App.Infrastructure.Repos.Ef.Expert
                 CreationDate = dto.CreationDate,
                 ExpertId = dto.ExpertId,
                 IsActive = dto.IsActive,
-                IsDeleted = dto.IsDeleted,
-                ServiceId = dto.ServiceId,                
+                IsDeleted = false,
+                ServiceId = dto.ServiceId,
             };
             await _context.ExpertServices.AddAsync(entity);
             await _context.SaveChangesAsync();
@@ -31,7 +31,7 @@ namespace App.Infrastructure.Repos.Ef.Expert
         public async Task<int> Delete(int id)
         {
             var entity = await _context.ExpertServices.FirstOrDefaultAsync(e => e.Id == id);
-            _context.ExpertServices.Remove(entity);
+            entity.IsDeleted = false;
             await _context.SaveChangesAsync();
             return entity.Id;
         }
@@ -42,7 +42,6 @@ namespace App.Infrastructure.Repos.Ef.Expert
             entity.CreationDate = dto.CreationDate;
             entity.ExpertId = dto.ExpertId;
             entity.IsActive = dto.IsActive;
-            entity.IsDeleted = dto.IsDeleted;
             entity.ServiceId = dto.ServiceId;
             await _context.SaveChangesAsync();
             return entity.Id;

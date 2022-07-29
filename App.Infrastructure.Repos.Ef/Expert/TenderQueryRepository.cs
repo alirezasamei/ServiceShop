@@ -16,7 +16,7 @@ namespace App.Infrastructure.Repos.Ef.Expert
              await _context.Tenders.Select(p => new TenderDto()
              {
                  Id = p.Id,
-                 Expert = p.Expert.Name,
+                 Expert = p.Expert.appUser.Name,
                  ExpertId = p.ExpertId,
                  OrderId = p.OrderId,
                  Price = p.Price,
@@ -29,7 +29,7 @@ namespace App.Infrastructure.Repos.Ef.Expert
             await _context.Tenders.Where(p => p.Id == id).Select(p => new TenderDto()
             {
                 Id = p.Id,
-                Expert = p.Expert.Name,
+                Expert = p.Expert.appUser.Name,
                 ExpertId = p.ExpertId,
                 OrderId = p.OrderId,
                 Price = p.Price,

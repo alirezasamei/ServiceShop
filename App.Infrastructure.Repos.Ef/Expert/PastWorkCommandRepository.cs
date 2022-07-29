@@ -19,9 +19,9 @@ namespace App.Infrastructure.Repos.Ef.Expert
             {
                 ComplitionDate = dto.ComplitionDate,
                 ExpertServiceId = dto.ExpertServiceId,
-                IsDeleted = dto.IsDeleted,
+                IsDeleted = false,
                 Price = dto.Price,
-                UserId = dto.UserId,
+                CustomerId = dto.CustomerId,
             };
             await _context.PastWorks.AddAsync(entity);
             await _context.SaveChangesAsync();
@@ -31,7 +31,7 @@ namespace App.Infrastructure.Repos.Ef.Expert
         public async Task<int> Delete(int id)
         {
             var entity = await _context.PastWorks.FirstOrDefaultAsync(e => e.Id == id);
-            _context.PastWorks.Remove(entity);
+            entity.IsDeleted = true;
             await _context.SaveChangesAsync();
             return entity.Id;
         }
@@ -41,9 +41,8 @@ namespace App.Infrastructure.Repos.Ef.Expert
             var entity = await _context.PastWorks.FirstOrDefaultAsync(e => e.Id == dto.Id);
             entity.ComplitionDate = dto.ComplitionDate;
             entity.ExpertServiceId = dto.ExpertServiceId;
-            entity.IsDeleted = dto.IsDeleted;
             entity.Price = dto.Price;
-            entity.UserId = dto.UserId;
+            entity.CustomerId = dto.CustomerId;
             await _context.SaveChangesAsync();
             return entity.Id;
         }

@@ -1,4 +1,5 @@
-﻿using ServiceEntities = App.Domain.Core.Service.Entities;
+﻿using App.Domain.Core.BaseData.Entities;
+using ServiceEntities = App.Domain.Core.Service.Entities;
 
 namespace App.Domain.Core.Expert.Entities
 {
@@ -14,7 +15,7 @@ namespace App.Domain.Core.Expert.Entities
         public bool IsDeleted { get; set; }
 
         public List<Comment> Comments { get; set; }
-        public List<ExpertServiceFile> expertServiceFiles { get; set; }
+        public List<BaseData.Entities.File> expertServiceFiles { get; set; }
         public List<PastWork> PastWorks { get; set; }
         public List<Evaluation> Evaluations { get; set; }
     }

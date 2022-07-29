@@ -22,6 +22,900 @@ namespace App.Infrastructure.SqlServer.Migrations
 
             SqlServerModelBuilderExtensions.UseIdentityColumns(modelBuilder, 1L, 1);
 
+            modelBuilder.Entity("App.Domain.Core.BaseData.Entities.AppUser", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
+
+                    b.Property<int>("AccessFailedCount")
+                        .HasColumnType("int");
+
+                    b.Property<string>("ConcurrencyStamp")
+                        .IsConcurrencyToken()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Email")
+                        .HasMaxLength(256)
+                        .HasColumnType("nvarchar(256)");
+
+                    b.Property<bool>("EmailConfirmed")
+                        .HasColumnType("bit");
+
+                    b.Property<bool>("IsActive")
+                        .HasColumnType("bit");
+
+                    b.Property<bool>("IsDeleted")
+                        .HasColumnType("bit");
+
+                    b.Property<bool>("LockoutEnabled")
+                        .HasColumnType("bit");
+
+                    b.Property<DateTimeOffset?>("LockoutEnd")
+                        .HasColumnType("datetimeoffset");
+
+                    b.Property<string>("Name")
+                        .IsRequired()
+                        .HasMaxLength(50)
+                        .HasColumnType("nvarchar(50)");
+
+                    b.Property<string>("NormalizedEmail")
+                        .HasMaxLength(256)
+                        .HasColumnType("nvarchar(256)");
+
+                    b.Property<string>("NormalizedUserName")
+                        .HasMaxLength(256)
+                        .HasColumnType("nvarchar(256)");
+
+                    b.Property<string>("PasswordHash")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("PhoneNumber")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<bool>("PhoneNumberConfirmed")
+                        .HasColumnType("bit");
+
+                    b.Property<string>("SecurityStamp")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<DateTime>("SubmitDate")
+                        .HasColumnType("datetime2");
+
+                    b.Property<bool>("TwoFactorEnabled")
+                        .HasColumnType("bit");
+
+                    b.Property<string>("UserName")
+                        .HasMaxLength(256)
+                        .HasColumnType("nvarchar(256)");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("NormalizedEmail")
+                        .HasDatabaseName("EmailIndex");
+
+                    b.HasIndex("NormalizedUserName")
+                        .IsUnique()
+                        .HasDatabaseName("UserNameIndex")
+                        .HasFilter("[NormalizedUserName] IS NOT NULL");
+
+                    b.ToTable("AspNetUsers", (string)null);
+
+                    b.HasData(
+                        new
+                        {
+                            Id = 1,
+                            AccessFailedCount = 0,
+                            ConcurrencyStamp = " ",
+                            Email = "AppUser1@a.com",
+                            EmailConfirmed = true,
+                            IsActive = true,
+                            IsDeleted = false,
+                            LockoutEnabled = true,
+                            Name = "AppUser1 ",
+                            PasswordHash = "123",
+                            PhoneNumber = "09123456789",
+                            PhoneNumberConfirmed = true,
+                            SecurityStamp = " ",
+                            SubmitDate = new DateTime(2022, 7, 22, 20, 28, 13, 308, DateTimeKind.Local).AddTicks(3407),
+                            TwoFactorEnabled = false,
+                            UserName = "AppUser1username"
+                        },
+                        new
+                        {
+                            Id = 2,
+                            AccessFailedCount = 0,
+                            ConcurrencyStamp = " ",
+                            Email = "AppUser2@a.com",
+                            EmailConfirmed = true,
+                            IsActive = true,
+                            IsDeleted = false,
+                            LockoutEnabled = true,
+                            Name = "AppUser2 ",
+                            PasswordHash = "123",
+                            PhoneNumber = "09123456789",
+                            PhoneNumberConfirmed = true,
+                            SecurityStamp = " ",
+                            SubmitDate = new DateTime(2022, 7, 22, 20, 28, 13, 308, DateTimeKind.Local).AddTicks(3465),
+                            TwoFactorEnabled = false,
+                            UserName = "AppUser2username"
+                        },
+                        new
+                        {
+                            Id = 3,
+                            AccessFailedCount = 0,
+                            ConcurrencyStamp = " ",
+                            Email = "AppUser3@a.com",
+                            EmailConfirmed = true,
+                            IsActive = true,
+                            IsDeleted = false,
+                            LockoutEnabled = true,
+                            Name = "AppUser3 ",
+                            PasswordHash = "123",
+                            PhoneNumber = "09123456789",
+                            PhoneNumberConfirmed = true,
+                            SecurityStamp = " ",
+                            SubmitDate = new DateTime(2022, 7, 22, 20, 28, 13, 308, DateTimeKind.Local).AddTicks(3477),
+                            TwoFactorEnabled = false,
+                            UserName = "AppUser3username"
+                        },
+                        new
+                        {
+                            Id = 4,
+                            AccessFailedCount = 0,
+                            ConcurrencyStamp = " ",
+                            Email = "AppUser4@a.com",
+                            EmailConfirmed = true,
+                            IsActive = true,
+                            IsDeleted = false,
+                            LockoutEnabled = true,
+                            Name = "AppUser4 ",
+                            PasswordHash = "123",
+                            PhoneNumber = "09123456789",
+                            PhoneNumberConfirmed = true,
+                            SecurityStamp = " ",
+                            SubmitDate = new DateTime(2022, 7, 22, 20, 28, 13, 308, DateTimeKind.Local).AddTicks(3488),
+                            TwoFactorEnabled = false,
+                            UserName = "AppUser4username"
+                        },
+                        new
+                        {
+                            Id = 5,
+                            AccessFailedCount = 0,
+                            ConcurrencyStamp = " ",
+                            Email = "AppUser5@a.com",
+                            EmailConfirmed = true,
+                            IsActive = true,
+                            IsDeleted = false,
+                            LockoutEnabled = true,
+                            Name = "AppUser5 ",
+                            PasswordHash = "123",
+                            PhoneNumber = "09123456789",
+                            PhoneNumberConfirmed = true,
+                            SecurityStamp = " ",
+                            SubmitDate = new DateTime(2022, 7, 22, 20, 28, 13, 308, DateTimeKind.Local).AddTicks(3498),
+                            TwoFactorEnabled = false,
+                            UserName = "AppUser5username"
+                        },
+                        new
+                        {
+                            Id = 6,
+                            AccessFailedCount = 0,
+                            ConcurrencyStamp = " ",
+                            Email = "AppUser6@a.com",
+                            EmailConfirmed = true,
+                            IsActive = true,
+                            IsDeleted = false,
+                            LockoutEnabled = true,
+                            Name = "AppUser6 ",
+                            PasswordHash = "123",
+                            PhoneNumber = "09123456789",
+                            PhoneNumberConfirmed = true,
+                            SecurityStamp = " ",
+                            SubmitDate = new DateTime(2022, 7, 22, 20, 28, 13, 308, DateTimeKind.Local).AddTicks(3508),
+                            TwoFactorEnabled = false,
+                            UserName = "AppUser6username"
+                        },
+                        new
+                        {
+                            Id = 7,
+                            AccessFailedCount = 0,
+                            ConcurrencyStamp = " ",
+                            Email = "AppUser7@a.com",
+                            EmailConfirmed = true,
+                            IsActive = true,
+                            IsDeleted = false,
+                            LockoutEnabled = true,
+                            Name = "AppUser7 ",
+                            PasswordHash = "123",
+                            PhoneNumber = "09123456789",
+                            PhoneNumberConfirmed = true,
+                            SecurityStamp = " ",
+                            SubmitDate = new DateTime(2022, 7, 22, 20, 28, 13, 308, DateTimeKind.Local).AddTicks(3533),
+                            TwoFactorEnabled = false,
+                            UserName = "AppUser7username"
+                        },
+                        new
+                        {
+                            Id = 8,
+                            AccessFailedCount = 0,
+                            ConcurrencyStamp = " ",
+                            Email = "AppUser8@a.com",
+                            EmailConfirmed = true,
+                            IsActive = true,
+                            IsDeleted = false,
+                            LockoutEnabled = true,
+                            Name = "AppUser8 ",
+                            PasswordHash = "123",
+                            PhoneNumber = "09123456789",
+                            PhoneNumberConfirmed = true,
+                            SecurityStamp = " ",
+                            SubmitDate = new DateTime(2022, 7, 22, 20, 28, 13, 308, DateTimeKind.Local).AddTicks(3545),
+                            TwoFactorEnabled = false,
+                            UserName = "AppUser8username"
+                        },
+                        new
+                        {
+                            Id = 9,
+                            AccessFailedCount = 0,
+                            ConcurrencyStamp = " ",
+                            Email = "AppUser9@a.com",
+                            EmailConfirmed = true,
+                            IsActive = true,
+                            IsDeleted = false,
+                            LockoutEnabled = true,
+                            Name = "AppUser9 ",
+                            PasswordHash = "123",
+                            PhoneNumber = "09123456789",
+                            PhoneNumberConfirmed = true,
+                            SecurityStamp = " ",
+                            SubmitDate = new DateTime(2022, 7, 22, 20, 28, 13, 308, DateTimeKind.Local).AddTicks(3555),
+                            TwoFactorEnabled = false,
+                            UserName = "AppUser9username"
+                        },
+                        new
+                        {
+                            Id = 10,
+                            AccessFailedCount = 0,
+                            ConcurrencyStamp = " ",
+                            Email = "AppUser10@a.com",
+                            EmailConfirmed = true,
+                            IsActive = true,
+                            IsDeleted = false,
+                            LockoutEnabled = true,
+                            Name = "AppUser10",
+                            PasswordHash = "123",
+                            PhoneNumber = "09123456789",
+                            PhoneNumberConfirmed = true,
+                            SecurityStamp = " ",
+                            SubmitDate = new DateTime(2022, 7, 22, 20, 28, 13, 308, DateTimeKind.Local).AddTicks(3566),
+                            TwoFactorEnabled = false,
+                            UserName = "AppUser10username"
+                        },
+                        new
+                        {
+                            Id = 11,
+                            AccessFailedCount = 0,
+                            ConcurrencyStamp = " ",
+                            Email = "AppUser11@a.com",
+                            EmailConfirmed = true,
+                            IsActive = true,
+                            IsDeleted = false,
+                            LockoutEnabled = true,
+                            Name = "AppUser11",
+                            PasswordHash = "123",
+                            PhoneNumber = "09123456789",
+                            PhoneNumberConfirmed = true,
+                            SecurityStamp = " ",
+                            SubmitDate = new DateTime(2022, 7, 22, 20, 28, 13, 308, DateTimeKind.Local).AddTicks(3577),
+                            TwoFactorEnabled = false,
+                            UserName = "AppUser11username"
+                        },
+                        new
+                        {
+                            Id = 12,
+                            AccessFailedCount = 0,
+                            ConcurrencyStamp = " ",
+                            Email = "AppUser12@a.com",
+                            EmailConfirmed = true,
+                            IsActive = true,
+                            IsDeleted = false,
+                            LockoutEnabled = true,
+                            Name = "AppUser12",
+                            PasswordHash = "123",
+                            PhoneNumber = "09123456789",
+                            PhoneNumberConfirmed = true,
+                            SecurityStamp = " ",
+                            SubmitDate = new DateTime(2022, 7, 22, 20, 28, 13, 308, DateTimeKind.Local).AddTicks(3587),
+                            TwoFactorEnabled = false,
+                            UserName = "AppUser12username"
+                        },
+                        new
+                        {
+                            Id = 13,
+                            AccessFailedCount = 0,
+                            ConcurrencyStamp = " ",
+                            Email = "AppUser13@a.com",
+                            EmailConfirmed = true,
+                            IsActive = true,
+                            IsDeleted = false,
+                            LockoutEnabled = true,
+                            Name = "AppUser13",
+                            PasswordHash = "123",
+                            PhoneNumber = "09123456789",
+                            PhoneNumberConfirmed = true,
+                            SecurityStamp = " ",
+                            SubmitDate = new DateTime(2022, 7, 22, 20, 28, 13, 308, DateTimeKind.Local).AddTicks(3597),
+                            TwoFactorEnabled = false,
+                            UserName = "AppUser13username"
+                        },
+                        new
+                        {
+                            Id = 14,
+                            AccessFailedCount = 0,
+                            ConcurrencyStamp = " ",
+                            Email = "AppUser14@a.com",
+                            EmailConfirmed = true,
+                            IsActive = true,
+                            IsDeleted = false,
+                            LockoutEnabled = true,
+                            Name = "AppUser14",
+                            PasswordHash = "123",
+                            PhoneNumber = "09123456789",
+                            PhoneNumberConfirmed = true,
+                            SecurityStamp = " ",
+                            SubmitDate = new DateTime(2022, 7, 22, 20, 28, 13, 308, DateTimeKind.Local).AddTicks(3608),
+                            TwoFactorEnabled = false,
+                            UserName = "AppUser14username"
+                        },
+                        new
+                        {
+                            Id = 15,
+                            AccessFailedCount = 0,
+                            ConcurrencyStamp = " ",
+                            Email = "AppUser15@a.com",
+                            EmailConfirmed = true,
+                            IsActive = true,
+                            IsDeleted = false,
+                            LockoutEnabled = true,
+                            Name = "AppUser15",
+                            PasswordHash = "123",
+                            PhoneNumber = "09123456789",
+                            PhoneNumberConfirmed = true,
+                            SecurityStamp = " ",
+                            SubmitDate = new DateTime(2022, 7, 22, 20, 28, 13, 308, DateTimeKind.Local).AddTicks(3623),
+                            TwoFactorEnabled = false,
+                            UserName = "AppUser15username"
+                        },
+                        new
+                        {
+                            Id = 16,
+                            AccessFailedCount = 0,
+                            ConcurrencyStamp = " ",
+                            Email = "AppUser16@a.com",
+                            EmailConfirmed = true,
+                            IsActive = true,
+                            IsDeleted = false,
+                            LockoutEnabled = true,
+                            Name = "AppUser16",
+                            PasswordHash = "123",
+                            PhoneNumber = "09123456789",
+                            PhoneNumberConfirmed = true,
+                            SecurityStamp = " ",
+                            SubmitDate = new DateTime(2022, 7, 22, 20, 28, 13, 308, DateTimeKind.Local).AddTicks(3633),
+                            TwoFactorEnabled = false,
+                            UserName = "AppUser16username"
+                        },
+                        new
+                        {
+                            Id = 17,
+                            AccessFailedCount = 0,
+                            ConcurrencyStamp = " ",
+                            Email = "AppUser17@a.com",
+                            EmailConfirmed = true,
+                            IsActive = true,
+                            IsDeleted = false,
+                            LockoutEnabled = true,
+                            Name = "AppUser17",
+                            PasswordHash = "123",
+                            PhoneNumber = "09123456789",
+                            PhoneNumberConfirmed = true,
+                            SecurityStamp = " ",
+                            SubmitDate = new DateTime(2022, 7, 22, 20, 28, 13, 308, DateTimeKind.Local).AddTicks(3644),
+                            TwoFactorEnabled = false,
+                            UserName = "AppUser17username"
+                        },
+                        new
+                        {
+                            Id = 18,
+                            AccessFailedCount = 0,
+                            ConcurrencyStamp = " ",
+                            Email = "AppUser18@a.com",
+                            EmailConfirmed = true,
+                            IsActive = true,
+                            IsDeleted = false,
+                            LockoutEnabled = true,
+                            Name = "AppUser18",
+                            PasswordHash = "123",
+                            PhoneNumber = "09123456789",
+                            PhoneNumberConfirmed = true,
+                            SecurityStamp = " ",
+                            SubmitDate = new DateTime(2022, 7, 22, 20, 28, 13, 308, DateTimeKind.Local).AddTicks(3655),
+                            TwoFactorEnabled = false,
+                            UserName = "AppUser18username"
+                        },
+                        new
+                        {
+                            Id = 19,
+                            AccessFailedCount = 0,
+                            ConcurrencyStamp = " ",
+                            Email = "AppUser19@a.com",
+                            EmailConfirmed = true,
+                            IsActive = true,
+                            IsDeleted = false,
+                            LockoutEnabled = true,
+                            Name = "AppUser19",
+                            PasswordHash = "123",
+                            PhoneNumber = "09123456789",
+                            PhoneNumberConfirmed = true,
+                            SecurityStamp = " ",
+                            SubmitDate = new DateTime(2022, 7, 22, 20, 28, 13, 308, DateTimeKind.Local).AddTicks(3665),
+                            TwoFactorEnabled = false,
+                            UserName = "AppUser19username"
+                        },
+                        new
+                        {
+                            Id = 20,
+                            AccessFailedCount = 0,
+                            ConcurrencyStamp = " ",
+                            Email = "AppUser20@a.com",
+                            EmailConfirmed = true,
+                            IsActive = true,
+                            IsDeleted = false,
+                            LockoutEnabled = true,
+                            Name = "AppUser20",
+                            PasswordHash = "123",
+                            PhoneNumber = "09123456789",
+                            PhoneNumberConfirmed = true,
+                            SecurityStamp = " ",
+                            SubmitDate = new DateTime(2022, 7, 22, 20, 28, 13, 308, DateTimeKind.Local).AddTicks(3676),
+                            TwoFactorEnabled = false,
+                            UserName = "AppUser20username"
+                        },
+                        new
+                        {
+                            Id = 21,
+                            AccessFailedCount = 0,
+                            ConcurrencyStamp = " ",
+                            Email = "AppUser21@a.com",
+                            EmailConfirmed = true,
+                            IsActive = true,
+                            IsDeleted = false,
+                            LockoutEnabled = true,
+                            Name = "AppUser21",
+                            PasswordHash = "123",
+                            PhoneNumber = "09123456789",
+                            PhoneNumberConfirmed = true,
+                            SecurityStamp = " ",
+                            SubmitDate = new DateTime(2022, 7, 22, 20, 28, 13, 308, DateTimeKind.Local).AddTicks(3686),
+                            TwoFactorEnabled = false,
+                            UserName = "AppUser21username"
+                        },
+                        new
+                        {
+                            Id = 22,
+                            AccessFailedCount = 0,
+                            ConcurrencyStamp = " ",
+                            Email = "AppUser22@a.com",
+                            EmailConfirmed = true,
+                            IsActive = true,
+                            IsDeleted = false,
+                            LockoutEnabled = true,
+                            Name = "AppUser22",
+                            PasswordHash = "123",
+                            PhoneNumber = "09123456789",
+                            PhoneNumberConfirmed = true,
+                            SecurityStamp = " ",
+                            SubmitDate = new DateTime(2022, 7, 22, 20, 28, 13, 308, DateTimeKind.Local).AddTicks(3696),
+                            TwoFactorEnabled = false,
+                            UserName = "AppUser22username"
+                        },
+                        new
+                        {
+                            Id = 23,
+                            AccessFailedCount = 0,
+                            ConcurrencyStamp = " ",
+                            Email = "AppUser23@a.com",
+                            EmailConfirmed = true,
+                            IsActive = true,
+                            IsDeleted = false,
+                            LockoutEnabled = true,
+                            Name = "AppUser23",
+                            PasswordHash = "123",
+                            PhoneNumber = "09123456789",
+                            PhoneNumberConfirmed = true,
+                            SecurityStamp = " ",
+                            SubmitDate = new DateTime(2022, 7, 22, 20, 28, 13, 308, DateTimeKind.Local).AddTicks(3710),
+                            TwoFactorEnabled = false,
+                            UserName = "AppUser23username"
+                        },
+                        new
+                        {
+                            Id = 24,
+                            AccessFailedCount = 0,
+                            ConcurrencyStamp = " ",
+                            Email = "AppUser24@a.com",
+                            EmailConfirmed = true,
+                            IsActive = true,
+                            IsDeleted = false,
+                            LockoutEnabled = true,
+                            Name = "AppUser24",
+                            PasswordHash = "123",
+                            PhoneNumber = "09123456789",
+                            PhoneNumberConfirmed = true,
+                            SecurityStamp = " ",
+                            SubmitDate = new DateTime(2022, 7, 22, 20, 28, 13, 308, DateTimeKind.Local).AddTicks(3722),
+                            TwoFactorEnabled = false,
+                            UserName = "AppUser24username"
+                        },
+                        new
+                        {
+                            Id = 25,
+                            AccessFailedCount = 0,
+                            ConcurrencyStamp = " ",
+                            Email = "AppUser25@a.com",
+                            EmailConfirmed = true,
+                            IsActive = true,
+                            IsDeleted = false,
+                            LockoutEnabled = true,
+                            Name = "AppUser25",
+                            PasswordHash = "123",
+                            PhoneNumber = "09123456789",
+                            PhoneNumberConfirmed = true,
+                            SecurityStamp = " ",
+                            SubmitDate = new DateTime(2022, 7, 22, 20, 28, 13, 308, DateTimeKind.Local).AddTicks(3732),
+                            TwoFactorEnabled = false,
+                            UserName = "AppUser25username"
+                        },
+                        new
+                        {
+                            Id = 26,
+                            AccessFailedCount = 0,
+                            ConcurrencyStamp = " ",
+                            Email = "AppUser26@a.com",
+                            EmailConfirmed = true,
+                            IsActive = true,
+                            IsDeleted = false,
+                            LockoutEnabled = true,
+                            Name = "AppUser26",
+                            PasswordHash = "123",
+                            PhoneNumber = "09123456789",
+                            PhoneNumberConfirmed = true,
+                            SecurityStamp = " ",
+                            SubmitDate = new DateTime(2022, 7, 22, 20, 28, 13, 308, DateTimeKind.Local).AddTicks(3753),
+                            TwoFactorEnabled = false,
+                            UserName = "AppUser26username"
+                        },
+                        new
+                        {
+                            Id = 27,
+                            AccessFailedCount = 0,
+                            ConcurrencyStamp = " ",
+                            Email = "AppUser27@a.com",
+                            EmailConfirmed = true,
+                            IsActive = true,
+                            IsDeleted = false,
+                            LockoutEnabled = true,
+                            Name = "AppUser27",
+                            PasswordHash = "123",
+                            PhoneNumber = "09123456789",
+                            PhoneNumberConfirmed = true,
+                            SecurityStamp = " ",
+                            SubmitDate = new DateTime(2022, 7, 22, 20, 28, 13, 308, DateTimeKind.Local).AddTicks(3763),
+                            TwoFactorEnabled = false,
+                            UserName = "AppUser27username"
+                        });
+                });
+
+            modelBuilder.Entity("App.Domain.Core.BaseData.Entities.File", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
+
+                    b.Property<DateTime>("CreationDate")
+                        .HasColumnType("datetime2");
+
+                    b.Property<string>("Description")
+                        .HasMaxLength(500)
+                        .HasColumnType("nvarchar(500)");
+
+                    b.Property<int?>("ExpertServiceId")
+                        .HasColumnType("int");
+
+                    b.Property<int>("FileTypeId")
+                        .HasColumnType("int");
+
+                    b.Property<bool>("IsDeleted")
+                        .HasColumnType("bit");
+
+                    b.Property<string>("NameWithExtention")
+                        .IsRequired()
+                        .HasMaxLength(50)
+                        .HasColumnType("nvarchar(50)");
+
+                    b.Property<int?>("ServiceId")
+                        .HasColumnType("int");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("ExpertServiceId");
+
+                    b.HasIndex("FileTypeId");
+
+                    b.HasIndex("ServiceId");
+
+                    b.ToTable("Files");
+
+                    b.HasData(
+                        new
+                        {
+                            Id = 1,
+                            CreationDate = new DateTime(2022, 7, 22, 20, 28, 13, 310, DateTimeKind.Local).AddTicks(3063),
+                            Description = "توضیح فایل 01",
+                            FileTypeId = 1,
+                            IsDeleted = false,
+                            NameWithExtention = "File01.jpg"
+                        },
+                        new
+                        {
+                            Id = 2,
+                            CreationDate = new DateTime(2022, 7, 22, 20, 28, 13, 310, DateTimeKind.Local).AddTicks(3096),
+                            Description = "توضیح فایل 02",
+                            FileTypeId = 1,
+                            IsDeleted = false,
+                            NameWithExtention = "File02.jpg"
+                        },
+                        new
+                        {
+                            Id = 3,
+                            CreationDate = new DateTime(2022, 7, 22, 20, 28, 13, 310, DateTimeKind.Local).AddTicks(3102),
+                            Description = "توضیح فایل 03",
+                            FileTypeId = 1,
+                            IsDeleted = false,
+                            NameWithExtention = "File03.jpg"
+                        },
+                        new
+                        {
+                            Id = 4,
+                            CreationDate = new DateTime(2022, 7, 22, 20, 28, 13, 310, DateTimeKind.Local).AddTicks(3107),
+                            Description = "توضیح فایل 04",
+                            FileTypeId = 1,
+                            IsDeleted = false,
+                            NameWithExtention = "File04.jpg"
+                        },
+                        new
+                        {
+                            Id = 5,
+                            CreationDate = new DateTime(2022, 7, 22, 20, 28, 13, 310, DateTimeKind.Local).AddTicks(3377),
+                            Description = "توضیح فایل 05",
+                            FileTypeId = 1,
+                            IsDeleted = false,
+                            NameWithExtention = "File05.jpg"
+                        },
+                        new
+                        {
+                            Id = 6,
+                            CreationDate = new DateTime(2022, 7, 22, 20, 28, 13, 310, DateTimeKind.Local).AddTicks(3382),
+                            Description = "توضیح فایل 06",
+                            FileTypeId = 1,
+                            IsDeleted = false,
+                            NameWithExtention = "File06.jpg"
+                        },
+                        new
+                        {
+                            Id = 7,
+                            CreationDate = new DateTime(2022, 7, 22, 20, 28, 13, 310, DateTimeKind.Local).AddTicks(3388),
+                            Description = "توضیح فایل 07",
+                            FileTypeId = 1,
+                            IsDeleted = false,
+                            NameWithExtention = "File07.jpg"
+                        },
+                        new
+                        {
+                            Id = 8,
+                            CreationDate = new DateTime(2022, 7, 22, 20, 28, 13, 310, DateTimeKind.Local).AddTicks(3392),
+                            Description = "توضیح فایل 08",
+                            FileTypeId = 1,
+                            IsDeleted = false,
+                            NameWithExtention = "File08.jpg"
+                        },
+                        new
+                        {
+                            Id = 9,
+                            CreationDate = new DateTime(2022, 7, 22, 20, 28, 13, 310, DateTimeKind.Local).AddTicks(3397),
+                            Description = "توضیح فایل 09",
+                            FileTypeId = 1,
+                            IsDeleted = false,
+                            NameWithExtention = "File09.jpg"
+                        },
+                        new
+                        {
+                            Id = 10,
+                            CreationDate = new DateTime(2022, 7, 22, 20, 28, 13, 310, DateTimeKind.Local).AddTicks(3402),
+                            Description = "توضیح فایل 10",
+                            FileTypeId = 1,
+                            IsDeleted = false,
+                            NameWithExtention = "File10.jpg"
+                        },
+                        new
+                        {
+                            Id = 11,
+                            CreationDate = new DateTime(2022, 7, 22, 20, 28, 13, 310, DateTimeKind.Local).AddTicks(3407),
+                            Description = "توضیح فایل 11",
+                            FileTypeId = 1,
+                            IsDeleted = false,
+                            NameWithExtention = "File11.jpg"
+                        },
+                        new
+                        {
+                            Id = 12,
+                            CreationDate = new DateTime(2022, 7, 22, 20, 28, 13, 310, DateTimeKind.Local).AddTicks(3412),
+                            Description = "توضیح فایل 12",
+                            FileTypeId = 1,
+                            IsDeleted = false,
+                            NameWithExtention = "File12.jpg"
+                        },
+                        new
+                        {
+                            Id = 13,
+                            CreationDate = new DateTime(2022, 7, 22, 20, 28, 13, 310, DateTimeKind.Local).AddTicks(3417),
+                            Description = "توضیح فایل 13",
+                            FileTypeId = 1,
+                            IsDeleted = false,
+                            NameWithExtention = "File13.jpg"
+                        },
+                        new
+                        {
+                            Id = 14,
+                            CreationDate = new DateTime(2022, 7, 22, 20, 28, 13, 310, DateTimeKind.Local).AddTicks(3422),
+                            Description = "توضیح فایل 14",
+                            FileTypeId = 1,
+                            IsDeleted = false,
+                            NameWithExtention = "File14.jpg"
+                        },
+                        new
+                        {
+                            Id = 15,
+                            CreationDate = new DateTime(2022, 7, 22, 20, 28, 13, 310, DateTimeKind.Local).AddTicks(3426),
+                            Description = "توضیح فایل 15",
+                            FileTypeId = 1,
+                            IsDeleted = false,
+                            NameWithExtention = "File15.jpg"
+                        },
+                        new
+                        {
+                            Id = 16,
+                            CreationDate = new DateTime(2022, 7, 22, 20, 28, 13, 310, DateTimeKind.Local).AddTicks(3431),
+                            Description = "توضیح فایل 16",
+                            FileTypeId = 1,
+                            IsDeleted = false,
+                            NameWithExtention = "File16.jpg"
+                        },
+                        new
+                        {
+                            Id = 17,
+                            CreationDate = new DateTime(2022, 7, 22, 20, 28, 13, 310, DateTimeKind.Local).AddTicks(3437),
+                            Description = "توضیح فایل 17",
+                            FileTypeId = 1,
+                            IsDeleted = false,
+                            NameWithExtention = "File17.jpg"
+                        },
+                        new
+                        {
+                            Id = 18,
+                            CreationDate = new DateTime(2022, 7, 22, 20, 28, 13, 310, DateTimeKind.Local).AddTicks(3441),
+                            Description = "توضیح فایل 18",
+                            FileTypeId = 1,
+                            IsDeleted = false,
+                            NameWithExtention = "File18.jpg"
+                        },
+                        new
+                        {
+                            Id = 19,
+                            CreationDate = new DateTime(2022, 7, 22, 20, 28, 13, 310, DateTimeKind.Local).AddTicks(3446),
+                            Description = "توضیح فایل 19",
+                            ExpertServiceId = 1,
+                            FileTypeId = 1,
+                            IsDeleted = false,
+                            NameWithExtention = "File19.jpg"
+                        },
+                        new
+                        {
+                            Id = 20,
+                            CreationDate = new DateTime(2022, 7, 22, 20, 28, 13, 310, DateTimeKind.Local).AddTicks(3453),
+                            Description = "توضیح فایل 20",
+                            ExpertServiceId = 2,
+                            FileTypeId = 1,
+                            IsDeleted = false,
+                            NameWithExtention = "File20.jpg"
+                        },
+                        new
+                        {
+                            Id = 21,
+                            CreationDate = new DateTime(2022, 7, 22, 20, 28, 13, 310, DateTimeKind.Local).AddTicks(3458),
+                            Description = "توضیح فایل 21",
+                            ExpertServiceId = 3,
+                            FileTypeId = 1,
+                            IsDeleted = false,
+                            NameWithExtention = "File21.jpg"
+                        },
+                        new
+                        {
+                            Id = 22,
+                            CreationDate = new DateTime(2022, 7, 22, 20, 28, 13, 310, DateTimeKind.Local).AddTicks(3464),
+                            Description = "توضیح فایل 22",
+                            ExpertServiceId = 4,
+                            FileTypeId = 1,
+                            IsDeleted = false,
+                            NameWithExtention = "File22.jpg"
+                        },
+                        new
+                        {
+                            Id = 23,
+                            CreationDate = new DateTime(2022, 7, 22, 20, 28, 13, 310, DateTimeKind.Local).AddTicks(3470),
+                            Description = "توضیح فایل 23",
+                            ExpertServiceId = 5,
+                            FileTypeId = 1,
+                            IsDeleted = false,
+                            NameWithExtention = "File23.jpg"
+                        },
+                        new
+                        {
+                            Id = 24,
+                            CreationDate = new DateTime(2022, 7, 22, 20, 28, 13, 310, DateTimeKind.Local).AddTicks(3475),
+                            Description = "توضیح فایل 24",
+                            ExpertServiceId = 6,
+                            FileTypeId = 1,
+                            IsDeleted = false,
+                            NameWithExtention = "File24.jpg"
+                        },
+                        new
+                        {
+                            Id = 25,
+                            CreationDate = new DateTime(2022, 7, 22, 20, 28, 13, 310, DateTimeKind.Local).AddTicks(3480),
+                            Description = "توضیح فایل 25",
+                            ExpertServiceId = 7,
+                            FileTypeId = 1,
+                            IsDeleted = false,
+                            NameWithExtention = "File25.jpg"
+                        },
+                        new
+                        {
+                            Id = 26,
+                            CreationDate = new DateTime(2022, 7, 22, 20, 28, 13, 310, DateTimeKind.Local).AddTicks(3484),
+                            Description = "توضیح فایل 26",
+                            ExpertServiceId = 8,
+                            FileTypeId = 1,
+                            IsDeleted = false,
+                            NameWithExtention = "File26.jpg"
+                        },
+                        new
+                        {
+                            Id = 27,
+                            CreationDate = new DateTime(2022, 7, 22, 20, 28, 13, 310, DateTimeKind.Local).AddTicks(3490),
+                            Description = "توضیح فایل 27",
+                            ExpertServiceId = 9,
+                            FileTypeId = 1,
+                            IsDeleted = false,
+                            NameWithExtention = "File27.jpg"
+                        });
+                });
+
             modelBuilder.Entity("App.Domain.Core.BaseData.Entities.FileType", b =>
                 {
                     b.Property<int>("Id")
@@ -30,6 +924,9 @@ namespace App.Infrastructure.SqlServer.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
 
+                    b.Property<bool>("IsDeleted")
+                        .HasColumnType("bit");
+
                     b.Property<string>("Name")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
@@ -37,6 +934,256 @@ namespace App.Infrastructure.SqlServer.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("FileTypes");
+
+                    b.HasData(
+                        new
+                        {
+                            Id = 1,
+                            IsDeleted = false,
+                            Name = "Image"
+                        });
+                });
+
+            modelBuilder.Entity("App.Domain.Core.Customer.Entities.Customer", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
+
+                    b.Property<string>("Address")
+                        .HasMaxLength(500)
+                        .HasColumnType("nvarchar(500)");
+
+                    b.Property<int>("AppUserId")
+                        .HasColumnType("int");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("AppUserId");
+
+                    b.ToTable("Customers");
+
+                    b.HasData(
+                        new
+                        {
+                            Id = 1,
+                            Address = "",
+                            AppUserId = 10
+                        },
+                        new
+                        {
+                            Id = 2,
+                            Address = "",
+                            AppUserId = 11
+                        },
+                        new
+                        {
+                            Id = 3,
+                            Address = "",
+                            AppUserId = 12
+                        },
+                        new
+                        {
+                            Id = 4,
+                            Address = "",
+                            AppUserId = 13
+                        },
+                        new
+                        {
+                            Id = 5,
+                            Address = "",
+                            AppUserId = 14
+                        },
+                        new
+                        {
+                            Id = 6,
+                            Address = "",
+                            AppUserId = 15
+                        },
+                        new
+                        {
+                            Id = 7,
+                            Address = "",
+                            AppUserId = 16
+                        },
+                        new
+                        {
+                            Id = 8,
+                            Address = "",
+                            AppUserId = 17
+                        },
+                        new
+                        {
+                            Id = 9,
+                            Address = "",
+                            AppUserId = 18
+                        });
+                });
+
+            modelBuilder.Entity("App.Domain.Core.Customer.Entities.Order", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
+
+                    b.Property<int>("CustomerId")
+                        .HasColumnType("int");
+
+                    b.Property<bool>("IsDeleted")
+                        .HasColumnType("bit");
+
+                    b.Property<int>("OrderStateId")
+                        .HasColumnType("int");
+
+                    b.Property<DateTime>("RegisterDate")
+                        .HasColumnType("datetime2");
+
+                    b.Property<int>("ServiceId")
+                        .HasColumnType("int");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("CustomerId");
+
+                    b.HasIndex("OrderStateId");
+
+                    b.HasIndex("ServiceId");
+
+                    b.ToTable("Orders");
+
+                    b.HasData(
+                        new
+                        {
+                            Id = 1,
+                            CustomerId = 1,
+                            IsDeleted = false,
+                            OrderStateId = 1,
+                            RegisterDate = new DateTime(2022, 7, 22, 20, 28, 13, 317, DateTimeKind.Local).AddTicks(327),
+                            ServiceId = 1
+                        },
+                        new
+                        {
+                            Id = 2,
+                            CustomerId = 2,
+                            IsDeleted = false,
+                            OrderStateId = 1,
+                            RegisterDate = new DateTime(2022, 7, 22, 20, 28, 13, 317, DateTimeKind.Local).AddTicks(351),
+                            ServiceId = 2
+                        },
+                        new
+                        {
+                            Id = 3,
+                            CustomerId = 3,
+                            IsDeleted = false,
+                            OrderStateId = 1,
+                            RegisterDate = new DateTime(2022, 7, 22, 20, 28, 13, 317, DateTimeKind.Local).AddTicks(355),
+                            ServiceId = 3
+                        },
+                        new
+                        {
+                            Id = 4,
+                            CustomerId = 4,
+                            IsDeleted = false,
+                            OrderStateId = 1,
+                            RegisterDate = new DateTime(2022, 7, 22, 20, 28, 13, 317, DateTimeKind.Local).AddTicks(359),
+                            ServiceId = 4
+                        },
+                        new
+                        {
+                            Id = 5,
+                            CustomerId = 5,
+                            IsDeleted = false,
+                            OrderStateId = 1,
+                            RegisterDate = new DateTime(2022, 7, 22, 20, 28, 13, 317, DateTimeKind.Local).AddTicks(363),
+                            ServiceId = 5
+                        },
+                        new
+                        {
+                            Id = 6,
+                            CustomerId = 6,
+                            IsDeleted = false,
+                            OrderStateId = 1,
+                            RegisterDate = new DateTime(2022, 7, 22, 20, 28, 13, 317, DateTimeKind.Local).AddTicks(367),
+                            ServiceId = 6
+                        },
+                        new
+                        {
+                            Id = 7,
+                            CustomerId = 7,
+                            IsDeleted = false,
+                            OrderStateId = 1,
+                            RegisterDate = new DateTime(2022, 7, 22, 20, 28, 13, 317, DateTimeKind.Local).AddTicks(370),
+                            ServiceId = 7
+                        },
+                        new
+                        {
+                            Id = 8,
+                            CustomerId = 8,
+                            IsDeleted = false,
+                            OrderStateId = 1,
+                            RegisterDate = new DateTime(2022, 7, 22, 20, 28, 13, 317, DateTimeKind.Local).AddTicks(374),
+                            ServiceId = 8
+                        },
+                        new
+                        {
+                            Id = 9,
+                            CustomerId = 9,
+                            IsDeleted = false,
+                            OrderStateId = 1,
+                            RegisterDate = new DateTime(2022, 7, 22, 20, 28, 13, 317, DateTimeKind.Local).AddTicks(378),
+                            ServiceId = 9
+                        });
+                });
+
+            modelBuilder.Entity("App.Domain.Core.Customer.Entities.OrderState", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
+
+                    b.Property<bool>("IsDeleted")
+                        .HasColumnType("bit");
+
+                    b.Property<string>("Name")
+                        .IsRequired()
+                        .HasMaxLength(50)
+                        .HasColumnType("nvarchar(50)");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("OrderStates");
+
+                    b.HasData(
+                        new
+                        {
+                            Id = 1,
+                            IsDeleted = false,
+                            Name = "در حال بررسی"
+                        },
+                        new
+                        {
+                            Id = 2,
+                            IsDeleted = false,
+                            Name = "منتظر پیشنهاد متخصص"
+                        },
+                        new
+                        {
+                            Id = 3,
+                            IsDeleted = false,
+                            Name = "منتظر انتخاب متخصص"
+                        },
+                        new
+                        {
+                            Id = 4,
+                            IsDeleted = false,
+                            Name = "منتظر آمدن متخصص"
+                        });
                 });
 
             modelBuilder.Entity("App.Domain.Core.Expert.Entities.Comment", b =>
@@ -46,6 +1193,9 @@ namespace App.Infrastructure.SqlServer.Migrations
                         .HasColumnType("int");
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
+
+                    b.Property<int>("CustomerId")
+                        .HasColumnType("int");
 
                     b.Property<int>("DislikeCount")
                         .HasColumnType("int");
@@ -59,6 +1209,9 @@ namespace App.Infrastructure.SqlServer.Migrations
                     b.Property<int>("LikeCount")
                         .HasColumnType("int");
 
+                    b.Property<DateTime>("SubmitDate")
+                        .HasColumnType("datetime2");
+
                     b.Property<string>("Text")
                         .HasMaxLength(1000)
                         .HasColumnType("nvarchar(1000)");
@@ -68,16 +1221,123 @@ namespace App.Infrastructure.SqlServer.Migrations
                         .HasMaxLength(50)
                         .HasColumnType("nvarchar(50)");
 
-                    b.Property<int>("UserId")
-                        .HasColumnType("int");
-
                     b.HasKey("Id");
+
+                    b.HasIndex("CustomerId");
 
                     b.HasIndex("ExpertServiceId");
 
-                    b.HasIndex("UserId");
-
                     b.ToTable("Comments");
+
+                    b.HasData(
+                        new
+                        {
+                            Id = 1,
+                            CustomerId = 1,
+                            DislikeCount = 1,
+                            ExpertServiceId = 1,
+                            IsConfirmed = true,
+                            LikeCount = 1,
+                            SubmitDate = new DateTime(2022, 7, 22, 20, 28, 13, 310, DateTimeKind.Local).AddTicks(4290),
+                            Text = "متن",
+                            Title = "کامنت مشتری 1 برای سرویس-متخصص شماره 1"
+                        },
+                        new
+                        {
+                            Id = 2,
+                            CustomerId = 2,
+                            DislikeCount = 1,
+                            ExpertServiceId = 2,
+                            IsConfirmed = true,
+                            LikeCount = 1,
+                            SubmitDate = new DateTime(2022, 7, 22, 20, 28, 13, 310, DateTimeKind.Local).AddTicks(4311),
+                            Text = "متن",
+                            Title = "کامنت مشتری 2 برای سرویس-متخصص شماره 2"
+                        },
+                        new
+                        {
+                            Id = 3,
+                            CustomerId = 3,
+                            DislikeCount = 1,
+                            ExpertServiceId = 3,
+                            IsConfirmed = true,
+                            LikeCount = 1,
+                            SubmitDate = new DateTime(2022, 7, 22, 20, 28, 13, 310, DateTimeKind.Local).AddTicks(4324),
+                            Text = "متن",
+                            Title = "کامنت مشتری 3 برای سرویس-متخصص شماره 3"
+                        },
+                        new
+                        {
+                            Id = 4,
+                            CustomerId = 4,
+                            DislikeCount = 1,
+                            ExpertServiceId = 4,
+                            IsConfirmed = true,
+                            LikeCount = 1,
+                            SubmitDate = new DateTime(2022, 7, 22, 20, 28, 13, 310, DateTimeKind.Local).AddTicks(4330),
+                            Text = "متن",
+                            Title = "کامنت مشتری 4 برای سرویس-متخصص شماره 4"
+                        },
+                        new
+                        {
+                            Id = 5,
+                            CustomerId = 5,
+                            DislikeCount = 1,
+                            ExpertServiceId = 5,
+                            IsConfirmed = true,
+                            LikeCount = 1,
+                            SubmitDate = new DateTime(2022, 7, 22, 20, 28, 13, 310, DateTimeKind.Local).AddTicks(4335),
+                            Text = "متن",
+                            Title = "کامنت مشتری 5 برای سرویس-متخصص شماره 5"
+                        },
+                        new
+                        {
+                            Id = 6,
+                            CustomerId = 6,
+                            DislikeCount = 1,
+                            ExpertServiceId = 6,
+                            IsConfirmed = true,
+                            LikeCount = 1,
+                            SubmitDate = new DateTime(2022, 7, 22, 20, 28, 13, 310, DateTimeKind.Local).AddTicks(4340),
+                            Text = "متن",
+                            Title = "کامنت مشتری 6 برای سرویس-متخصص شماره 6"
+                        },
+                        new
+                        {
+                            Id = 7,
+                            CustomerId = 7,
+                            DislikeCount = 1,
+                            ExpertServiceId = 7,
+                            IsConfirmed = true,
+                            LikeCount = 1,
+                            SubmitDate = new DateTime(2022, 7, 22, 20, 28, 13, 310, DateTimeKind.Local).AddTicks(4346),
+                            Text = "متن",
+                            Title = "کامنت مشتری 7 برای سرویس-متخصص شماره 7"
+                        },
+                        new
+                        {
+                            Id = 8,
+                            CustomerId = 8,
+                            DislikeCount = 1,
+                            ExpertServiceId = 8,
+                            IsConfirmed = true,
+                            LikeCount = 1,
+                            SubmitDate = new DateTime(2022, 7, 22, 20, 28, 13, 310, DateTimeKind.Local).AddTicks(4351),
+                            Text = "متن",
+                            Title = "کامنت مشتری 8 برای سرویس-متخصص شماره 8"
+                        },
+                        new
+                        {
+                            Id = 9,
+                            CustomerId = 9,
+                            DislikeCount = 1,
+                            ExpertServiceId = 9,
+                            IsConfirmed = true,
+                            LikeCount = 1,
+                            SubmitDate = new DateTime(2022, 7, 22, 20, 28, 13, 310, DateTimeKind.Local).AddTicks(4356),
+                            Text = "متن",
+                            Title = "کامنت مشتری 9 برای سرویس-متخصص شماره 9"
+                        });
                 });
 
             modelBuilder.Entity("App.Domain.Core.Expert.Entities.Evaluation", b =>
@@ -109,6 +1369,80 @@ namespace App.Infrastructure.SqlServer.Migrations
                     b.HasIndex("PastWorkId");
 
                     b.ToTable("Evaluations");
+
+                    b.HasData(
+                        new
+                        {
+                            Id = 1,
+                            EvaluationTitleId = 1,
+                            ExpertServiceId = 1,
+                            PastWorkId = 1,
+                            Score = (short)2
+                        },
+                        new
+                        {
+                            Id = 2,
+                            EvaluationTitleId = 1,
+                            ExpertServiceId = 2,
+                            PastWorkId = 2,
+                            Score = (short)2
+                        },
+                        new
+                        {
+                            Id = 3,
+                            EvaluationTitleId = 1,
+                            ExpertServiceId = 3,
+                            PastWorkId = 3,
+                            Score = (short)2
+                        },
+                        new
+                        {
+                            Id = 4,
+                            EvaluationTitleId = 1,
+                            ExpertServiceId = 4,
+                            PastWorkId = 4,
+                            Score = (short)2
+                        },
+                        new
+                        {
+                            Id = 5,
+                            EvaluationTitleId = 1,
+                            ExpertServiceId = 5,
+                            PastWorkId = 5,
+                            Score = (short)2
+                        },
+                        new
+                        {
+                            Id = 6,
+                            EvaluationTitleId = 1,
+                            ExpertServiceId = 6,
+                            PastWorkId = 6,
+                            Score = (short)2
+                        },
+                        new
+                        {
+                            Id = 7,
+                            EvaluationTitleId = 1,
+                            ExpertServiceId = 7,
+                            PastWorkId = 7,
+                            Score = (short)2
+                        },
+                        new
+                        {
+                            Id = 8,
+                            EvaluationTitleId = 1,
+                            ExpertServiceId = 8,
+                            PastWorkId = 8,
+                            Score = (short)2
+                        },
+                        new
+                        {
+                            Id = 9,
+                            EvaluationTitleId = 1,
+                            ExpertServiceId = 9,
+                            PastWorkId = 9,
+                            Score = (short)2
+                        });
                 });
 
             modelBuilder.Entity("App.Domain.Core.Expert.Entities.EvaluationTitle", b =>
@@ -119,6 +1453,9 @@ namespace App.Infrastructure.SqlServer.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
 
+                    b.Property<bool>("IsDeleted")
+                        .HasColumnType("bit");
+
                     b.Property<string>("Name")
                         .IsRequired()
                         .HasMaxLength(50)
@@ -127,6 +1464,14 @@ namespace App.Infrastructure.SqlServer.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("EvaluationTitles");
+
+                    b.HasData(
+                        new
+                        {
+                            Id = 1,
+                            IsDeleted = false,
+                            Name = "کیفیت"
+                        });
                 });
 
             modelBuilder.Entity("App.Domain.Core.Expert.Entities.Expert", b =>
@@ -141,36 +1486,86 @@ namespace App.Infrastructure.SqlServer.Migrations
                         .HasMaxLength(500)
                         .HasColumnType("nvarchar(500)");
 
-                    b.Property<string>("Email")
-                        .IsRequired()
-                        .HasMaxLength(50)
-                        .HasColumnType("nvarchar(50)");
+                    b.Property<int>("AppUserId")
+                        .HasColumnType("int");
 
-                    b.Property<string>("ImageName")
-                        .HasMaxLength(50)
-                        .HasColumnType("nvarchar(50)");
-
-                    b.Property<bool>("IsActive")
-                        .HasColumnType("bit");
-
-                    b.Property<bool>("IsDeleted")
-                        .HasColumnType("bit");
-
-                    b.Property<string>("Mobile")
-                        .HasMaxLength(11)
-                        .HasColumnType("nvarchar(11)");
-
-                    b.Property<string>("Name")
-                        .IsRequired()
-                        .HasMaxLength(50)
-                        .HasColumnType("nvarchar(50)");
-
-                    b.Property<DateTime>("SubmitDate")
-                        .HasColumnType("datetime2");
+                    b.Property<int?>("ImageFileId")
+                        .HasColumnType("int");
 
                     b.HasKey("Id");
 
+                    b.HasIndex("AppUserId");
+
+                    b.HasIndex("ImageFileId")
+                        .IsUnique()
+                        .HasFilter("[ImageFileId] IS NOT NULL");
+
                     b.ToTable("Experts");
+
+                    b.HasData(
+                        new
+                        {
+                            Id = 1,
+                            Address = "آدرس متخصص 1",
+                            AppUserId = 1,
+                            ImageFileId = 1
+                        },
+                        new
+                        {
+                            Id = 2,
+                            Address = "آدرس متخصص 2",
+                            AppUserId = 2,
+                            ImageFileId = 2
+                        },
+                        new
+                        {
+                            Id = 3,
+                            Address = "آدرس متخصص 3",
+                            AppUserId = 3,
+                            ImageFileId = 3
+                        },
+                        new
+                        {
+                            Id = 4,
+                            Address = "آدرس متخصص 4",
+                            AppUserId = 4,
+                            ImageFileId = 4
+                        },
+                        new
+                        {
+                            Id = 5,
+                            Address = "آدرس متخصص 5",
+                            AppUserId = 5,
+                            ImageFileId = 5
+                        },
+                        new
+                        {
+                            Id = 6,
+                            Address = "آدرس متخصص 6",
+                            AppUserId = 6,
+                            ImageFileId = 6
+                        },
+                        new
+                        {
+                            Id = 7,
+                            Address = "آدرس متخصص 7",
+                            AppUserId = 7,
+                            ImageFileId = 7
+                        },
+                        new
+                        {
+                            Id = 8,
+                            Address = "آدرس متخصص 8",
+                            AppUserId = 8,
+                            ImageFileId = 8
+                        },
+                        new
+                        {
+                            Id = 9,
+                            Address = "آدرس متخصص 9",
+                            AppUserId = 9,
+                            ImageFileId = 9
+                        });
                 });
 
             modelBuilder.Entity("App.Domain.Core.Expert.Entities.ExpertService", b =>
@@ -203,44 +1598,89 @@ namespace App.Infrastructure.SqlServer.Migrations
                     b.HasIndex("ServiceId");
 
                     b.ToTable("ExpertServices");
-                });
 
-            modelBuilder.Entity("App.Domain.Core.Expert.Entities.ExpertServiceFile", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
-
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
-
-                    b.Property<DateTime>("CreationDate")
-                        .HasColumnType("datetime2");
-
-                    b.Property<string>("Description")
-                        .HasMaxLength(500)
-                        .HasColumnType("nvarchar(500)");
-
-                    b.Property<int>("ExpertServiceId")
-                        .HasColumnType("int");
-
-                    b.Property<int>("FileTypeId")
-                        .HasColumnType("int");
-
-                    b.Property<bool>("IsDeleted")
-                        .HasColumnType("bit");
-
-                    b.Property<string>("NameWithExtention")
-                        .IsRequired()
-                        .HasMaxLength(50)
-                        .HasColumnType("nvarchar(50)");
-
-                    b.HasKey("Id");
-
-                    b.HasIndex("ExpertServiceId");
-
-                    b.HasIndex("FileTypeId");
-
-                    b.ToTable("ExpertServiceFiles");
+                    b.HasData(
+                        new
+                        {
+                            Id = 1,
+                            CreationDate = new DateTime(2022, 7, 22, 20, 28, 13, 309, DateTimeKind.Local).AddTicks(8748),
+                            ExpertId = 1,
+                            IsActive = true,
+                            IsDeleted = false,
+                            ServiceId = 1
+                        },
+                        new
+                        {
+                            Id = 2,
+                            CreationDate = new DateTime(2022, 7, 22, 20, 28, 13, 309, DateTimeKind.Local).AddTicks(8779),
+                            ExpertId = 2,
+                            IsActive = true,
+                            IsDeleted = false,
+                            ServiceId = 2
+                        },
+                        new
+                        {
+                            Id = 3,
+                            CreationDate = new DateTime(2022, 7, 22, 20, 28, 13, 309, DateTimeKind.Local).AddTicks(8785),
+                            ExpertId = 3,
+                            IsActive = true,
+                            IsDeleted = false,
+                            ServiceId = 3
+                        },
+                        new
+                        {
+                            Id = 4,
+                            CreationDate = new DateTime(2022, 7, 22, 20, 28, 13, 309, DateTimeKind.Local).AddTicks(8791),
+                            ExpertId = 4,
+                            IsActive = true,
+                            IsDeleted = false,
+                            ServiceId = 4
+                        },
+                        new
+                        {
+                            Id = 5,
+                            CreationDate = new DateTime(2022, 7, 22, 20, 28, 13, 309, DateTimeKind.Local).AddTicks(8795),
+                            ExpertId = 5,
+                            IsActive = true,
+                            IsDeleted = false,
+                            ServiceId = 5
+                        },
+                        new
+                        {
+                            Id = 6,
+                            CreationDate = new DateTime(2022, 7, 22, 20, 28, 13, 309, DateTimeKind.Local).AddTicks(8799),
+                            ExpertId = 6,
+                            IsActive = true,
+                            IsDeleted = false,
+                            ServiceId = 6
+                        },
+                        new
+                        {
+                            Id = 7,
+                            CreationDate = new DateTime(2022, 7, 22, 20, 28, 13, 309, DateTimeKind.Local).AddTicks(8805),
+                            ExpertId = 7,
+                            IsActive = true,
+                            IsDeleted = false,
+                            ServiceId = 7
+                        },
+                        new
+                        {
+                            Id = 8,
+                            CreationDate = new DateTime(2022, 7, 22, 20, 28, 13, 309, DateTimeKind.Local).AddTicks(8809),
+                            ExpertId = 8,
+                            IsActive = true,
+                            IsDeleted = false,
+                            ServiceId = 8
+                        },
+                        new
+                        {
+                            Id = 9,
+                            CreationDate = new DateTime(2022, 7, 22, 20, 28, 13, 309, DateTimeKind.Local).AddTicks(8812),
+                            ExpertId = 9,
+                            IsActive = true,
+                            IsDeleted = false,
+                            ServiceId = 9
+                        });
                 });
 
             modelBuilder.Entity("App.Domain.Core.Expert.Entities.PastWork", b =>
@@ -254,6 +1694,9 @@ namespace App.Infrastructure.SqlServer.Migrations
                     b.Property<DateTime?>("ComplitionDate")
                         .HasColumnType("datetime2");
 
+                    b.Property<int>("CustomerId")
+                        .HasColumnType("int");
+
                     b.Property<int>("ExpertServiceId")
                         .HasColumnType("int");
 
@@ -263,16 +1706,96 @@ namespace App.Infrastructure.SqlServer.Migrations
                     b.Property<long?>("Price")
                         .HasColumnType("bigint");
 
-                    b.Property<int>("UserId")
-                        .HasColumnType("int");
-
                     b.HasKey("Id");
+
+                    b.HasIndex("CustomerId");
 
                     b.HasIndex("ExpertServiceId");
 
-                    b.HasIndex("UserId");
-
                     b.ToTable("PastWorks");
+
+                    b.HasData(
+                        new
+                        {
+                            Id = 1,
+                            ComplitionDate = new DateTime(2022, 7, 20, 20, 28, 13, 311, DateTimeKind.Local).AddTicks(2288),
+                            CustomerId = 1,
+                            ExpertServiceId = 1,
+                            IsDeleted = false,
+                            Price = 100000L
+                        },
+                        new
+                        {
+                            Id = 2,
+                            ComplitionDate = new DateTime(2022, 7, 20, 20, 28, 13, 311, DateTimeKind.Local).AddTicks(2327),
+                            CustomerId = 2,
+                            ExpertServiceId = 2,
+                            IsDeleted = false,
+                            Price = 200000L
+                        },
+                        new
+                        {
+                            Id = 3,
+                            ComplitionDate = new DateTime(2022, 7, 20, 20, 28, 13, 311, DateTimeKind.Local).AddTicks(2333),
+                            CustomerId = 3,
+                            ExpertServiceId = 3,
+                            IsDeleted = false,
+                            Price = 300000L
+                        },
+                        new
+                        {
+                            Id = 4,
+                            ComplitionDate = new DateTime(2022, 7, 20, 20, 28, 13, 311, DateTimeKind.Local).AddTicks(2339),
+                            CustomerId = 4,
+                            ExpertServiceId = 4,
+                            IsDeleted = false,
+                            Price = 400000L
+                        },
+                        new
+                        {
+                            Id = 5,
+                            ComplitionDate = new DateTime(2022, 7, 20, 20, 28, 13, 311, DateTimeKind.Local).AddTicks(2345),
+                            CustomerId = 5,
+                            ExpertServiceId = 5,
+                            IsDeleted = false,
+                            Price = 500000L
+                        },
+                        new
+                        {
+                            Id = 6,
+                            ComplitionDate = new DateTime(2022, 7, 20, 20, 28, 13, 311, DateTimeKind.Local).AddTicks(2350),
+                            CustomerId = 6,
+                            ExpertServiceId = 6,
+                            IsDeleted = false,
+                            Price = 600000L
+                        },
+                        new
+                        {
+                            Id = 7,
+                            ComplitionDate = new DateTime(2022, 7, 20, 20, 28, 13, 311, DateTimeKind.Local).AddTicks(2356),
+                            CustomerId = 7,
+                            ExpertServiceId = 7,
+                            IsDeleted = false,
+                            Price = 700000L
+                        },
+                        new
+                        {
+                            Id = 8,
+                            ComplitionDate = new DateTime(2022, 7, 20, 20, 28, 13, 311, DateTimeKind.Local).AddTicks(2362),
+                            CustomerId = 8,
+                            ExpertServiceId = 8,
+                            IsDeleted = false,
+                            Price = 800000L
+                        },
+                        new
+                        {
+                            Id = 9,
+                            ComplitionDate = new DateTime(2022, 7, 20, 20, 28, 13, 311, DateTimeKind.Local).AddTicks(2368),
+                            CustomerId = 9,
+                            ExpertServiceId = 9,
+                            IsDeleted = false,
+                            Price = 900000L
+                        });
                 });
 
             modelBuilder.Entity("App.Domain.Core.Expert.Entities.Tender", b =>
@@ -308,42 +1831,98 @@ namespace App.Infrastructure.SqlServer.Migrations
                     b.HasIndex("OrderId");
 
                     b.ToTable("Tenders");
-                });
 
-            modelBuilder.Entity("App.Domain.Core.Operator.Entities.Operator", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
-
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
-
-                    b.Property<string>("Email")
-                        .IsRequired()
-                        .HasMaxLength(50)
-                        .HasColumnType("nvarchar(50)");
-
-                    b.Property<bool>("IsActive")
-                        .HasColumnType("bit");
-
-                    b.Property<bool>("IsDeleted")
-                        .HasColumnType("bit");
-
-                    b.Property<string>("Mobile")
-                        .HasMaxLength(11)
-                        .HasColumnType("nvarchar(11)");
-
-                    b.Property<string>("Name")
-                        .IsRequired()
-                        .HasMaxLength(50)
-                        .HasColumnType("nvarchar(50)");
-
-                    b.Property<DateTime>("SubmitDate")
-                        .HasColumnType("datetime2");
-
-                    b.HasKey("Id");
-
-                    b.ToTable("Operators");
+                    b.HasData(
+                        new
+                        {
+                            Id = 1,
+                            ExpertId = 1,
+                            OrderId = 1,
+                            Price = 100000L,
+                            RegisterDate = new DateTime(2022, 7, 22, 20, 28, 13, 311, DateTimeKind.Local).AddTicks(7685),
+                            RequiredTime = new TimeSpan(0, 3, 0, 0, 0),
+                            StartDate = new DateTime(2022, 7, 23, 20, 28, 13, 311, DateTimeKind.Local).AddTicks(7717)
+                        },
+                        new
+                        {
+                            Id = 2,
+                            ExpertId = 2,
+                            OrderId = 2,
+                            Price = 100000L,
+                            RegisterDate = new DateTime(2022, 7, 22, 20, 28, 13, 311, DateTimeKind.Local).AddTicks(7725),
+                            RequiredTime = new TimeSpan(0, 3, 0, 0, 0),
+                            StartDate = new DateTime(2022, 7, 23, 20, 28, 13, 311, DateTimeKind.Local).AddTicks(7730)
+                        },
+                        new
+                        {
+                            Id = 3,
+                            ExpertId = 3,
+                            OrderId = 3,
+                            Price = 100000L,
+                            RegisterDate = new DateTime(2022, 7, 22, 20, 28, 13, 311, DateTimeKind.Local).AddTicks(7736),
+                            RequiredTime = new TimeSpan(0, 3, 0, 0, 0),
+                            StartDate = new DateTime(2022, 7, 23, 20, 28, 13, 311, DateTimeKind.Local).AddTicks(7740)
+                        },
+                        new
+                        {
+                            Id = 4,
+                            ExpertId = 4,
+                            OrderId = 4,
+                            Price = 100000L,
+                            RegisterDate = new DateTime(2022, 7, 22, 20, 28, 13, 311, DateTimeKind.Local).AddTicks(7746),
+                            RequiredTime = new TimeSpan(0, 3, 0, 0, 0),
+                            StartDate = new DateTime(2022, 7, 23, 20, 28, 13, 311, DateTimeKind.Local).AddTicks(7750)
+                        },
+                        new
+                        {
+                            Id = 5,
+                            ExpertId = 5,
+                            OrderId = 5,
+                            Price = 100000L,
+                            RegisterDate = new DateTime(2022, 7, 22, 20, 28, 13, 311, DateTimeKind.Local).AddTicks(7755),
+                            RequiredTime = new TimeSpan(0, 3, 0, 0, 0),
+                            StartDate = new DateTime(2022, 7, 23, 20, 28, 13, 311, DateTimeKind.Local).AddTicks(7760)
+                        },
+                        new
+                        {
+                            Id = 6,
+                            ExpertId = 6,
+                            OrderId = 6,
+                            Price = 100000L,
+                            RegisterDate = new DateTime(2022, 7, 22, 20, 28, 13, 311, DateTimeKind.Local).AddTicks(7765),
+                            RequiredTime = new TimeSpan(0, 3, 0, 0, 0),
+                            StartDate = new DateTime(2022, 7, 23, 20, 28, 13, 311, DateTimeKind.Local).AddTicks(7769)
+                        },
+                        new
+                        {
+                            Id = 7,
+                            ExpertId = 7,
+                            OrderId = 7,
+                            Price = 100000L,
+                            RegisterDate = new DateTime(2022, 7, 22, 20, 28, 13, 311, DateTimeKind.Local).AddTicks(7774),
+                            RequiredTime = new TimeSpan(0, 3, 0, 0, 0),
+                            StartDate = new DateTime(2022, 7, 23, 20, 28, 13, 311, DateTimeKind.Local).AddTicks(7778)
+                        },
+                        new
+                        {
+                            Id = 8,
+                            ExpertId = 8,
+                            OrderId = 8,
+                            Price = 100000L,
+                            RegisterDate = new DateTime(2022, 7, 22, 20, 28, 13, 311, DateTimeKind.Local).AddTicks(7784),
+                            RequiredTime = new TimeSpan(0, 3, 0, 0, 0),
+                            StartDate = new DateTime(2022, 7, 23, 20, 28, 13, 311, DateTimeKind.Local).AddTicks(7788)
+                        },
+                        new
+                        {
+                            Id = 9,
+                            ExpertId = 9,
+                            OrderId = 9,
+                            Price = 100000L,
+                            RegisterDate = new DateTime(2022, 7, 22, 20, 28, 13, 311, DateTimeKind.Local).AddTicks(7794),
+                            RequiredTime = new TimeSpan(0, 3, 0, 0, 0),
+                            StartDate = new DateTime(2022, 7, 23, 20, 28, 13, 311, DateTimeKind.Local).AddTicks(7798)
+                        });
                 });
 
             modelBuilder.Entity("App.Domain.Core.Service.Entities.Service", b =>
@@ -361,9 +1940,8 @@ namespace App.Infrastructure.SqlServer.Migrations
                         .HasMaxLength(2000)
                         .HasColumnType("nvarchar(2000)");
 
-                    b.Property<string>("ImageName")
-                        .HasMaxLength(50)
-                        .HasColumnType("nvarchar(50)");
+                    b.Property<int?>("ImageFileId")
+                        .HasColumnType("int");
 
                     b.Property<bool>("IsActive")
                         .HasColumnType("bit");
@@ -379,20 +1957,129 @@ namespace App.Infrastructure.SqlServer.Migrations
                     b.Property<int?>("ParentServiceId")
                         .HasColumnType("int");
 
-                    b.Property<int?>("ParentSrviceId")
-                        .HasColumnType("int");
-
                     b.Property<long?>("Price")
                         .HasColumnType("bigint");
 
                     b.HasKey("Id");
 
+                    b.HasIndex("ImageFileId")
+                        .IsUnique()
+                        .HasFilter("[ImageFileId] IS NOT NULL");
+
                     b.HasIndex("ParentServiceId");
 
                     b.ToTable("Services");
+
+                    b.HasData(
+                        new
+                        {
+                            Id = 1,
+                            CreationDate = new DateTime(2022, 7, 22, 20, 28, 13, 316, DateTimeKind.Local).AddTicks(3011),
+                            Description = "توضیح سرویس 1",
+                            ImageFileId = 10,
+                            IsActive = true,
+                            IsDeleted = false,
+                            Name = "سرویس 1",
+                            Price = 100000L
+                        },
+                        new
+                        {
+                            Id = 2,
+                            CreationDate = new DateTime(2022, 7, 22, 20, 28, 13, 316, DateTimeKind.Local).AddTicks(3044),
+                            Description = "توضیح سرویس 2",
+                            ImageFileId = 11,
+                            IsActive = true,
+                            IsDeleted = false,
+                            Name = "سرویس 2",
+                            Price = 100000L
+                        },
+                        new
+                        {
+                            Id = 3,
+                            CreationDate = new DateTime(2022, 7, 22, 20, 28, 13, 316, DateTimeKind.Local).AddTicks(3050),
+                            Description = "توضیح سرویس 3",
+                            ImageFileId = 12,
+                            IsActive = true,
+                            IsDeleted = false,
+                            Name = "سرویس 3",
+                            ParentServiceId = 1,
+                            Price = 100000L
+                        },
+                        new
+                        {
+                            Id = 4,
+                            CreationDate = new DateTime(2022, 7, 22, 20, 28, 13, 316, DateTimeKind.Local).AddTicks(3055),
+                            Description = "توضیح سرویس 4",
+                            ImageFileId = 13,
+                            IsActive = true,
+                            IsDeleted = false,
+                            Name = "سرویس 4",
+                            ParentServiceId = 1,
+                            Price = 100000L
+                        },
+                        new
+                        {
+                            Id = 5,
+                            CreationDate = new DateTime(2022, 7, 22, 20, 28, 13, 316, DateTimeKind.Local).AddTicks(3060),
+                            Description = "توضیح سرویس 5",
+                            ImageFileId = 14,
+                            IsActive = true,
+                            IsDeleted = false,
+                            Name = "سرویس 5",
+                            ParentServiceId = 1,
+                            Price = 100000L
+                        },
+                        new
+                        {
+                            Id = 6,
+                            CreationDate = new DateTime(2022, 7, 22, 20, 28, 13, 316, DateTimeKind.Local).AddTicks(3065),
+                            Description = "توضیح سرویس 6",
+                            ImageFileId = 15,
+                            IsActive = true,
+                            IsDeleted = false,
+                            Name = "سرویس 6",
+                            ParentServiceId = 2,
+                            Price = 100000L
+                        },
+                        new
+                        {
+                            Id = 7,
+                            CreationDate = new DateTime(2022, 7, 22, 20, 28, 13, 316, DateTimeKind.Local).AddTicks(3069),
+                            Description = "توضیح سرویس 7",
+                            ImageFileId = 16,
+                            IsActive = true,
+                            IsDeleted = false,
+                            Name = "سرویس 7",
+                            ParentServiceId = 2,
+                            Price = 100000L
+                        },
+                        new
+                        {
+                            Id = 8,
+                            CreationDate = new DateTime(2022, 7, 22, 20, 28, 13, 316, DateTimeKind.Local).AddTicks(3088),
+                            Description = "توضیح سرویس 8",
+                            ImageFileId = 17,
+                            IsActive = true,
+                            IsDeleted = false,
+                            Name = "سرویس 8",
+                            ParentServiceId = 2,
+                            Price = 100000L
+                        },
+                        new
+                        {
+                            Id = 9,
+                            CreationDate = new DateTime(2022, 7, 22, 20, 28, 13, 316, DateTimeKind.Local).AddTicks(3092),
+                            Description = "توضیح سرویس 9",
+                            ImageFileId = 18,
+                            IsActive = true,
+                            IsDeleted = false,
+                            Name = "سرویس 9",
+                            ParentServiceId = 2,
+                            Price = 100000L
+                        });
                 });
 
-            modelBuilder.Entity("App.Domain.Core.Service.Entities.ServiceFile", b =>
+            modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRole<int>", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
@@ -400,37 +2087,53 @@ namespace App.Infrastructure.SqlServer.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
 
-                    b.Property<DateTime>("CreationDate")
-                        .HasColumnType("datetime2");
+                    b.Property<string>("ConcurrencyStamp")
+                        .IsConcurrencyToken()
+                        .HasColumnType("nvarchar(max)");
 
-                    b.Property<string>("Description")
-                        .HasMaxLength(500)
-                        .HasColumnType("nvarchar(500)");
+                    b.Property<string>("Name")
+                        .HasMaxLength(256)
+                        .HasColumnType("nvarchar(256)");
 
-                    b.Property<int>("FileTypeId")
+                    b.Property<string>("NormalizedName")
+                        .HasMaxLength(256)
+                        .HasColumnType("nvarchar(256)");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("NormalizedName")
+                        .IsUnique()
+                        .HasDatabaseName("RoleNameIndex")
+                        .HasFilter("[NormalizedName] IS NOT NULL");
+
+                    b.ToTable("AspNetRoles", (string)null);
+                });
+
+            modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRoleClaim<int>", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
                         .HasColumnType("int");
 
-                    b.Property<bool>("IsDeleted")
-                        .HasColumnType("bit");
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
 
-                    b.Property<string>("NameWithExtention")
-                        .IsRequired()
-                        .HasMaxLength(50)
-                        .HasColumnType("nvarchar(50)");
+                    b.Property<string>("ClaimType")
+                        .HasColumnType("nvarchar(max)");
 
-                    b.Property<int>("ServiceId")
+                    b.Property<string>("ClaimValue")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<int>("RoleId")
                         .HasColumnType("int");
 
                     b.HasKey("Id");
 
-                    b.HasIndex("FileTypeId");
+                    b.HasIndex("RoleId");
 
-                    b.HasIndex("ServiceId");
-
-                    b.ToTable("ServiceFiles");
+                    b.ToTable("AspNetRoleClaims", (string)null);
                 });
 
-            modelBuilder.Entity("App.Domain.Core.User.Entities.Order", b =>
+            modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityUserClaim<int>", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
@@ -438,113 +2141,161 @@ namespace App.Infrastructure.SqlServer.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
 
-                    b.Property<bool>("IsDeleted")
-                        .HasColumnType("bit");
+                    b.Property<string>("ClaimType")
+                        .HasColumnType("nvarchar(max)");
 
-                    b.Property<int>("OrderStateId")
-                        .HasColumnType("int");
-
-                    b.Property<DateTime>("RegisterDate")
-                        .HasColumnType("datetime2");
-
-                    b.Property<int>("ServiceId")
-                        .HasColumnType("int");
+                    b.Property<string>("ClaimValue")
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<int>("UserId")
                         .HasColumnType("int");
 
                     b.HasKey("Id");
 
-                    b.HasIndex("OrderStateId");
+                    b.HasIndex("UserId");
 
-                    b.HasIndex("ServiceId");
+                    b.ToTable("AspNetUserClaims", (string)null);
+                });
+
+            modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityUserLogin<int>", b =>
+                {
+                    b.Property<string>("LoginProvider")
+                        .HasColumnType("nvarchar(450)");
+
+                    b.Property<string>("ProviderKey")
+                        .HasColumnType("nvarchar(450)");
+
+                    b.Property<string>("ProviderDisplayName")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<int>("UserId")
+                        .HasColumnType("int");
+
+                    b.HasKey("LoginProvider", "ProviderKey");
 
                     b.HasIndex("UserId");
 
-                    b.ToTable("Orders");
+                    b.ToTable("AspNetUserLogins", (string)null);
                 });
 
-            modelBuilder.Entity("App.Domain.Core.User.Entities.OrderState", b =>
+            modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityUserRole<int>", b =>
                 {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
+                    b.Property<int>("UserId")
                         .HasColumnType("int");
 
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
+                    b.Property<int>("RoleId")
+                        .HasColumnType("int");
 
-                    b.Property<string>("Name")
-                        .IsRequired()
-                        .HasMaxLength(50)
-                        .HasColumnType("nvarchar(50)");
+                    b.HasKey("UserId", "RoleId");
 
-                    b.HasKey("Id");
+                    b.HasIndex("RoleId");
 
-                    b.ToTable("OrderStates");
+                    b.ToTable("AspNetUserRoles", (string)null);
                 });
 
-            modelBuilder.Entity("App.Domain.Core.User.Entities.User", b =>
+            modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityUserToken<int>", b =>
                 {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
+                    b.Property<int>("UserId")
                         .HasColumnType("int");
 
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
-
-                    b.Property<string>("Address")
-                        .HasMaxLength(500)
-                        .HasColumnType("nvarchar(500)");
-
-                    b.Property<string>("Email")
-                        .IsRequired()
-                        .HasMaxLength(50)
-                        .HasColumnType("nvarchar(50)");
-
-                    b.Property<bool>("IsActive")
-                        .HasColumnType("bit");
-
-                    b.Property<bool>("IsDeleted")
-                        .HasColumnType("bit");
-
-                    b.Property<string>("Mobile")
-                        .HasMaxLength(11)
-                        .HasColumnType("nvarchar(11)");
+                    b.Property<string>("LoginProvider")
+                        .HasColumnType("nvarchar(450)");
 
                     b.Property<string>("Name")
-                        .IsRequired()
-                        .HasMaxLength(50)
-                        .HasColumnType("nvarchar(50)");
+                        .HasColumnType("nvarchar(450)");
 
-                    b.Property<DateTime>("SubmitDate")
-                        .HasColumnType("datetime2");
+                    b.Property<string>("Value")
+                        .HasColumnType("nvarchar(max)");
 
-                    b.HasKey("Id");
+                    b.HasKey("UserId", "LoginProvider", "Name");
 
-                    b.ToTable("Users");
+                    b.ToTable("AspNetUserTokens", (string)null);
+                });
+
+            modelBuilder.Entity("App.Domain.Core.BaseData.Entities.File", b =>
+                {
+                    b.HasOne("App.Domain.Core.Expert.Entities.ExpertService", "ExpertService")
+                        .WithMany("expertServiceFiles")
+                        .HasForeignKey("ExpertServiceId");
+
+                    b.HasOne("App.Domain.Core.BaseData.Entities.FileType", "FileType")
+                        .WithMany()
+                        .HasForeignKey("FileTypeId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("App.Domain.Core.Service.Entities.Service", "Service")
+                        .WithMany("ServiceFiles")
+                        .HasForeignKey("ServiceId");
+
+                    b.Navigation("ExpertService");
+
+                    b.Navigation("FileType");
+
+                    b.Navigation("Service");
+                });
+
+            modelBuilder.Entity("App.Domain.Core.Customer.Entities.Customer", b =>
+                {
+                    b.HasOne("App.Domain.Core.BaseData.Entities.AppUser", "appUser")
+                        .WithMany()
+                        .HasForeignKey("AppUserId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("appUser");
+                });
+
+            modelBuilder.Entity("App.Domain.Core.Customer.Entities.Order", b =>
+                {
+                    b.HasOne("App.Domain.Core.Customer.Entities.Customer", "Customer")
+                        .WithMany("Orders")
+                        .HasForeignKey("CustomerId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("App.Domain.Core.Customer.Entities.OrderState", "OrderState")
+                        .WithMany()
+                        .HasForeignKey("OrderStateId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("App.Domain.Core.Service.Entities.Service", "Service")
+                        .WithMany()
+                        .HasForeignKey("ServiceId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Customer");
+
+                    b.Navigation("OrderState");
+
+                    b.Navigation("Service");
                 });
 
             modelBuilder.Entity("App.Domain.Core.Expert.Entities.Comment", b =>
                 {
+                    b.HasOne("App.Domain.Core.Customer.Entities.Customer", "Customer")
+                        .WithMany("Comments")
+                        .HasForeignKey("CustomerId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
                     b.HasOne("App.Domain.Core.Expert.Entities.ExpertService", "ExpertService")
                         .WithMany("Comments")
                         .HasForeignKey("ExpertServiceId")
-                        .OnDelete(DeleteBehavior.Cascade)
+                        .OnDelete(DeleteBehavior.NoAction)
                         .IsRequired();
 
-                    b.HasOne("App.Domain.Core.User.Entities.User", "User")
-                        .WithMany("Comments")
-                        .HasForeignKey("UserId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
+                    b.Navigation("Customer");
 
                     b.Navigation("ExpertService");
-
-                    b.Navigation("User");
                 });
 
             modelBuilder.Entity("App.Domain.Core.Expert.Entities.Evaluation", b =>
                 {
                     b.HasOne("App.Domain.Core.Expert.Entities.EvaluationTitle", "EvaluationTitle")
-                        .WithMany("Evaluations")
+                        .WithMany()
                         .HasForeignKey("EvaluationTitleId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
@@ -568,6 +2319,23 @@ namespace App.Infrastructure.SqlServer.Migrations
                     b.Navigation("PastWork");
                 });
 
+            modelBuilder.Entity("App.Domain.Core.Expert.Entities.Expert", b =>
+                {
+                    b.HasOne("App.Domain.Core.BaseData.Entities.AppUser", "appUser")
+                        .WithMany()
+                        .HasForeignKey("AppUserId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("App.Domain.Core.BaseData.Entities.File", "ImageFile")
+                        .WithOne()
+                        .HasForeignKey("App.Domain.Core.Expert.Entities.Expert", "ImageFileId");
+
+                    b.Navigation("ImageFile");
+
+                    b.Navigation("appUser");
+                });
+
             modelBuilder.Entity("App.Domain.Core.Expert.Entities.ExpertService", b =>
                 {
                     b.HasOne("App.Domain.Core.Expert.Entities.Expert", "Expert")
@@ -587,42 +2355,23 @@ namespace App.Infrastructure.SqlServer.Migrations
                     b.Navigation("Service");
                 });
 
-            modelBuilder.Entity("App.Domain.Core.Expert.Entities.ExpertServiceFile", b =>
-                {
-                    b.HasOne("App.Domain.Core.Expert.Entities.ExpertService", "ExpertService")
-                        .WithMany("expertServiceFiles")
-                        .HasForeignKey("ExpertServiceId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.HasOne("App.Domain.Core.BaseData.Entities.FileType", "FileType")
-                        .WithMany("ExpertServiceFiles")
-                        .HasForeignKey("FileTypeId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.Navigation("ExpertService");
-
-                    b.Navigation("FileType");
-                });
-
             modelBuilder.Entity("App.Domain.Core.Expert.Entities.PastWork", b =>
                 {
+                    b.HasOne("App.Domain.Core.Customer.Entities.Customer", "Customer")
+                        .WithMany("PastWorks")
+                        .HasForeignKey("CustomerId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
                     b.HasOne("App.Domain.Core.Expert.Entities.ExpertService", "ExpertService")
                         .WithMany("PastWorks")
                         .HasForeignKey("ExpertServiceId")
-                        .OnDelete(DeleteBehavior.Cascade)
+                        .OnDelete(DeleteBehavior.NoAction)
                         .IsRequired();
 
-                    b.HasOne("App.Domain.Core.User.Entities.User", "User")
-                        .WithMany("PastWorks")
-                        .HasForeignKey("UserId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
+                    b.Navigation("Customer");
 
                     b.Navigation("ExpertService");
-
-                    b.Navigation("User");
                 });
 
             modelBuilder.Entity("App.Domain.Core.Expert.Entities.Tender", b =>
@@ -633,10 +2382,10 @@ namespace App.Infrastructure.SqlServer.Migrations
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.HasOne("App.Domain.Core.User.Entities.Order", "Order")
+                    b.HasOne("App.Domain.Core.Customer.Entities.Order", "Order")
                         .WithMany("Tenders")
                         .HasForeignKey("OrderId")
-                        .OnDelete(DeleteBehavior.Cascade)
+                        .OnDelete(DeleteBehavior.NoAction)
                         .IsRequired();
 
                     b.Navigation("Expert");
@@ -646,69 +2395,82 @@ namespace App.Infrastructure.SqlServer.Migrations
 
             modelBuilder.Entity("App.Domain.Core.Service.Entities.Service", b =>
                 {
+                    b.HasOne("App.Domain.Core.BaseData.Entities.File", "ImageFile")
+                        .WithOne()
+                        .HasForeignKey("App.Domain.Core.Service.Entities.Service", "ImageFileId");
+
                     b.HasOne("App.Domain.Core.Service.Entities.Service", "ParentService")
                         .WithMany()
                         .HasForeignKey("ParentServiceId");
 
+                    b.Navigation("ImageFile");
+
                     b.Navigation("ParentService");
                 });
 
-            modelBuilder.Entity("App.Domain.Core.Service.Entities.ServiceFile", b =>
+            modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRoleClaim<int>", b =>
                 {
-                    b.HasOne("App.Domain.Core.BaseData.Entities.FileType", "FileType")
-                        .WithMany("ServiceFiles")
-                        .HasForeignKey("FileTypeId")
+                    b.HasOne("Microsoft.AspNetCore.Identity.IdentityRole<int>", null)
+                        .WithMany()
+                        .HasForeignKey("RoleId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
-
-                    b.HasOne("App.Domain.Core.Service.Entities.Service", "Service")
-                        .WithMany("ServiceFiles")
-                        .HasForeignKey("ServiceId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.Navigation("FileType");
-
-                    b.Navigation("Service");
                 });
 
-            modelBuilder.Entity("App.Domain.Core.User.Entities.Order", b =>
+            modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityUserClaim<int>", b =>
                 {
-                    b.HasOne("App.Domain.Core.User.Entities.OrderState", "OrderState")
-                        .WithMany("Orders")
-                        .HasForeignKey("OrderStateId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.HasOne("App.Domain.Core.Service.Entities.Service", "Service")
+                    b.HasOne("App.Domain.Core.BaseData.Entities.AppUser", null)
                         .WithMany()
-                        .HasForeignKey("ServiceId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.HasOne("App.Domain.Core.User.Entities.User", "User")
-                        .WithMany("Orders")
                         .HasForeignKey("UserId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
-
-                    b.Navigation("OrderState");
-
-                    b.Navigation("Service");
-
-                    b.Navigation("User");
                 });
 
-            modelBuilder.Entity("App.Domain.Core.BaseData.Entities.FileType", b =>
+            modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityUserLogin<int>", b =>
                 {
-                    b.Navigation("ExpertServiceFiles");
-
-                    b.Navigation("ServiceFiles");
+                    b.HasOne("App.Domain.Core.BaseData.Entities.AppUser", null)
+                        .WithMany()
+                        .HasForeignKey("UserId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
                 });
 
-            modelBuilder.Entity("App.Domain.Core.Expert.Entities.EvaluationTitle", b =>
+            modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityUserRole<int>", b =>
                 {
-                    b.Navigation("Evaluations");
+                    b.HasOne("Microsoft.AspNetCore.Identity.IdentityRole<int>", null)
+                        .WithMany()
+                        .HasForeignKey("RoleId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("App.Domain.Core.BaseData.Entities.AppUser", null)
+                        .WithMany()
+                        .HasForeignKey("UserId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+                });
+
+            modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityUserToken<int>", b =>
+                {
+                    b.HasOne("App.Domain.Core.BaseData.Entities.AppUser", null)
+                        .WithMany()
+                        .HasForeignKey("UserId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+                });
+
+            modelBuilder.Entity("App.Domain.Core.Customer.Entities.Customer", b =>
+                {
+                    b.Navigation("Comments");
+
+                    b.Navigation("Orders");
+
+                    b.Navigation("PastWorks");
+                });
+
+            modelBuilder.Entity("App.Domain.Core.Customer.Entities.Order", b =>
+                {
+                    b.Navigation("Tenders");
                 });
 
             modelBuilder.Entity("App.Domain.Core.Expert.Entities.Expert", b =>
@@ -739,25 +2501,6 @@ namespace App.Infrastructure.SqlServer.Migrations
                     b.Navigation("ExpertServices");
 
                     b.Navigation("ServiceFiles");
-                });
-
-            modelBuilder.Entity("App.Domain.Core.User.Entities.Order", b =>
-                {
-                    b.Navigation("Tenders");
-                });
-
-            modelBuilder.Entity("App.Domain.Core.User.Entities.OrderState", b =>
-                {
-                    b.Navigation("Orders");
-                });
-
-            modelBuilder.Entity("App.Domain.Core.User.Entities.User", b =>
-                {
-                    b.Navigation("Comments");
-
-                    b.Navigation("Orders");
-
-                    b.Navigation("PastWorks");
                 });
 #pragma warning restore 612, 618
         }

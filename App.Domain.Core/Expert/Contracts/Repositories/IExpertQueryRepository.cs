@@ -5,7 +5,6 @@ namespace App.Domain.Core.Expert.Contracts.Repositories
     public interface IExpertQueryRepository
     {
         Task<List<ExpertDto>> GetAll();
-        Task<ExpertDto?> Get(int id);
-        Task<ExpertDto?> Get(string name);
+        Task<ExpertDto?> Get(int appUserId);
     }
 }

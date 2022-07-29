@@ -17,6 +17,7 @@ namespace App.Infrastructure.Repos.Ef.BaseData
             var entity = new FileType()
             {
                 Name = name,
+                IsDeleted = false,
             };
             await _context.FileTypes.AddAsync(entity);
             await _context.SaveChangesAsync();
@@ -26,7 +27,7 @@ namespace App.Infrastructure.Repos.Ef.BaseData
         public async Task<int> Delete(int id)
         {
             var entity = await _context.FileTypes.FirstOrDefaultAsync(e => e.Id == id);
-            _context.FileTypes.Remove(entity);
+            entity.IsDeleted = true;
             await _context.SaveChangesAsync();
             return entity.Id;
         }

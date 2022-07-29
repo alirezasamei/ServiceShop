@@ -1,0 +1,108 @@
+﻿@model UserAddViewModel
+
+@{
+    ViewData["Title"] = "ایجاد کاربر";
+}
+<div class="col-12 row">
+    <div class="card-body p-0 ">
+        <!-- Nested Row within Card Body -->
+        <div class="row flex-row justify-content-center">
+            <div class="col-lg-8">
+                <div class="p-5">
+                    <div class="text-center">
+                        <h1 class="h4 text-gray-900 mb-4">ایجاد حساب کاربری</h1>
+                    </div>
+                    <div asp-validation-summary="All" class="text-danger"></div>
+                    <form class="user" asp-area="Admin" asp-controller="User" asp-action="Create" method="post" enctype="multipart/form-data">
+                        <div class="form-group row">
+                            <div class="col-sm-6 mb-3 mb-sm-0">
+                                <input type="text" class="form-control form-control-user input" asp-for=Name placeholder=" ">
+                                <div class="cut cut-long"></div>
+                                <label asp-for=Name class="placeholder"></label>
+                                <span asp-validation-for=Name class="text-danger"></span>
+                            </div>
+                            <div class="col-sm-6">
+                                <input type="text" class="form-control form-control-user input" asp-for=UserName placeholder=" ">
+                                <div class="cut"></div>
+                                <label asp-for=UserName class="placeholder"></label>
+                                <span asp-validation-for=UserName class="text-danger"></span>
+                                <div class="custom-control custom-checkbox small">
+                                    <input type="checkbox" class="custom-control-input" asp-for=IsActive>
+                                    <label class="custom-control-label" for="customCheck">
+                                        فعال
+                                    </label>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <div class="col-sm-6 mb-3 mb-sm-0">
+                                <input type="email" class="form-control form-control-user input" asp-for=Email placeholder=" ">
+                                <div class="cut cut-short"></div>
+                                <label asp-for=Email class="placeholder"></label>
+                                <span asp-validation-for=Email class="text-danger"></span>
+                                <div class="custom-control custom-checkbox small">
+                                    <input type="checkbox" class="custom-control-input" asp-for=EmailConfirmed>
+                                    <label class="custom-control-label" for="customCheck">
+                                        فعال
+                                    </label>
+                                </div>
+                            </div>
+                            <div class="col-sm-6">
+                                <input type="tel" class="form-control form-control-user input" asp-for=PhoneNumber placeholder=" ">
+                                <div class="cut"></div>
+                                <label asp-for=PhoneNumber class="placeholder"></label>
+                                <span asp-validation-for=PhoneNumber class="text-danger"></span>
+                                <div class="custom-control custom-checkbox small">
+                                    <input type="checkbox" class="custom-control-input" asp-for=PhoneNumberConfirmed>
+                                    <label class="custom-control-label" for="customCheck">
+                                        فعال
+                                    </label>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <div class="col-sm-6 mb-3 mb-sm-0">
+                                <input type="password" class="form-control form-control-user input" asp-for=Password placeholder=" ">
+                                <div class="cut"></div>
+                                <label asp-for=Password class="placeholder"></label>
+                                <span asp-validation-for=Password class="text-danger"></span>
+                            </div>
+                            <div class="col-sm-6">
+                                <input type="password" class="form-control form-control-user input" asp-for=ConfirmPassword placeholder=" ">
+                                <div class="cut cut-medium"></div>
+                                <label asp-for=ConfirmPassword class="placeholder"></label>
+                                <span asp-validation-for=ConfirmPassword class="text-danger"></span>
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <div class="col-sm-6 mb-3 mb-sm-0">
+                                <textarea class="form-control form-control-user input" asp-for=Address placeholder=" "></textarea>
+                                <div class="cut"></div>
+                                <label asp-for=Address class="placeholder"></label>
+                                <span asp-validation-for=Address class="text-danger"></span>
+                            </div>
+                            <div class="container col-sm-6">
+                                <select asp-for="Roles" class="selectpicker form-control form-control-user" multiple aria-label="Default select example" data-live-search="true" title="انتخاب نوع کاربری"
+                                        asp-items=@(((RoleEnum[])Enum.GetValues(typeof(RoleEnum))).ToList().Select(p => new SelectListItem() { Value = ((int)p).ToString(), Text = p.GetDisplayName() }))>
+                                </select>
+                                <span asp-validation-for="Roles" class="text-danger"></span>
+                            </div>
+                        </div>
+                        <div class="mb-3">
+                            <label for="formFile" class="form-label">تصویر کاربر</label>
+                            <input class="form-control" type="file" id="formFile" name="userImage">
+                        </div>
+                        <div class="container col-sm-6">
+                            <div class="container col-sm-6">
+                                <button type="submit" class="btn btn-primary btn-user btn-block mb-3 mb-sm-0">
+                                    ایجاد کاربر
+                                </button>
+                                <a class="btn btn-danger btn-user btn-block" asp-area="Admin" asp-controller="User" asp-action="Index">انصراف</a>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

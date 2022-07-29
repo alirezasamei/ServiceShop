@@ -22,8 +22,9 @@ namespace App.Infrastructure.Repos.Ef.Expert
                  LikeCount = p.LikeCount,
                  Text = p.Text,
                  Title = p.Title,
-                 User = p.User.Name,
-                 UserId = p.UserId,
+                 Customer = p.Customer.appUser.Name,
+                 CustomerId = p.CustomerId,
+                 SubmitDate = p.SubmitDate,
              }).ToListAsync();
 
         public async Task<CommentDto?> Get(int id) =>
@@ -36,8 +37,9 @@ namespace App.Infrastructure.Repos.Ef.Expert
                 LikeCount = p.LikeCount,
                 Text = p.Text,
                 Title = p.Title,
-                User = p.User.Name,
-                UserId = p.UserId,
+                Customer = p.Customer.appUser.Name,
+                CustomerId = p.CustomerId,
+                SubmitDate = p.SubmitDate,
             }).FirstOrDefaultAsync();
 
         public async Task<CommentDto?> Get(string title) =>
@@ -49,9 +51,9 @@ namespace App.Infrastructure.Repos.Ef.Expert
                 IsConfirmed = p.IsConfirmed,
                 LikeCount = p.LikeCount,
                 Text = p.Text,
-                Title = p.Title,
-                User = p.User.Name,
-                UserId = p.UserId,
+                Customer = p.Customer.appUser.Name,
+                CustomerId = p.CustomerId,
+                SubmitDate = p.SubmitDate,
             }).FirstOrDefaultAsync();
     }
 }

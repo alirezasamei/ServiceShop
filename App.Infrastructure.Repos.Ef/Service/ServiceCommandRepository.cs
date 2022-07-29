@@ -19,11 +19,11 @@ namespace App.Infrastructure.Repos.Ef.Service
             {
                 CreationDate = dto.CreationDate,
                 Description = dto.Description,
-                ImageName = dto.ImageName,
+                ImageFileId = dto.ImageFileId,
                 IsActive = dto.IsActive,
-                IsDeleted = dto.IsDeleted,
+                IsDeleted = false,
                 Name = dto.Name,
-                ParentSrviceId = dto.ParentSrviceId,
+                ParentServiceId = dto.ParentServiceId,
                 Price = dto.Price,
             };
             await _context.Services.AddAsync(entity);
@@ -34,7 +34,7 @@ namespace App.Infrastructure.Repos.Ef.Service
         public async Task<int> Delete(int id)
         {
             var entity = await _context.Services.FirstOrDefaultAsync(e => e.Id == id);
-            _context.Services.Remove(entity);
+            entity.IsDeleted = false;
             await _context.SaveChangesAsync();
             return entity.Id;
         }
@@ -44,11 +44,10 @@ namespace App.Infrastructure.Repos.Ef.Service
             var entity = await _context.Services.FirstOrDefaultAsync(e => e.Id == dto.Id);
             entity.CreationDate = dto.CreationDate;
             entity.Description = dto.Description;
-            entity.ImageName = dto.ImageName;
+            entity.ImageFileId = dto.ImageFileId;
             entity.IsActive = dto.IsActive;
-            entity.IsDeleted = dto.IsDeleted;
             entity.Name = dto.Name;
-            entity.ParentSrviceId = dto.ParentSrviceId;
+            entity.ParentServiceId = dto.ParentServiceId;
             entity.Price = dto.Price;
             await _context.SaveChangesAsync();
             return entity.Id;

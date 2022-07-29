@@ -1,4 +1,4 @@
-﻿using App.Domain.Core.User.Entities;
+﻿using App.Domain.Core.Customer.Entities;
 namespace App.Domain.Core.Expert.Entities
 {
     public class Tender

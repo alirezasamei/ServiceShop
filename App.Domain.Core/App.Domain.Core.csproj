@@ -7,16 +7,14 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Folder Include="BaseData\Contracts\AppServices\" />
-    <Folder Include="BaseData\Contracts\Services\" />
-    <Folder Include="Operator\Contracts\AppServices\" />
-    <Folder Include="Operator\Contracts\Services\" />
-    <Folder Include="User\Contracts\AppServices\" />
-    <Folder Include="User\Contracts\Services\" />
-    <Folder Include="Expert\Contracts\AppServices\" />
-    <Folder Include="Expert\Contracts\Services\" />
     <Folder Include="Service\Contracts\AppServices\" />
     <Folder Include="Service\Contracts\Services\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="AutoMapper.Extensions.Microsoft.DependencyInjection" Version="11.0.0" />
+    <PackageReference Include="Microsoft.AspNetCore.Identity" Version="2.2.0" />
+    <PackageReference Include="Microsoft.AspNetCore.Identity.EntityFrameworkCore" Version="6.0.7" />
   </ItemGroup>
 
 </Project>

@@ -23,7 +23,8 @@ namespace App.Infrastructure.Repos.Ef.Expert
                 LikeCount = dto.LikeCount,
                 Text = dto.Text,
                 Title = dto.Title,
-                UserId = dto.UserId,
+                CustomerId = dto.CustomerId,
+                SubmitDate = dto.SubmitDate,
             };
             await _context.Comments.AddAsync(entity);
             await _context.SaveChangesAsync();
@@ -47,7 +48,8 @@ namespace App.Infrastructure.Repos.Ef.Expert
             entity.LikeCount = dto.LikeCount;
             entity.Text = dto.Text;
             entity.Title = dto.Title;
-            entity.UserId = dto.UserId;
+            entity.CustomerId = dto.CustomerId;
+            entity.SubmitDate = dto.SubmitDate;
             await _context.SaveChangesAsync();
             return entity.Id;
         }

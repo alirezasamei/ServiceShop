@@ -17,24 +17,11 @@ namespace App.Infrastructure.Repos.Ef.Expert
         {
             var entity = new ExpertEntities.Expert()
             {
+                AppUserId = dto.AppUserId,
                 Address = dto.Address,
-                Email = dto.Email,
-                ImageName = dto.ImageName,
-                IsActive = dto.IsActive,
-                IsDeleted = dto.IsDeleted,
-                Mobile = dto.Mobile,
-                Name = dto.Name,
-                SubmitDate = dto.SubmitDate,
+                ImageFileId = dto.ImageFileId,
             };
             await _context.Experts.AddAsync(entity);
-            await _context.SaveChangesAsync();
-            return entity.Id;
-        }
-
-        public async Task<int> Delete(int id)
-        {
-            var entity = await _context.Experts.FirstOrDefaultAsync(e => e.Id == id);
-            _context.Experts.Remove(entity);
             await _context.SaveChangesAsync();
             return entity.Id;
         }
@@ -42,14 +29,9 @@ namespace App.Infrastructure.Repos.Ef.Expert
         public async Task<int> Update(ExpertDto dto)
         {
             var entity = await _context.Experts.FirstOrDefaultAsync(e => e.Id == dto.Id);
+            entity.AppUserId = dto.AppUserId;
             entity.Address = dto.Address;
-            entity.Email = dto.Email;
-            entity.ImageName = dto.ImageName;
-            entity.IsActive = dto.IsActive;
-            entity.IsDeleted = dto.IsDeleted;
-            entity.Mobile = dto.Mobile;
-            entity.Name = dto.Name;
-            entity.SubmitDate = dto.SubmitDate;
+            entity.ImageFileId = dto.ImageFileId;
             await _context.SaveChangesAsync();
             return entity.Id;
         }

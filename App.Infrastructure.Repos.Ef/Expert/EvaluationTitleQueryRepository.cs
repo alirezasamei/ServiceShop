@@ -13,21 +13,21 @@ namespace App.Infrastructure.Repos.Ef.Expert
             _context = context;
         }
         public async Task<List<EvaluationTitleDto>> GetAll() =>
-             await _context.EvaluationTitles.Select(p => new EvaluationTitleDto()
+             await _context.EvaluationTitles.Where(p => !p.IsDeleted).Select(p => new EvaluationTitleDto()
              {
                  Id = p.Id,
                  Name = p.Name,
              }).ToListAsync();
 
         public async Task<EvaluationTitleDto?> Get(int id) =>
-            await _context.EvaluationTitles.Where(p => p.Id == id).Select(p => new EvaluationTitleDto()
+            await _context.EvaluationTitles.Where(p => p.Id == id && !p.IsDeleted).Select(p => new EvaluationTitleDto()
             {
                 Id = p.Id,
                 Name = p.Name,
             }).FirstOrDefaultAsync();
 
         public async Task<EvaluationTitleDto?> Get(string name) =>
-            await _context.EvaluationTitles.Where(p => p.Name == name).Select(p => new EvaluationTitleDto()
+            await _context.EvaluationTitles.Where(p => p.Name == name && !p.IsDeleted).Select(p => new EvaluationTitleDto()
             {
                 Id = p.Id,
                 Name = p.Name,

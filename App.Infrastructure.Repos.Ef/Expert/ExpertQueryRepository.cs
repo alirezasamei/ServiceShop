@@ -16,42 +16,20 @@ namespace App.Infrastructure.Repos.Ef.Expert
              await _context.Experts.Select(p => new ExpertDto()
              {
                  Id = p.Id,
+                 AppUserId = p.AppUserId,
                  Address = p.Address,
-                 Email = p.Email,
-                 ImageName = p.ImageName,
-                 IsActive = p.IsActive,
-                 IsDeleted = p.IsDeleted,
-                 Mobile = p.Mobile,
-                 Name = p.Name,
-                 SubmitDate = p.SubmitDate,
+                 ImageFileId = p.ImageFileId,
+                 ImageFileName = p.ImageFile.NameWithExtention,
              }).ToListAsync();
 
-        public async Task<ExpertDto?> Get(int id) =>
-            await _context.Experts.Where(p => p.Id == id).Select(p => new ExpertDto()
+        public async Task<ExpertDto?> Get(int appUserId) =>
+            await _context.Experts.Where(p => p.appUser.Id == appUserId).Select(p => new ExpertDto()
             {
                 Id = p.Id,
+                AppUserId = p.AppUserId,
                 Address = p.Address,
-                Email = p.Email,
-                ImageName = p.ImageName,
-                IsActive = p.IsActive,
-                IsDeleted = p.IsDeleted,
-                Mobile = p.Mobile,
-                Name = p.Name,
-                SubmitDate = p.SubmitDate,
-            }).FirstOrDefaultAsync();
-
-        public async Task<ExpertDto?> Get(string name) =>
-            await _context.Experts.Where(p => p.Name == name).Select(p => new ExpertDto()
-            {
-                Id = p.Id,
-                Address = p.Address,
-                Email = p.Email,
-                ImageName = p.ImageName,
-                IsActive = p.IsActive,
-                IsDeleted = p.IsDeleted,
-                Mobile = p.Mobile,
-                Name = p.Name,
-                SubmitDate = p.SubmitDate,
+                ImageFileId = p.ImageFileId,
+                ImageFileName = p.ImageFile.NameWithExtention,
             }).FirstOrDefaultAsync();
     }
 }

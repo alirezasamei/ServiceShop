@@ -16,6 +16,7 @@ namespace App.Infrastructure.Repos.Ef.Expert
         {
             var entity = new EvaluationTitle()
             {
+                IsDeleted = false,
                 Name = name,
             };
             await _context.EvaluationTitles.AddAsync(entity);
@@ -26,7 +27,7 @@ namespace App.Infrastructure.Repos.Ef.Expert
         public async Task<int> Delete(int id)
         {
             var entity = await _context.EvaluationTitles.FirstOrDefaultAsync(e => e.Id == id);
-            _context.EvaluationTitles.Remove(entity);
+            entity.IsDeleted = true;
             await _context.SaveChangesAsync();
             return entity.Id;
         }

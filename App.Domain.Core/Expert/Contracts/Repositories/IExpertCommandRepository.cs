@@ -6,6 +6,5 @@ namespace App.Domain.Core.Expert.Contracts.Repositories
     {
         Task<int> Add(ExpertDto dto);
         Task<int> Update(ExpertDto dto);
-        Task<int> Delete(int id);
     }
 }

@@ -7,8 +7,6 @@ namespace App.Domain.Core.BaseData.Entities
     {
         public int Id { get; set; }
         public string Name { get; set; }
-
-        public List<ExpertServiceFile> ExpertServiceFiles { get; set; }
-        public List<ServiceFile> ServiceFiles { get; set; }
+        public bool IsDeleted { get; set; }
     }
 }

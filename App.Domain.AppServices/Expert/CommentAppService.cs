@@ -81,7 +81,7 @@ namespace App.Domain.Services.Expert
         {
             var customerId = await _userService.ConvertUserIdToCustomerId(id, cancellationToken);
             var dtos = (await _commentService.GetAll( cancellationToken)).Where(c => c.CustomerId == customerId).ToList();
-            dtos = Search(dtos, keyWord, null);
+            dtos = Search(dtos, keyWord, true);
             return dtos;
         }
 

@@ -41,7 +41,7 @@
                 <td>@item.Customer</td>
                 <td>@item.Service</td>
                 <td>@item.OrderState</td>
-                <td>@item.RegisterDate</td>
+                <td>@((Convert.ToDateTime(item.RegisterDate).ToShamsi()))</td>
                 <td>
                     @if (item.TenderId == 0)
                     {

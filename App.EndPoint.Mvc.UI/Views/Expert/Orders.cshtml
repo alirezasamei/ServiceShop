@@ -1,0 +1,105 @@
+﻿@model IEnumerable<OrderForExpertViewModel>
+
+@{
+    ViewData["Title"] = $"سفارشات";
+    int rowCount = 1;
+}
+<div class="d-flex justify-content-between">
+    <h3>لیست سفارشات</h3>
+</div>
+<hr>
+
+<table class="table table-striped table-hover text-center">
+    <thead>
+        <tr>
+            <th scope="col">
+                #
+            </th>
+            <th scope="col">
+                @Html.DisplayNameFor(model=>model.Customer)
+            </th>
+            <th scope="col">
+                @Html.DisplayNameFor(model=>model.Service)
+            </th>
+            <th scope="col">
+                @Html.DisplayNameFor(model=>model.OrderState)
+            </th>
+            <th scope="col">
+                @Html.DisplayNameFor(model=>model.RegisterDate)
+            </th>
+            <th scope="col">عملیات</th>
+        </tr>
+    </thead>
+
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td scope="row">
+                    @(rowCount++)
+                </td>
+                <td>@item.Customer</td>
+                <td>@item.Service</td>
+                <td>@item.OrderState</td>
+                <td>@item.RegisterDate</td>
+                <td>
+                    @if (item.TenderId == 0)
+                    {
+                        <a  class="btn btn-primary" asp-action="AddTender" asp-route-id="@item.Id">
+                            پیشنهاد
+                        </a>
+                    }
+                    else
+                    {
+                        <a class="btn btn-info" asp-action="TenderDetail" asp-route-id="@item.TenderId">
+                            مشاهده
+                        </a>
+                    }
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+@*<!-- Modal -->
+<div class="modal fade" id="tenderModal" tabindex="-1" aria-labelledby="tenderModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="tenderModalLabel">پیشنهاد </h5>
+                <button class="close" type="button" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">×</span>
+                </button>
+            </div>
+            <form asp-action="AddTender" method="post">
+                <div class="modal-body">
+                    پیشنهاد برای سفارش سرویس"<span id="modalShowFor" class="text-info"></span>"
+                    <div class="col-sm-6 mb-3 mb-sm-0">
+                        <input type="text" class="form-control form-control-user input" asp-for= placeholder=" ">
+                        <div class="cut cut-long"></div>
+                        <label asp-for=Name class="placeholder"></label>
+                        <span asp-validation-for=Name class="text-danger"></span>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">
+                        خیر
+                    </button>
+                    <a class="btn btn-danger" id="submitTender">
+                        بله
+                    </a>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+
+<script>
+
+    $(document).on("click","#tender", function(){
+        var id=$(this).data('id');
+        var name=$(this).data('name');
+        $(".modal-footer #submitTender").attr("href","Expert/AddTender/" + orderId);
+        $("#modalShowFor").html(name);
+    });
+</script>*@

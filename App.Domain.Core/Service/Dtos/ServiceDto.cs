@@ -7,8 +7,9 @@
         public int? ParentServiceId { get; set; }
         public string? ParentService { get; set; }
         public long? Price { get; set; }
-        public int? ImageFileId { get; set; }
+        public Guid? ImageFileId { get; set; }
         public string? ImageFileName { get; set; }
+        public string? ImageUrl { get; set; }
         public string? Description { get; set; }
         public DateTime CreationDate { get; set; }
         public bool IsActive { get; set; }

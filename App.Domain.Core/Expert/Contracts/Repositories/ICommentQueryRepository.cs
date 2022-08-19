@@ -4,8 +4,8 @@ namespace App.Domain.Core.Expert.Contracts.Repositories
 {
     public interface ICommentQueryRepository
     {
-        Task<List<CommentDto>> GetAll();
-        Task<CommentDto?> Get(int id);
-        Task<CommentDto?> Get(string title);
+        Task<List<CommentDto>> GetAll(CancellationToken cancellationToken);
+        Task<CommentDto?> Get(int id, CancellationToken cancellationToken);
+        Task<CommentDto?> Get(string title, CancellationToken cancellationToken);
     }
 }

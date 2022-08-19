@@ -1,4 +1,6 @@
-﻿namespace App.Domain.Core.Expert.Dtos
+﻿using App.Domain.Core.Customer.Enums;
+
+namespace App.Domain.Core.Expert.Dtos
 {
     public class TenderDto
     {
@@ -7,9 +9,9 @@
         public string Expert { get; set; }
         public int OrderId { get; set; }
         public long? Price { get; set; }
+        public bool Accepted { get; set; }
         public DateTime RegisterDate { get; set; }
         public TimeSpan? RequiredTime { get; set; }
         public DateTime? StartDate { get; set; }
     }
-
 }

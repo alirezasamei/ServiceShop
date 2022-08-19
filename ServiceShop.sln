@@ -15,17 +15,17 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Core", "Core", "{3BB2F08D-3
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Service", "Service", "{2338FBCB-E1AF-49B4-8515-76CC14473E19}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "App.Domain.Core", "App.Domain.Core\App.Domain.Core.csproj", "{C8B79CF2-D203-4220-8DE0-3EB67C812455}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "App.Domain.Core", "App.Domain.Core\App.Domain.Core.csproj", "{C8B79CF2-D203-4220-8DE0-3EB67C812455}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "App.Domain.Services", "App.Domain.Services\App.Domain.Services.csproj", "{CEAF631D-7374-4A38-9633-8D9D067FAD45}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "App.Domain.Services", "App.Domain.Services\App.Domain.Services.csproj", "{CEAF631D-7374-4A38-9633-8D9D067FAD45}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "App.Domain.AppServices", "App.Domain.AppServices\App.Domain.AppServices.csproj", "{447D5E3A-2A50-4448-A989-307DEBAB5046}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "App.Domain.AppServices", "App.Domain.AppServices\App.Domain.AppServices.csproj", "{447D5E3A-2A50-4448-A989-307DEBAB5046}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "App.Infrastructure.Repos.Ef", "App.Infrastructure.Repos.Ef\App.Infrastructure.Repos.Ef.csproj", "{8D6ECD9C-EE59-406A-B958-70799C0FA561}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "App.Infrastructure.Repos.Ef", "App.Infrastructure.Repos.Ef\App.Infrastructure.Repos.Ef.csproj", "{8D6ECD9C-EE59-406A-B958-70799C0FA561}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "App.Infrastructure.SqlServer", "App.Infrastructure.SqlServer\App.Infrastructure.SqlServer.csproj", "{0557A3E8-9131-49A8-9AE0-177C4A9CF447}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "App.Infrastructure.SqlServer", "App.Infrastructure.SqlServer\App.Infrastructure.SqlServer.csproj", "{0557A3E8-9131-49A8-9AE0-177C4A9CF447}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "App.EndPoint.Mvc.UI", "App.EndPoint.Mvc.UI\App.EndPoint.Mvc.UI.csproj", "{0A316A3C-97FC-4D09-A14B-2E17977CDC81}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "App.EndPoint.Mvc.UI", "App.EndPoint.Mvc.UI\App.EndPoint.Mvc.UI.csproj", "{0A316A3C-97FC-4D09-A14B-2E17977CDC81}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

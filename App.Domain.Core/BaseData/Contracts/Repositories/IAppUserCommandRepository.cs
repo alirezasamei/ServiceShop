@@ -5,8 +5,8 @@ namespace App.Domain.Core.BaseData.Contracts.Repositories
 {
     public interface IAppUserCommandRepository
     {
-        Task<IdentityResult> Add(AppUserDto dto);
-        Task<IdentityResult> Update(AppUserDetailDto dto);
-        Task<IdentityResult> Delete(int id);
+        Task<IdentityResult> Add(AppUserDto dto, CancellationToken cancellationToken);
+        Task<IdentityResult> Update(AppUserDetailDto dto, CancellationToken cancellationToken);
+        Task<IdentityResult> Delete(int id, CancellationToken cancellationToken);
     }
 }

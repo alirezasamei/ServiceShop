@@ -4,7 +4,7 @@ namespace App.Domain.Core.Customer.Contracts.Repositories
 {
     public interface ICustomerCommandRepository
     {
-        Task<int> Add(CustomerDto dto);
-        Task<int> Update(CustomerDto dto);
+        Task<int> Add(CustomerDto dto, CancellationToken cancellationToken);
+        Task<int> Update(CustomerDto dto, CancellationToken cancellationToken);
     }
 }

@@ -12,7 +12,7 @@ namespace App.Infrastructure.Repos.Ef.Customer
         {
             _context = context;
         }
-        public async Task<List<OrderDto>> GetAll() =>
+        public async Task<List<OrderDto>> GetAll(CancellationToken cancellationToken) =>
              await _context.Orders.Where(p => !p.IsDeleted).Select(p => new OrderDto()
              {
                  Id = p.Id,
@@ -21,11 +21,11 @@ namespace App.Infrastructure.Repos.Ef.Customer
                  RegisterDate = p.RegisterDate,
                  Service = p.Service.Name,
                  ServiceId = p.ServiceId,
-                 Customer = p.Customer.appUser.Name,
+                 Customer = p.Customer.AppUser.Name,
                  CustomerId = p.CustomerId,
-             }).ToListAsync();
+             }).ToListAsync(cancellationToken);
 
-        public async Task<OrderDto?> Get(int id) =>
+        public async Task<OrderDto?> Get(int id, CancellationToken cancellationToken) =>
             await _context.Orders.Where(p => p.Id == id && !p.IsDeleted).Select(p => new OrderDto()
             {
                 Id = p.Id,
@@ -34,8 +34,21 @@ namespace App.Infrastructure.Repos.Ef.Customer
                 RegisterDate = p.RegisterDate,
                 Service = p.Service.Name,
                 ServiceId = p.ServiceId,
-                Customer = p.Customer.appUser.Name,
+                Customer = p.Customer.AppUser.Name,
                 CustomerId = p.CustomerId,
-            }).FirstOrDefaultAsync();
+            }).FirstOrDefaultAsync(cancellationToken);
+
+        public async Task<List<OrderDto>> GetByServiceId(int serviceId, CancellationToken cancellationToken) =>
+             await _context.Orders.Where(p => p.ServiceId == serviceId && !p.IsDeleted).Select(p => new OrderDto()
+             {
+                 Id = p.Id,
+                 OrderState = p.OrderState.Name,
+                 OrderStateId = p.OrderStateId,
+                 RegisterDate = p.RegisterDate,
+                 Service = p.Service.Name,
+                 ServiceId = p.ServiceId,
+                 Customer = p.Customer.AppUser.Name,
+                 CustomerId = p.CustomerId,
+             }).ToListAsync(cancellationToken);
     }
 }

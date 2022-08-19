@@ -13,7 +13,7 @@ namespace App.Infrastructure.Repos.Ef.Customer
         {
             _context = context;
         }
-        public async Task<int> Add(CustomerDto dto)
+        public async Task<int> Add(CustomerDto dto, CancellationToken cancellationToken)
         {
             var entity = new CustomerEntities.Customer()
             {
@@ -21,16 +21,16 @@ namespace App.Infrastructure.Repos.Ef.Customer
                 Address = dto.Address,
             };
             await _context.Customers.AddAsync(entity);
-            await _context.SaveChangesAsync();
+            await _context.SaveChangesAsync(cancellationToken);
             return entity.Id;
         }
 
-        public async Task<int> Update(CustomerDto dto)
+        public async Task<int> Update(CustomerDto dto, CancellationToken cancellationToken)
         {
-            var entity = await _context.Customers.FirstOrDefaultAsync(e => e.Id == dto.Id);
+            var entity = await _context.Customers.FirstOrDefaultAsync(e => e.Id == dto.Id || e.AppUserId == dto.AppUserId);
             entity.AppUserId = dto.AppUserId;
             entity.Address = dto.Address;
-            await _context.SaveChangesAsync();
+            await _context.SaveChangesAsync(cancellationToken);
             return entity.Id;
         }
     }

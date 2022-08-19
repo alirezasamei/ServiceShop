@@ -12,25 +12,28 @@ namespace App.Infrastructure.Repos.Ef.BaseData
         {
             _context = context;
         }
-        public async Task<List<FileTypeDto>> GetAll() =>
+        public async Task<List<FileTypeDto>> GetAll(CancellationToken cancellationToken) =>
              await _context.FileTypes.Where(p => !p.IsDeleted).Select(p => new FileTypeDto()
              {
                  Id = p.Id,
                  Name = p.Name,
-             }).ToListAsync();
+                 Extention = p.Extention,
+             }).ToListAsync(cancellationToken);
 
-        public async Task<FileTypeDto?> Get(int id) =>
+        public async Task<FileTypeDto?> Get(int id, CancellationToken cancellationToken) =>
             await _context.FileTypes.Where(p => p.Id == id && !p.IsDeleted).Select(p => new FileTypeDto()
             {
                 Id = p.Id,
                 Name = p.Name,
-            }).FirstOrDefaultAsync();
+                Extention = p.Extention,
+            }).FirstOrDefaultAsync(cancellationToken);
 
-        public async Task<FileTypeDto?> Get(string name) =>
+        public async Task<FileTypeDto?> Get(string name, CancellationToken cancellationToken) =>
             await _context.FileTypes.Where(p => p.Name == name && !p.IsDeleted).Select(p => new FileTypeDto()
             {
                 Id = p.Id,
                 Name = p.Name,
-            }).FirstOrDefaultAsync();
+                Extention = p.Extention,
+            }).FirstOrDefaultAsync(cancellationToken);
     }
 }

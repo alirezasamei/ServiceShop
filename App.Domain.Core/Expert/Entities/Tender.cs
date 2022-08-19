@@ -9,6 +9,7 @@ namespace App.Domain.Core.Expert.Entities
         public int OrderId { get; set; }
         public Order Order { get; set; }
         public long? Price { get; set; }
+        public bool Accepted { get; set; }
         public DateTime RegisterDate { get; set; }
         public TimeSpan? RequiredTime { get; set; }
         public DateTime? StartDate { get; set; }

@@ -1,0 +1,47 @@
+﻿@model IEnumerable<PastWorkViewModel>
+
+@{
+    ViewData["Title"] = "سابقه کارها";
+    int rowCount = 1;
+}
+<div class="d-flex justify-content-between">
+    <h3>سابقه کارها</h3>
+</div>
+<hr>
+
+<table class="table table-striped table-hover text-center">
+    <thead>
+        <tr>
+            <th scope="col">
+                #
+            </th>
+            <th scope="col">
+                @Html.DisplayNameFor(model=>model.Customer)
+            </th>
+            <th scope="col">
+                @Html.DisplayNameFor(model=>model.Service)
+            </th>
+            <th scope="col">
+                @Html.DisplayNameFor(model=>model.Price)
+            </th>
+            <th scope="col">
+                @Html.DisplayNameFor(model=>model.ComplitionDate)
+            </th>
+        </tr>
+    </thead>
+
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td scope="row">
+                    @(rowCount++)
+                </td>
+                <td>@item.Customer</td>
+                <td>@item.Service</td>
+                <td>@item.Price</td>
+                <td>@(((DateTime) item.ComplitionDate).ToShamsi())</td>
+            </tr>
+        }
+    </tbody>
+</table>

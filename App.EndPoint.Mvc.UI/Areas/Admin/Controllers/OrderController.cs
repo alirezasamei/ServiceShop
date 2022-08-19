@@ -1,8 +1,11 @@
-﻿using App.Domain.Core.Customer.Contracts.AppServices;
+﻿using App.Domain.Core.BaseData.Contracts.AppServices;
+using App.Domain.Core.BaseData.Enums;
+using App.Domain.Core.Customer.Contracts.AppServices;
 using App.Domain.Core.Customer.Dtos;
+using App.Domain.Core.Customer.Enums;
 using App.Domain.Core.Expert.Contracts.AppServices;
 using App.Domain.Core.Expert.Dtos;
-using App.EndPoint.Mvc.UI.Areas.Admin.Models;
+using App.EndPoint.Mvc.UI.Models;
 using AutoMapper;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
@@ -17,34 +20,37 @@ namespace App.EndPoint.Mvc.UI.Areas.Admin.Controllers
         private readonly IOrderAppService _orderAppService;
         private readonly IOrderStateAppService _orderStateAppService;
         private readonly ITenderAppService _tenderAppService;
+        private readonly IUserAppService _userAppService;
         private readonly IMapper _mapper;
+        private readonly ILogger<OrderController> _logger;
 
         public OrderController(IOrderAppService orderAppService,
             IOrderStateAppService orderStateAppService,
             ITenderAppService tenderAppService,
-            IMapper mapper)
+            IUserAppService userAppService,
+            IMapper mapper,
+            ILogger<OrderController> logger)
         {
             _orderAppService = orderAppService;
             _orderStateAppService = orderStateAppService;
             _tenderAppService = tenderAppService;
+            _userAppService = userAppService;
             _mapper = mapper;
+            _logger = logger;
         }
 
         public async Task<IActionResult> Index(string keyWord, CancellationToken cancellationToken)
         {
-            ViewBag.UserName = this.User.FindFirstValue(ClaimTypes.Name);
-            var model = _mapper.Map<List<OrderViewModel>>(await _orderAppService.GetAll(keyWord));
+            var model = _mapper.Map<List<OrderViewModel>>(await _orderAppService.GetAll(keyWord, cancellationToken));
             foreach (var item in model)
             {
-                item.TendersCount = (await _tenderAppService.GetByOrder((int)item.Id)).Count;
+                item.TendersCount = (await _tenderAppService.GetByOrder((int)item.Id, cancellationToken)).Count;
             }
             return View(model);
         }
 
-        public async Task<IActionResult> Create(CancellationToken cancellationToken)
+        public IActionResult Create()
         {
-            ViewBag.UserName = this.User.FindFirstValue(ClaimTypes.Name);
-            ViewBag.OrderStates = await _orderStateAppService.GetAll();
             return View();
         }
 
@@ -55,7 +61,10 @@ namespace App.EndPoint.Mvc.UI.Areas.Admin.Controllers
             if (ModelState.IsValid)
             {
                 var dto = _mapper.Map<OrderDto>(model);
-                var result = await _orderAppService.Add(dto);
+                dto.OrderStateId = (int)OrderStateEnum.WaitingForTender;
+                var id = await _orderAppService.Add(dto, cancellationToken);
+                dto.Id = id;
+                _logger.LogInformation("Order {orderDto} was added by {userRole}", dto, "admin");
                 return RedirectToAction(nameof(Index));
             }
             return View();
@@ -63,9 +72,7 @@ namespace App.EndPoint.Mvc.UI.Areas.Admin.Controllers
 
         public async Task<IActionResult> Edit(int id, CancellationToken cancellationToken)
         {
-            ViewBag.UserName = this.User.FindFirstValue(ClaimTypes.Name);
-            ViewBag.OrderStates = await _orderStateAppService.GetAll();
-            var model = _mapper.Map<OrderViewModel>(await _orderAppService.Get(id));
+            var model = _mapper.Map<OrderViewModel>(await _orderAppService.Get(id, cancellationToken));
             return View(model);
         }
 
@@ -76,8 +83,16 @@ namespace App.EndPoint.Mvc.UI.Areas.Admin.Controllers
             if (ModelState.IsValid)
             {
                 var dto = _mapper.Map<OrderDto>(model);
-                await _orderAppService.Update(dto);
-                return RedirectToAction(nameof(Index));
+                try
+                {
+                    await _orderAppService.Update(dto, cancellationToken);
+                    _logger.LogInformation("Order {orderDto} was edited by {userRole}", dto, "admin");
+                    return RedirectToAction(nameof(Index));
+                }
+                catch (Exception ex)
+                {
+                    ModelState.AddModelError(String.Empty, ex.Message);
+                }
             }
             return View();
         }
@@ -85,15 +100,20 @@ namespace App.EndPoint.Mvc.UI.Areas.Admin.Controllers
         public async Task<IActionResult> Tenders(int id, CancellationToken cancellationToken)
         {
             OrderTenderViewModel model = new();
-            model.Order = _mapper.Map<OrderViewModel>(await _orderAppService.Get(id));
-            model.Tenders = _mapper.Map<List<TenderViewModel>>(await _tenderAppService.GetByOrder(id));
+            model.Order = _mapper.Map<OrderViewModel>(await _orderAppService.Get(id, cancellationToken));
+            if (model.Order is null)
+            {
+                _logger.LogError("method {method} of appService {appService} returns null by orderId: {ordertId}",
+                    "Get", nameof(IOrderAppService), id);
+                ModelState.AddModelError(String.Empty, "there is no order with id: " + id);
+            }
+            model.Tenders = _mapper.Map<List<TenderViewModel>>(await _tenderAppService.GetByOrder(id, cancellationToken));
             return View(model);
         }
 
         public async Task<IActionResult> AddTender(int id, CancellationToken cancellationToken)
         {
-            ViewBag.UserName = this.User.FindFirstValue(ClaimTypes.Name);
-            ViewBag.OrderStates = await _orderStateAppService.GetAll();
+            ViewBag.Experts = _mapper.Map<List<UserListViewModel>>(await _userAppService.GetByRole(RoleEnum.expert, cancellationToken));
             TenderViewModel model = new TenderViewModel { OrderId = id };
             return View(model);
         }
@@ -105,7 +125,9 @@ namespace App.EndPoint.Mvc.UI.Areas.Admin.Controllers
             if (ModelState.IsValid)
             {
                 var dto = _mapper.Map<TenderDto>(model);
-                var result = await _tenderAppService.Add(dto);
+                var id = await _tenderAppService.Add(dto, cancellationToken);
+                dto.Id = id;
+                _logger.LogInformation("Tender {tenderDto} was added by {userRole}", dto, "admin");
                 return RedirectToAction(nameof(Index));
             }
             return View();
@@ -113,12 +135,28 @@ namespace App.EndPoint.Mvc.UI.Areas.Admin.Controllers
 
         public async Task<IActionResult> Delete(int id, CancellationToken cancellationToken)
         {
-            await _orderAppService.Delete(id);
+            try
+            {
+                await _orderAppService.Delete(id, cancellationToken);
+                _logger.LogInformation("Order with id: {orderId} was deleted by {userRole}", id, "admin");
+            }
+            catch (Exception ex)
+            {
+                ModelState.AddModelError(String.Empty, ex.Message);
+            }
             return RedirectToAction(nameof(Index));
         }
         public async Task<IActionResult> DeleteTender(int id, CancellationToken cancellationToken)
         {
-            await _tenderAppService.Delete(id);
+            try
+            {
+                await _tenderAppService.Delete(id, cancellationToken);
+                _logger.LogInformation("Tender with id: {tenderId} was deleted by {userRole}", id, "admin");
+            }
+            catch (Exception ex)
+            {
+                ModelState.AddModelError(String.Empty, ex.Message);
+            }
             return RedirectToAction(nameof(Index));
         }
     }

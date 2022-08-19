@@ -115,11 +115,10 @@ namespace App.Infrastructure.SqlServer.Migrations
                             IsDeleted = false,
                             LockoutEnabled = true,
                             Name = "AppUser1 ",
-                            PasswordHash = "123",
                             PhoneNumber = "09123456789",
                             PhoneNumberConfirmed = true,
                             SecurityStamp = " ",
-                            SubmitDate = new DateTime(2022, 7, 22, 20, 28, 13, 308, DateTimeKind.Local).AddTicks(3407),
+                            SubmitDate = new DateTime(2022, 8, 7, 2, 59, 8, 863, DateTimeKind.Local).AddTicks(4564),
                             TwoFactorEnabled = false,
                             UserName = "AppUser1username"
                         },
@@ -134,11 +133,10 @@ namespace App.Infrastructure.SqlServer.Migrations
                             IsDeleted = false,
                             LockoutEnabled = true,
                             Name = "AppUser2 ",
-                            PasswordHash = "123",
                             PhoneNumber = "09123456789",
                             PhoneNumberConfirmed = true,
                             SecurityStamp = " ",
-                            SubmitDate = new DateTime(2022, 7, 22, 20, 28, 13, 308, DateTimeKind.Local).AddTicks(3465),
+                            SubmitDate = new DateTime(2022, 8, 7, 2, 59, 8, 863, DateTimeKind.Local).AddTicks(4585),
                             TwoFactorEnabled = false,
                             UserName = "AppUser2username"
                         },
@@ -153,11 +151,10 @@ namespace App.Infrastructure.SqlServer.Migrations
                             IsDeleted = false,
                             LockoutEnabled = true,
                             Name = "AppUser3 ",
-                            PasswordHash = "123",
                             PhoneNumber = "09123456789",
                             PhoneNumberConfirmed = true,
                             SecurityStamp = " ",
-                            SubmitDate = new DateTime(2022, 7, 22, 20, 28, 13, 308, DateTimeKind.Local).AddTicks(3477),
+                            SubmitDate = new DateTime(2022, 8, 7, 2, 59, 8, 863, DateTimeKind.Local).AddTicks(4590),
                             TwoFactorEnabled = false,
                             UserName = "AppUser3username"
                         },
@@ -172,11 +169,10 @@ namespace App.Infrastructure.SqlServer.Migrations
                             IsDeleted = false,
                             LockoutEnabled = true,
                             Name = "AppUser4 ",
-                            PasswordHash = "123",
                             PhoneNumber = "09123456789",
                             PhoneNumberConfirmed = true,
                             SecurityStamp = " ",
-                            SubmitDate = new DateTime(2022, 7, 22, 20, 28, 13, 308, DateTimeKind.Local).AddTicks(3488),
+                            SubmitDate = new DateTime(2022, 8, 7, 2, 59, 8, 863, DateTimeKind.Local).AddTicks(4594),
                             TwoFactorEnabled = false,
                             UserName = "AppUser4username"
                         },
@@ -191,11 +187,10 @@ namespace App.Infrastructure.SqlServer.Migrations
                             IsDeleted = false,
                             LockoutEnabled = true,
                             Name = "AppUser5 ",
-                            PasswordHash = "123",
                             PhoneNumber = "09123456789",
                             PhoneNumberConfirmed = true,
                             SecurityStamp = " ",
-                            SubmitDate = new DateTime(2022, 7, 22, 20, 28, 13, 308, DateTimeKind.Local).AddTicks(3498),
+                            SubmitDate = new DateTime(2022, 8, 7, 2, 59, 8, 863, DateTimeKind.Local).AddTicks(4598),
                             TwoFactorEnabled = false,
                             UserName = "AppUser5username"
                         },
@@ -210,11 +205,10 @@ namespace App.Infrastructure.SqlServer.Migrations
                             IsDeleted = false,
                             LockoutEnabled = true,
                             Name = "AppUser6 ",
-                            PasswordHash = "123",
                             PhoneNumber = "09123456789",
                             PhoneNumberConfirmed = true,
                             SecurityStamp = " ",
-                            SubmitDate = new DateTime(2022, 7, 22, 20, 28, 13, 308, DateTimeKind.Local).AddTicks(3508),
+                            SubmitDate = new DateTime(2022, 8, 7, 2, 59, 8, 863, DateTimeKind.Local).AddTicks(4602),
                             TwoFactorEnabled = false,
                             UserName = "AppUser6username"
                         },
@@ -229,11 +223,10 @@ namespace App.Infrastructure.SqlServer.Migrations
                             IsDeleted = false,
                             LockoutEnabled = true,
                             Name = "AppUser7 ",
-                            PasswordHash = "123",
                             PhoneNumber = "09123456789",
                             PhoneNumberConfirmed = true,
                             SecurityStamp = " ",
-                            SubmitDate = new DateTime(2022, 7, 22, 20, 28, 13, 308, DateTimeKind.Local).AddTicks(3533),
+                            SubmitDate = new DateTime(2022, 8, 7, 2, 59, 8, 863, DateTimeKind.Local).AddTicks(4608),
                             TwoFactorEnabled = false,
                             UserName = "AppUser7username"
                         },
@@ -248,11 +241,10 @@ namespace App.Infrastructure.SqlServer.Migrations
                             IsDeleted = false,
                             LockoutEnabled = true,
                             Name = "AppUser8 ",
-                            PasswordHash = "123",
                             PhoneNumber = "09123456789",
                             PhoneNumberConfirmed = true,
                             SecurityStamp = " ",
-                            SubmitDate = new DateTime(2022, 7, 22, 20, 28, 13, 308, DateTimeKind.Local).AddTicks(3545),
+                            SubmitDate = new DateTime(2022, 8, 7, 2, 59, 8, 863, DateTimeKind.Local).AddTicks(4612),
                             TwoFactorEnabled = false,
                             UserName = "AppUser8username"
                         },
@@ -267,11 +259,10 @@ namespace App.Infrastructure.SqlServer.Migrations
                             IsDeleted = false,
                             LockoutEnabled = true,
                             Name = "AppUser9 ",
-                            PasswordHash = "123",
                             PhoneNumber = "09123456789",
                             PhoneNumberConfirmed = true,
                             SecurityStamp = " ",
-                            SubmitDate = new DateTime(2022, 7, 22, 20, 28, 13, 308, DateTimeKind.Local).AddTicks(3555),
+                            SubmitDate = new DateTime(2022, 8, 7, 2, 59, 8, 863, DateTimeKind.Local).AddTicks(4616),
                             TwoFactorEnabled = false,
                             UserName = "AppUser9username"
                         },
@@ -286,11 +277,10 @@ namespace App.Infrastructure.SqlServer.Migrations
                             IsDeleted = false,
                             LockoutEnabled = true,
                             Name = "AppUser10",
-                            PasswordHash = "123",
                             PhoneNumber = "09123456789",
                             PhoneNumberConfirmed = true,
                             SecurityStamp = " ",
-                            SubmitDate = new DateTime(2022, 7, 22, 20, 28, 13, 308, DateTimeKind.Local).AddTicks(3566),
+                            SubmitDate = new DateTime(2022, 8, 7, 2, 59, 8, 863, DateTimeKind.Local).AddTicks(4620),
                             TwoFactorEnabled = false,
                             UserName = "AppUser10username"
                         },
@@ -305,11 +295,10 @@ namespace App.Infrastructure.SqlServer.Migrations
                             IsDeleted = false,
                             LockoutEnabled = true,
                             Name = "AppUser11",
-                            PasswordHash = "123",
                             PhoneNumber = "09123456789",
                             PhoneNumberConfirmed = true,
                             SecurityStamp = " ",
-                            SubmitDate = new DateTime(2022, 7, 22, 20, 28, 13, 308, DateTimeKind.Local).AddTicks(3577),
+                            SubmitDate = new DateTime(2022, 8, 7, 2, 59, 8, 863, DateTimeKind.Local).AddTicks(4625),
                             TwoFactorEnabled = false,
                             UserName = "AppUser11username"
                         },
@@ -324,11 +313,10 @@ namespace App.Infrastructure.SqlServer.Migrations
                             IsDeleted = false,
                             LockoutEnabled = true,
                             Name = "AppUser12",
-                            PasswordHash = "123",
                             PhoneNumber = "09123456789",
                             PhoneNumberConfirmed = true,
                             SecurityStamp = " ",
-                            SubmitDate = new DateTime(2022, 7, 22, 20, 28, 13, 308, DateTimeKind.Local).AddTicks(3587),
+                            SubmitDate = new DateTime(2022, 8, 7, 2, 59, 8, 863, DateTimeKind.Local).AddTicks(4629),
                             TwoFactorEnabled = false,
                             UserName = "AppUser12username"
                         },
@@ -343,11 +331,10 @@ namespace App.Infrastructure.SqlServer.Migrations
                             IsDeleted = false,
                             LockoutEnabled = true,
                             Name = "AppUser13",
-                            PasswordHash = "123",
                             PhoneNumber = "09123456789",
                             PhoneNumberConfirmed = true,
                             SecurityStamp = " ",
-                            SubmitDate = new DateTime(2022, 7, 22, 20, 28, 13, 308, DateTimeKind.Local).AddTicks(3597),
+                            SubmitDate = new DateTime(2022, 8, 7, 2, 59, 8, 863, DateTimeKind.Local).AddTicks(4633),
                             TwoFactorEnabled = false,
                             UserName = "AppUser13username"
                         },
@@ -362,11 +349,10 @@ namespace App.Infrastructure.SqlServer.Migrations
                             IsDeleted = false,
                             LockoutEnabled = true,
                             Name = "AppUser14",
-                            PasswordHash = "123",
                             PhoneNumber = "09123456789",
                             PhoneNumberConfirmed = true,
                             SecurityStamp = " ",
-                            SubmitDate = new DateTime(2022, 7, 22, 20, 28, 13, 308, DateTimeKind.Local).AddTicks(3608),
+                            SubmitDate = new DateTime(2022, 8, 7, 2, 59, 8, 863, DateTimeKind.Local).AddTicks(4638),
                             TwoFactorEnabled = false,
                             UserName = "AppUser14username"
                         },
@@ -381,11 +367,10 @@ namespace App.Infrastructure.SqlServer.Migrations
                             IsDeleted = false,
                             LockoutEnabled = true,
                             Name = "AppUser15",
-                            PasswordHash = "123",
                             PhoneNumber = "09123456789",
                             PhoneNumberConfirmed = true,
                             SecurityStamp = " ",
-                            SubmitDate = new DateTime(2022, 7, 22, 20, 28, 13, 308, DateTimeKind.Local).AddTicks(3623),
+                            SubmitDate = new DateTime(2022, 8, 7, 2, 59, 8, 863, DateTimeKind.Local).AddTicks(4643),
                             TwoFactorEnabled = false,
                             UserName = "AppUser15username"
                         },
@@ -400,11 +385,10 @@ namespace App.Infrastructure.SqlServer.Migrations
                             IsDeleted = false,
                             LockoutEnabled = true,
                             Name = "AppUser16",
-                            PasswordHash = "123",
                             PhoneNumber = "09123456789",
                             PhoneNumberConfirmed = true,
                             SecurityStamp = " ",
-                            SubmitDate = new DateTime(2022, 7, 22, 20, 28, 13, 308, DateTimeKind.Local).AddTicks(3633),
+                            SubmitDate = new DateTime(2022, 8, 7, 2, 59, 8, 863, DateTimeKind.Local).AddTicks(4647),
                             TwoFactorEnabled = false,
                             UserName = "AppUser16username"
                         },
@@ -419,11 +403,10 @@ namespace App.Infrastructure.SqlServer.Migrations
                             IsDeleted = false,
                             LockoutEnabled = true,
                             Name = "AppUser17",
-                            PasswordHash = "123",
                             PhoneNumber = "09123456789",
                             PhoneNumberConfirmed = true,
                             SecurityStamp = " ",
-                            SubmitDate = new DateTime(2022, 7, 22, 20, 28, 13, 308, DateTimeKind.Local).AddTicks(3644),
+                            SubmitDate = new DateTime(2022, 8, 7, 2, 59, 8, 863, DateTimeKind.Local).AddTicks(4652),
                             TwoFactorEnabled = false,
                             UserName = "AppUser17username"
                         },
@@ -438,11 +421,10 @@ namespace App.Infrastructure.SqlServer.Migrations
                             IsDeleted = false,
                             LockoutEnabled = true,
                             Name = "AppUser18",
-                            PasswordHash = "123",
                             PhoneNumber = "09123456789",
                             PhoneNumberConfirmed = true,
                             SecurityStamp = " ",
-                            SubmitDate = new DateTime(2022, 7, 22, 20, 28, 13, 308, DateTimeKind.Local).AddTicks(3655),
+                            SubmitDate = new DateTime(2022, 8, 7, 2, 59, 8, 863, DateTimeKind.Local).AddTicks(4660),
                             TwoFactorEnabled = false,
                             UserName = "AppUser18username"
                         },
@@ -457,11 +439,10 @@ namespace App.Infrastructure.SqlServer.Migrations
                             IsDeleted = false,
                             LockoutEnabled = true,
                             Name = "AppUser19",
-                            PasswordHash = "123",
                             PhoneNumber = "09123456789",
                             PhoneNumberConfirmed = true,
                             SecurityStamp = " ",
-                            SubmitDate = new DateTime(2022, 7, 22, 20, 28, 13, 308, DateTimeKind.Local).AddTicks(3665),
+                            SubmitDate = new DateTime(2022, 8, 7, 2, 59, 8, 863, DateTimeKind.Local).AddTicks(4665),
                             TwoFactorEnabled = false,
                             UserName = "AppUser19username"
                         },
@@ -476,11 +457,10 @@ namespace App.Infrastructure.SqlServer.Migrations
                             IsDeleted = false,
                             LockoutEnabled = true,
                             Name = "AppUser20",
-                            PasswordHash = "123",
                             PhoneNumber = "09123456789",
                             PhoneNumberConfirmed = true,
                             SecurityStamp = " ",
-                            SubmitDate = new DateTime(2022, 7, 22, 20, 28, 13, 308, DateTimeKind.Local).AddTicks(3676),
+                            SubmitDate = new DateTime(2022, 8, 7, 2, 59, 8, 863, DateTimeKind.Local).AddTicks(4670),
                             TwoFactorEnabled = false,
                             UserName = "AppUser20username"
                         },
@@ -495,11 +475,10 @@ namespace App.Infrastructure.SqlServer.Migrations
                             IsDeleted = false,
                             LockoutEnabled = true,
                             Name = "AppUser21",
-                            PasswordHash = "123",
                             PhoneNumber = "09123456789",
                             PhoneNumberConfirmed = true,
                             SecurityStamp = " ",
-                            SubmitDate = new DateTime(2022, 7, 22, 20, 28, 13, 308, DateTimeKind.Local).AddTicks(3686),
+                            SubmitDate = new DateTime(2022, 8, 7, 2, 59, 8, 863, DateTimeKind.Local).AddTicks(4674),
                             TwoFactorEnabled = false,
                             UserName = "AppUser21username"
                         },
@@ -514,11 +493,10 @@ namespace App.Infrastructure.SqlServer.Migrations
                             IsDeleted = false,
                             LockoutEnabled = true,
                             Name = "AppUser22",
-                            PasswordHash = "123",
                             PhoneNumber = "09123456789",
                             PhoneNumberConfirmed = true,
                             SecurityStamp = " ",
-                            SubmitDate = new DateTime(2022, 7, 22, 20, 28, 13, 308, DateTimeKind.Local).AddTicks(3696),
+                            SubmitDate = new DateTime(2022, 8, 7, 2, 59, 8, 863, DateTimeKind.Local).AddTicks(4678),
                             TwoFactorEnabled = false,
                             UserName = "AppUser22username"
                         },
@@ -533,11 +511,10 @@ namespace App.Infrastructure.SqlServer.Migrations
                             IsDeleted = false,
                             LockoutEnabled = true,
                             Name = "AppUser23",
-                            PasswordHash = "123",
                             PhoneNumber = "09123456789",
                             PhoneNumberConfirmed = true,
                             SecurityStamp = " ",
-                            SubmitDate = new DateTime(2022, 7, 22, 20, 28, 13, 308, DateTimeKind.Local).AddTicks(3710),
+                            SubmitDate = new DateTime(2022, 8, 7, 2, 59, 8, 863, DateTimeKind.Local).AddTicks(4684),
                             TwoFactorEnabled = false,
                             UserName = "AppUser23username"
                         },
@@ -552,11 +529,10 @@ namespace App.Infrastructure.SqlServer.Migrations
                             IsDeleted = false,
                             LockoutEnabled = true,
                             Name = "AppUser24",
-                            PasswordHash = "123",
                             PhoneNumber = "09123456789",
                             PhoneNumberConfirmed = true,
                             SecurityStamp = " ",
-                            SubmitDate = new DateTime(2022, 7, 22, 20, 28, 13, 308, DateTimeKind.Local).AddTicks(3722),
+                            SubmitDate = new DateTime(2022, 8, 7, 2, 59, 8, 863, DateTimeKind.Local).AddTicks(4688),
                             TwoFactorEnabled = false,
                             UserName = "AppUser24username"
                         },
@@ -571,11 +547,10 @@ namespace App.Infrastructure.SqlServer.Migrations
                             IsDeleted = false,
                             LockoutEnabled = true,
                             Name = "AppUser25",
-                            PasswordHash = "123",
                             PhoneNumber = "09123456789",
                             PhoneNumberConfirmed = true,
                             SecurityStamp = " ",
-                            SubmitDate = new DateTime(2022, 7, 22, 20, 28, 13, 308, DateTimeKind.Local).AddTicks(3732),
+                            SubmitDate = new DateTime(2022, 8, 7, 2, 59, 8, 863, DateTimeKind.Local).AddTicks(4692),
                             TwoFactorEnabled = false,
                             UserName = "AppUser25username"
                         },
@@ -590,11 +565,10 @@ namespace App.Infrastructure.SqlServer.Migrations
                             IsDeleted = false,
                             LockoutEnabled = true,
                             Name = "AppUser26",
-                            PasswordHash = "123",
                             PhoneNumber = "09123456789",
                             PhoneNumberConfirmed = true,
                             SecurityStamp = " ",
-                            SubmitDate = new DateTime(2022, 7, 22, 20, 28, 13, 308, DateTimeKind.Local).AddTicks(3753),
+                            SubmitDate = new DateTime(2022, 8, 7, 2, 59, 8, 863, DateTimeKind.Local).AddTicks(4696),
                             TwoFactorEnabled = false,
                             UserName = "AppUser26username"
                         },
@@ -609,11 +583,10 @@ namespace App.Infrastructure.SqlServer.Migrations
                             IsDeleted = false,
                             LockoutEnabled = true,
                             Name = "AppUser27",
-                            PasswordHash = "123",
                             PhoneNumber = "09123456789",
                             PhoneNumberConfirmed = true,
                             SecurityStamp = " ",
-                            SubmitDate = new DateTime(2022, 7, 22, 20, 28, 13, 308, DateTimeKind.Local).AddTicks(3763),
+                            SubmitDate = new DateTime(2022, 8, 7, 2, 59, 8, 863, DateTimeKind.Local).AddTicks(4700),
                             TwoFactorEnabled = false,
                             UserName = "AppUser27username"
                         });
@@ -621,11 +594,9 @@ namespace App.Infrastructure.SqlServer.Migrations
 
             modelBuilder.Entity("App.Domain.Core.BaseData.Entities.File", b =>
                 {
-                    b.Property<int>("Id")
+                    b.Property<Guid>("Id")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
-
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
+                        .HasColumnType("uniqueidentifier");
 
                     b.Property<DateTime>("CreationDate")
                         .HasColumnType("datetime2");
@@ -643,7 +614,7 @@ namespace App.Infrastructure.SqlServer.Migrations
                     b.Property<bool>("IsDeleted")
                         .HasColumnType("bit");
 
-                    b.Property<string>("NameWithExtention")
+                    b.Property<string>("Name")
                         .IsRequired()
                         .HasMaxLength(50)
                         .HasColumnType("nvarchar(50)");
@@ -664,255 +635,255 @@ namespace App.Infrastructure.SqlServer.Migrations
                     b.HasData(
                         new
                         {
-                            Id = 1,
-                            CreationDate = new DateTime(2022, 7, 22, 20, 28, 13, 310, DateTimeKind.Local).AddTicks(3063),
+                            Id = new Guid("d42e96b9-8934-463e-b62f-67919637967a"),
+                            CreationDate = new DateTime(2022, 8, 7, 2, 59, 8, 864, DateTimeKind.Local).AddTicks(1318),
                             Description = "توضیح فایل 01",
                             FileTypeId = 1,
                             IsDeleted = false,
-                            NameWithExtention = "File01.jpg"
+                            Name = "File01"
                         },
                         new
                         {
-                            Id = 2,
-                            CreationDate = new DateTime(2022, 7, 22, 20, 28, 13, 310, DateTimeKind.Local).AddTicks(3096),
+                            Id = new Guid("d1a5967d-3695-41eb-beda-ea33072dee1d"),
+                            CreationDate = new DateTime(2022, 8, 7, 2, 59, 8, 864, DateTimeKind.Local).AddTicks(1326),
                             Description = "توضیح فایل 02",
                             FileTypeId = 1,
                             IsDeleted = false,
-                            NameWithExtention = "File02.jpg"
+                            Name = "File02"
                         },
                         new
                         {
-                            Id = 3,
-                            CreationDate = new DateTime(2022, 7, 22, 20, 28, 13, 310, DateTimeKind.Local).AddTicks(3102),
+                            Id = new Guid("fdf1ec62-2486-4f2d-b614-60edceb70909"),
+                            CreationDate = new DateTime(2022, 8, 7, 2, 59, 8, 864, DateTimeKind.Local).AddTicks(1328),
                             Description = "توضیح فایل 03",
                             FileTypeId = 1,
                             IsDeleted = false,
-                            NameWithExtention = "File03.jpg"
+                            Name = "File03"
                         },
                         new
                         {
-                            Id = 4,
-                            CreationDate = new DateTime(2022, 7, 22, 20, 28, 13, 310, DateTimeKind.Local).AddTicks(3107),
+                            Id = new Guid("bd99ec40-b9c1-4290-b08b-62c1f8c88d11"),
+                            CreationDate = new DateTime(2022, 8, 7, 2, 59, 8, 864, DateTimeKind.Local).AddTicks(1331),
                             Description = "توضیح فایل 04",
                             FileTypeId = 1,
                             IsDeleted = false,
-                            NameWithExtention = "File04.jpg"
+                            Name = "File04"
                         },
                         new
                         {
-                            Id = 5,
-                            CreationDate = new DateTime(2022, 7, 22, 20, 28, 13, 310, DateTimeKind.Local).AddTicks(3377),
+                            Id = new Guid("549389e6-59c9-4ce8-a324-255b7f9d3614"),
+                            CreationDate = new DateTime(2022, 8, 7, 2, 59, 8, 864, DateTimeKind.Local).AddTicks(1333),
                             Description = "توضیح فایل 05",
                             FileTypeId = 1,
                             IsDeleted = false,
-                            NameWithExtention = "File05.jpg"
+                            Name = "File05"
                         },
                         new
                         {
-                            Id = 6,
-                            CreationDate = new DateTime(2022, 7, 22, 20, 28, 13, 310, DateTimeKind.Local).AddTicks(3382),
+                            Id = new Guid("62ed00d2-28c3-438b-a616-931e6224df79"),
+                            CreationDate = new DateTime(2022, 8, 7, 2, 59, 8, 864, DateTimeKind.Local).AddTicks(1334),
                             Description = "توضیح فایل 06",
                             FileTypeId = 1,
                             IsDeleted = false,
-                            NameWithExtention = "File06.jpg"
+                            Name = "File06"
                         },
                         new
                         {
-                            Id = 7,
-                            CreationDate = new DateTime(2022, 7, 22, 20, 28, 13, 310, DateTimeKind.Local).AddTicks(3388),
+                            Id = new Guid("568b64b6-cee2-4904-beb9-c4778f50348a"),
+                            CreationDate = new DateTime(2022, 8, 7, 2, 59, 8, 864, DateTimeKind.Local).AddTicks(1336),
                             Description = "توضیح فایل 07",
                             FileTypeId = 1,
                             IsDeleted = false,
-                            NameWithExtention = "File07.jpg"
+                            Name = "File07"
                         },
                         new
                         {
-                            Id = 8,
-                            CreationDate = new DateTime(2022, 7, 22, 20, 28, 13, 310, DateTimeKind.Local).AddTicks(3392),
+                            Id = new Guid("d4251ad8-9a38-4cf9-b216-af6ec711dc9e"),
+                            CreationDate = new DateTime(2022, 8, 7, 2, 59, 8, 864, DateTimeKind.Local).AddTicks(1338),
                             Description = "توضیح فایل 08",
                             FileTypeId = 1,
                             IsDeleted = false,
-                            NameWithExtention = "File08.jpg"
+                            Name = "File08"
                         },
                         new
                         {
-                            Id = 9,
-                            CreationDate = new DateTime(2022, 7, 22, 20, 28, 13, 310, DateTimeKind.Local).AddTicks(3397),
+                            Id = new Guid("6763263b-d373-4667-bbbf-88c8d356a827"),
+                            CreationDate = new DateTime(2022, 8, 7, 2, 59, 8, 864, DateTimeKind.Local).AddTicks(1339),
                             Description = "توضیح فایل 09",
                             FileTypeId = 1,
                             IsDeleted = false,
-                            NameWithExtention = "File09.jpg"
+                            Name = "File09"
                         },
                         new
                         {
-                            Id = 10,
-                            CreationDate = new DateTime(2022, 7, 22, 20, 28, 13, 310, DateTimeKind.Local).AddTicks(3402),
+                            Id = new Guid("0d89d669-9340-4a63-8258-cac3177d81c0"),
+                            CreationDate = new DateTime(2022, 8, 7, 2, 59, 8, 864, DateTimeKind.Local).AddTicks(1341),
                             Description = "توضیح فایل 10",
                             FileTypeId = 1,
                             IsDeleted = false,
-                            NameWithExtention = "File10.jpg"
+                            Name = "File10"
                         },
                         new
                         {
-                            Id = 11,
-                            CreationDate = new DateTime(2022, 7, 22, 20, 28, 13, 310, DateTimeKind.Local).AddTicks(3407),
+                            Id = new Guid("778c783f-46da-493a-aa9f-3bccdd3e6340"),
+                            CreationDate = new DateTime(2022, 8, 7, 2, 59, 8, 864, DateTimeKind.Local).AddTicks(1342),
                             Description = "توضیح فایل 11",
                             FileTypeId = 1,
                             IsDeleted = false,
-                            NameWithExtention = "File11.jpg"
+                            Name = "File11"
                         },
                         new
                         {
-                            Id = 12,
-                            CreationDate = new DateTime(2022, 7, 22, 20, 28, 13, 310, DateTimeKind.Local).AddTicks(3412),
+                            Id = new Guid("81ba7570-0680-441c-a494-1fadfce4ed8e"),
+                            CreationDate = new DateTime(2022, 8, 7, 2, 59, 8, 864, DateTimeKind.Local).AddTicks(1344),
                             Description = "توضیح فایل 12",
                             FileTypeId = 1,
                             IsDeleted = false,
-                            NameWithExtention = "File12.jpg"
+                            Name = "File12"
                         },
                         new
                         {
-                            Id = 13,
-                            CreationDate = new DateTime(2022, 7, 22, 20, 28, 13, 310, DateTimeKind.Local).AddTicks(3417),
+                            Id = new Guid("07c215c9-b16a-4297-a64b-8e67b29a3e65"),
+                            CreationDate = new DateTime(2022, 8, 7, 2, 59, 8, 864, DateTimeKind.Local).AddTicks(1346),
                             Description = "توضیح فایل 13",
                             FileTypeId = 1,
                             IsDeleted = false,
-                            NameWithExtention = "File13.jpg"
+                            Name = "File13"
                         },
                         new
                         {
-                            Id = 14,
-                            CreationDate = new DateTime(2022, 7, 22, 20, 28, 13, 310, DateTimeKind.Local).AddTicks(3422),
+                            Id = new Guid("a5958c07-4fdf-44f3-90ef-d5eb9926b08b"),
+                            CreationDate = new DateTime(2022, 8, 7, 2, 59, 8, 864, DateTimeKind.Local).AddTicks(1347),
                             Description = "توضیح فایل 14",
                             FileTypeId = 1,
                             IsDeleted = false,
-                            NameWithExtention = "File14.jpg"
+                            Name = "File14"
                         },
                         new
                         {
-                            Id = 15,
-                            CreationDate = new DateTime(2022, 7, 22, 20, 28, 13, 310, DateTimeKind.Local).AddTicks(3426),
+                            Id = new Guid("18c9ffb3-7a99-4a18-81e5-7dff658eb40d"),
+                            CreationDate = new DateTime(2022, 8, 7, 2, 59, 8, 864, DateTimeKind.Local).AddTicks(1349),
                             Description = "توضیح فایل 15",
                             FileTypeId = 1,
                             IsDeleted = false,
-                            NameWithExtention = "File15.jpg"
+                            Name = "File15"
                         },
                         new
                         {
-                            Id = 16,
-                            CreationDate = new DateTime(2022, 7, 22, 20, 28, 13, 310, DateTimeKind.Local).AddTicks(3431),
+                            Id = new Guid("0ba23649-6aba-4bd3-b9bb-e4130259ca23"),
+                            CreationDate = new DateTime(2022, 8, 7, 2, 59, 8, 864, DateTimeKind.Local).AddTicks(1350),
                             Description = "توضیح فایل 16",
                             FileTypeId = 1,
                             IsDeleted = false,
-                            NameWithExtention = "File16.jpg"
+                            Name = "File16"
                         },
                         new
                         {
-                            Id = 17,
-                            CreationDate = new DateTime(2022, 7, 22, 20, 28, 13, 310, DateTimeKind.Local).AddTicks(3437),
+                            Id = new Guid("e1e63a40-1e97-4807-b52f-e5b1c580d610"),
+                            CreationDate = new DateTime(2022, 8, 7, 2, 59, 8, 864, DateTimeKind.Local).AddTicks(1352),
                             Description = "توضیح فایل 17",
                             FileTypeId = 1,
                             IsDeleted = false,
-                            NameWithExtention = "File17.jpg"
+                            Name = "File17"
                         },
                         new
                         {
-                            Id = 18,
-                            CreationDate = new DateTime(2022, 7, 22, 20, 28, 13, 310, DateTimeKind.Local).AddTicks(3441),
+                            Id = new Guid("da215b21-dfb4-4173-9c22-70ae83ca6a01"),
+                            CreationDate = new DateTime(2022, 8, 7, 2, 59, 8, 864, DateTimeKind.Local).AddTicks(1354),
                             Description = "توضیح فایل 18",
                             FileTypeId = 1,
                             IsDeleted = false,
-                            NameWithExtention = "File18.jpg"
+                            Name = "File18"
                         },
                         new
                         {
-                            Id = 19,
-                            CreationDate = new DateTime(2022, 7, 22, 20, 28, 13, 310, DateTimeKind.Local).AddTicks(3446),
+                            Id = new Guid("0e90a5ad-c2fb-49a4-ae0f-94a9edf2b761"),
+                            CreationDate = new DateTime(2022, 8, 7, 2, 59, 8, 864, DateTimeKind.Local).AddTicks(1355),
                             Description = "توضیح فایل 19",
                             ExpertServiceId = 1,
                             FileTypeId = 1,
                             IsDeleted = false,
-                            NameWithExtention = "File19.jpg"
+                            Name = "File19"
                         },
                         new
                         {
-                            Id = 20,
-                            CreationDate = new DateTime(2022, 7, 22, 20, 28, 13, 310, DateTimeKind.Local).AddTicks(3453),
+                            Id = new Guid("a22970f8-9643-46db-a882-5668a8106cda"),
+                            CreationDate = new DateTime(2022, 8, 7, 2, 59, 8, 864, DateTimeKind.Local).AddTicks(1357),
                             Description = "توضیح فایل 20",
                             ExpertServiceId = 2,
                             FileTypeId = 1,
                             IsDeleted = false,
-                            NameWithExtention = "File20.jpg"
+                            Name = "File20"
                         },
                         new
                         {
-                            Id = 21,
-                            CreationDate = new DateTime(2022, 7, 22, 20, 28, 13, 310, DateTimeKind.Local).AddTicks(3458),
+                            Id = new Guid("7cd308d1-20a8-4253-9425-95599bebffba"),
+                            CreationDate = new DateTime(2022, 8, 7, 2, 59, 8, 864, DateTimeKind.Local).AddTicks(1359),
                             Description = "توضیح فایل 21",
                             ExpertServiceId = 3,
                             FileTypeId = 1,
                             IsDeleted = false,
-                            NameWithExtention = "File21.jpg"
+                            Name = "File21"
                         },
                         new
                         {
-                            Id = 22,
-                            CreationDate = new DateTime(2022, 7, 22, 20, 28, 13, 310, DateTimeKind.Local).AddTicks(3464),
+                            Id = new Guid("bf285fd5-2a8b-45ba-bbdf-fc203e7ffe5f"),
+                            CreationDate = new DateTime(2022, 8, 7, 2, 59, 8, 864, DateTimeKind.Local).AddTicks(1361),
                             Description = "توضیح فایل 22",
                             ExpertServiceId = 4,
                             FileTypeId = 1,
                             IsDeleted = false,
-                            NameWithExtention = "File22.jpg"
+                            Name = "File22"
                         },
                         new
                         {
-                            Id = 23,
-                            CreationDate = new DateTime(2022, 7, 22, 20, 28, 13, 310, DateTimeKind.Local).AddTicks(3470),
+                            Id = new Guid("bba08d67-4f5c-43e1-b9f5-a557ddd07bc4"),
+                            CreationDate = new DateTime(2022, 8, 7, 2, 59, 8, 864, DateTimeKind.Local).AddTicks(1362),
                             Description = "توضیح فایل 23",
                             ExpertServiceId = 5,
                             FileTypeId = 1,
                             IsDeleted = false,
-                            NameWithExtention = "File23.jpg"
+                            Name = "File23"
                         },
                         new
                         {
-                            Id = 24,
-                            CreationDate = new DateTime(2022, 7, 22, 20, 28, 13, 310, DateTimeKind.Local).AddTicks(3475),
+                            Id = new Guid("76b60a5a-94a4-4853-bf60-32cfe3771b4e"),
+                            CreationDate = new DateTime(2022, 8, 7, 2, 59, 8, 864, DateTimeKind.Local).AddTicks(1364),
                             Description = "توضیح فایل 24",
                             ExpertServiceId = 6,
                             FileTypeId = 1,
                             IsDeleted = false,
-                            NameWithExtention = "File24.jpg"
+                            Name = "File24"
                         },
                         new
                         {
-                            Id = 25,
-                            CreationDate = new DateTime(2022, 7, 22, 20, 28, 13, 310, DateTimeKind.Local).AddTicks(3480),
+                            Id = new Guid("de2bc168-bd6e-4766-b772-32cd8f299956"),
+                            CreationDate = new DateTime(2022, 8, 7, 2, 59, 8, 864, DateTimeKind.Local).AddTicks(1366),
                             Description = "توضیح فایل 25",
                             ExpertServiceId = 7,
                             FileTypeId = 1,
                             IsDeleted = false,
-                            NameWithExtention = "File25.jpg"
+                            Name = "File25"
                         },
                         new
                         {
-                            Id = 26,
-                            CreationDate = new DateTime(2022, 7, 22, 20, 28, 13, 310, DateTimeKind.Local).AddTicks(3484),
+                            Id = new Guid("6432657f-0744-423b-9731-ffc1ba771665"),
+                            CreationDate = new DateTime(2022, 8, 7, 2, 59, 8, 864, DateTimeKind.Local).AddTicks(1367),
                             Description = "توضیح فایل 26",
                             ExpertServiceId = 8,
                             FileTypeId = 1,
                             IsDeleted = false,
-                            NameWithExtention = "File26.jpg"
+                            Name = "File26"
                         },
                         new
                         {
-                            Id = 27,
-                            CreationDate = new DateTime(2022, 7, 22, 20, 28, 13, 310, DateTimeKind.Local).AddTicks(3490),
+                            Id = new Guid("23082990-0d6c-41bd-95e3-da36708d52e6"),
+                            CreationDate = new DateTime(2022, 8, 7, 2, 59, 8, 864, DateTimeKind.Local).AddTicks(1369),
                             Description = "توضیح فایل 27",
                             ExpertServiceId = 9,
                             FileTypeId = 1,
                             IsDeleted = false,
-                            NameWithExtention = "File27.jpg"
+                            Name = "File27"
                         });
                 });
 
@@ -923,6 +894,10 @@ namespace App.Infrastructure.SqlServer.Migrations
                         .HasColumnType("int");
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
+
+                    b.Property<string>("Extention")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<bool>("IsDeleted")
                         .HasColumnType("bit");
@@ -939,6 +914,7 @@ namespace App.Infrastructure.SqlServer.Migrations
                         new
                         {
                             Id = 1,
+                            Extention = "jpg",
                             IsDeleted = false,
                             Name = "Image"
                         });
@@ -1062,7 +1038,7 @@ namespace App.Infrastructure.SqlServer.Migrations
                             CustomerId = 1,
                             IsDeleted = false,
                             OrderStateId = 1,
-                            RegisterDate = new DateTime(2022, 7, 22, 20, 28, 13, 317, DateTimeKind.Local).AddTicks(327),
+                            RegisterDate = new DateTime(2022, 8, 7, 2, 59, 8, 866, DateTimeKind.Local).AddTicks(699),
                             ServiceId = 1
                         },
                         new
@@ -1071,7 +1047,7 @@ namespace App.Infrastructure.SqlServer.Migrations
                             CustomerId = 2,
                             IsDeleted = false,
                             OrderStateId = 1,
-                            RegisterDate = new DateTime(2022, 7, 22, 20, 28, 13, 317, DateTimeKind.Local).AddTicks(351),
+                            RegisterDate = new DateTime(2022, 8, 7, 2, 59, 8, 866, DateTimeKind.Local).AddTicks(709),
                             ServiceId = 2
                         },
                         new
@@ -1080,7 +1056,7 @@ namespace App.Infrastructure.SqlServer.Migrations
                             CustomerId = 3,
                             IsDeleted = false,
                             OrderStateId = 1,
-                            RegisterDate = new DateTime(2022, 7, 22, 20, 28, 13, 317, DateTimeKind.Local).AddTicks(355),
+                            RegisterDate = new DateTime(2022, 8, 7, 2, 59, 8, 866, DateTimeKind.Local).AddTicks(711),
                             ServiceId = 3
                         },
                         new
@@ -1089,7 +1065,7 @@ namespace App.Infrastructure.SqlServer.Migrations
                             CustomerId = 4,
                             IsDeleted = false,
                             OrderStateId = 1,
-                            RegisterDate = new DateTime(2022, 7, 22, 20, 28, 13, 317, DateTimeKind.Local).AddTicks(359),
+                            RegisterDate = new DateTime(2022, 8, 7, 2, 59, 8, 866, DateTimeKind.Local).AddTicks(712),
                             ServiceId = 4
                         },
                         new
@@ -1098,7 +1074,7 @@ namespace App.Infrastructure.SqlServer.Migrations
                             CustomerId = 5,
                             IsDeleted = false,
                             OrderStateId = 1,
-                            RegisterDate = new DateTime(2022, 7, 22, 20, 28, 13, 317, DateTimeKind.Local).AddTicks(363),
+                            RegisterDate = new DateTime(2022, 8, 7, 2, 59, 8, 866, DateTimeKind.Local).AddTicks(714),
                             ServiceId = 5
                         },
                         new
@@ -1107,7 +1083,7 @@ namespace App.Infrastructure.SqlServer.Migrations
                             CustomerId = 6,
                             IsDeleted = false,
                             OrderStateId = 1,
-                            RegisterDate = new DateTime(2022, 7, 22, 20, 28, 13, 317, DateTimeKind.Local).AddTicks(367),
+                            RegisterDate = new DateTime(2022, 8, 7, 2, 59, 8, 866, DateTimeKind.Local).AddTicks(715),
                             ServiceId = 6
                         },
                         new
@@ -1116,7 +1092,7 @@ namespace App.Infrastructure.SqlServer.Migrations
                             CustomerId = 7,
                             IsDeleted = false,
                             OrderStateId = 1,
-                            RegisterDate = new DateTime(2022, 7, 22, 20, 28, 13, 317, DateTimeKind.Local).AddTicks(370),
+                            RegisterDate = new DateTime(2022, 8, 7, 2, 59, 8, 866, DateTimeKind.Local).AddTicks(717),
                             ServiceId = 7
                         },
                         new
@@ -1125,7 +1101,7 @@ namespace App.Infrastructure.SqlServer.Migrations
                             CustomerId = 8,
                             IsDeleted = false,
                             OrderStateId = 1,
-                            RegisterDate = new DateTime(2022, 7, 22, 20, 28, 13, 317, DateTimeKind.Local).AddTicks(374),
+                            RegisterDate = new DateTime(2022, 8, 7, 2, 59, 8, 866, DateTimeKind.Local).AddTicks(718),
                             ServiceId = 8
                         },
                         new
@@ -1134,7 +1110,7 @@ namespace App.Infrastructure.SqlServer.Migrations
                             CustomerId = 9,
                             IsDeleted = false,
                             OrderStateId = 1,
-                            RegisterDate = new DateTime(2022, 7, 22, 20, 28, 13, 317, DateTimeKind.Local).AddTicks(378),
+                            RegisterDate = new DateTime(2022, 8, 7, 2, 59, 8, 866, DateTimeKind.Local).AddTicks(720),
                             ServiceId = 9
                         });
                 });
@@ -1238,7 +1214,7 @@ namespace App.Infrastructure.SqlServer.Migrations
                             ExpertServiceId = 1,
                             IsConfirmed = true,
                             LikeCount = 1,
-                            SubmitDate = new DateTime(2022, 7, 22, 20, 28, 13, 310, DateTimeKind.Local).AddTicks(4290),
+                            SubmitDate = new DateTime(2022, 8, 7, 2, 59, 8, 864, DateTimeKind.Local).AddTicks(1535),
                             Text = "متن",
                             Title = "کامنت مشتری 1 برای سرویس-متخصص شماره 1"
                         },
@@ -1250,7 +1226,7 @@ namespace App.Infrastructure.SqlServer.Migrations
                             ExpertServiceId = 2,
                             IsConfirmed = true,
                             LikeCount = 1,
-                            SubmitDate = new DateTime(2022, 7, 22, 20, 28, 13, 310, DateTimeKind.Local).AddTicks(4311),
+                            SubmitDate = new DateTime(2022, 8, 7, 2, 59, 8, 864, DateTimeKind.Local).AddTicks(1539),
                             Text = "متن",
                             Title = "کامنت مشتری 2 برای سرویس-متخصص شماره 2"
                         },
@@ -1262,7 +1238,7 @@ namespace App.Infrastructure.SqlServer.Migrations
                             ExpertServiceId = 3,
                             IsConfirmed = true,
                             LikeCount = 1,
-                            SubmitDate = new DateTime(2022, 7, 22, 20, 28, 13, 310, DateTimeKind.Local).AddTicks(4324),
+                            SubmitDate = new DateTime(2022, 8, 7, 2, 59, 8, 864, DateTimeKind.Local).AddTicks(1541),
                             Text = "متن",
                             Title = "کامنت مشتری 3 برای سرویس-متخصص شماره 3"
                         },
@@ -1274,7 +1250,7 @@ namespace App.Infrastructure.SqlServer.Migrations
                             ExpertServiceId = 4,
                             IsConfirmed = true,
                             LikeCount = 1,
-                            SubmitDate = new DateTime(2022, 7, 22, 20, 28, 13, 310, DateTimeKind.Local).AddTicks(4330),
+                            SubmitDate = new DateTime(2022, 8, 7, 2, 59, 8, 864, DateTimeKind.Local).AddTicks(1542),
                             Text = "متن",
                             Title = "کامنت مشتری 4 برای سرویس-متخصص شماره 4"
                         },
@@ -1286,7 +1262,7 @@ namespace App.Infrastructure.SqlServer.Migrations
                             ExpertServiceId = 5,
                             IsConfirmed = true,
                             LikeCount = 1,
-                            SubmitDate = new DateTime(2022, 7, 22, 20, 28, 13, 310, DateTimeKind.Local).AddTicks(4335),
+                            SubmitDate = new DateTime(2022, 8, 7, 2, 59, 8, 864, DateTimeKind.Local).AddTicks(1544),
                             Text = "متن",
                             Title = "کامنت مشتری 5 برای سرویس-متخصص شماره 5"
                         },
@@ -1298,7 +1274,7 @@ namespace App.Infrastructure.SqlServer.Migrations
                             ExpertServiceId = 6,
                             IsConfirmed = true,
                             LikeCount = 1,
-                            SubmitDate = new DateTime(2022, 7, 22, 20, 28, 13, 310, DateTimeKind.Local).AddTicks(4340),
+                            SubmitDate = new DateTime(2022, 8, 7, 2, 59, 8, 864, DateTimeKind.Local).AddTicks(1546),
                             Text = "متن",
                             Title = "کامنت مشتری 6 برای سرویس-متخصص شماره 6"
                         },
@@ -1310,7 +1286,7 @@ namespace App.Infrastructure.SqlServer.Migrations
                             ExpertServiceId = 7,
                             IsConfirmed = true,
                             LikeCount = 1,
-                            SubmitDate = new DateTime(2022, 7, 22, 20, 28, 13, 310, DateTimeKind.Local).AddTicks(4346),
+                            SubmitDate = new DateTime(2022, 8, 7, 2, 59, 8, 864, DateTimeKind.Local).AddTicks(1549),
                             Text = "متن",
                             Title = "کامنت مشتری 7 برای سرویس-متخصص شماره 7"
                         },
@@ -1322,7 +1298,7 @@ namespace App.Infrastructure.SqlServer.Migrations
                             ExpertServiceId = 8,
                             IsConfirmed = true,
                             LikeCount = 1,
-                            SubmitDate = new DateTime(2022, 7, 22, 20, 28, 13, 310, DateTimeKind.Local).AddTicks(4351),
+                            SubmitDate = new DateTime(2022, 8, 7, 2, 59, 8, 864, DateTimeKind.Local).AddTicks(1550),
                             Text = "متن",
                             Title = "کامنت مشتری 8 برای سرویس-متخصص شماره 8"
                         },
@@ -1334,7 +1310,7 @@ namespace App.Infrastructure.SqlServer.Migrations
                             ExpertServiceId = 9,
                             IsConfirmed = true,
                             LikeCount = 1,
-                            SubmitDate = new DateTime(2022, 7, 22, 20, 28, 13, 310, DateTimeKind.Local).AddTicks(4356),
+                            SubmitDate = new DateTime(2022, 8, 7, 2, 59, 8, 864, DateTimeKind.Local).AddTicks(1552),
                             Text = "متن",
                             Title = "کامنت مشتری 9 برای سرویس-متخصص شماره 9"
                         });
@@ -1489,8 +1465,8 @@ namespace App.Infrastructure.SqlServer.Migrations
                     b.Property<int>("AppUserId")
                         .HasColumnType("int");
 
-                    b.Property<int?>("ImageFileId")
-                        .HasColumnType("int");
+                    b.Property<Guid?>("ImageFileId")
+                        .HasColumnType("uniqueidentifier");
 
                     b.HasKey("Id");
 
@@ -1508,63 +1484,63 @@ namespace App.Infrastructure.SqlServer.Migrations
                             Id = 1,
                             Address = "آدرس متخصص 1",
                             AppUserId = 1,
-                            ImageFileId = 1
+                            ImageFileId = new Guid("d42e96b9-8934-463e-b62f-67919637967a")
                         },
                         new
                         {
                             Id = 2,
                             Address = "آدرس متخصص 2",
                             AppUserId = 2,
-                            ImageFileId = 2
+                            ImageFileId = new Guid("d1a5967d-3695-41eb-beda-ea33072dee1d")
                         },
                         new
                         {
                             Id = 3,
                             Address = "آدرس متخصص 3",
                             AppUserId = 3,
-                            ImageFileId = 3
+                            ImageFileId = new Guid("fdf1ec62-2486-4f2d-b614-60edceb70909")
                         },
                         new
                         {
                             Id = 4,
                             Address = "آدرس متخصص 4",
                             AppUserId = 4,
-                            ImageFileId = 4
+                            ImageFileId = new Guid("bd99ec40-b9c1-4290-b08b-62c1f8c88d11")
                         },
                         new
                         {
                             Id = 5,
                             Address = "آدرس متخصص 5",
                             AppUserId = 5,
-                            ImageFileId = 5
+                            ImageFileId = new Guid("549389e6-59c9-4ce8-a324-255b7f9d3614")
                         },
                         new
                         {
                             Id = 6,
                             Address = "آدرس متخصص 6",
                             AppUserId = 6,
-                            ImageFileId = 6
+                            ImageFileId = new Guid("62ed00d2-28c3-438b-a616-931e6224df79")
                         },
                         new
                         {
                             Id = 7,
                             Address = "آدرس متخصص 7",
                             AppUserId = 7,
-                            ImageFileId = 7
+                            ImageFileId = new Guid("568b64b6-cee2-4904-beb9-c4778f50348a")
                         },
                         new
                         {
                             Id = 8,
                             Address = "آدرس متخصص 8",
                             AppUserId = 8,
-                            ImageFileId = 8
+                            ImageFileId = new Guid("d4251ad8-9a38-4cf9-b216-af6ec711dc9e")
                         },
                         new
                         {
                             Id = 9,
                             Address = "آدرس متخصص 9",
                             AppUserId = 9,
-                            ImageFileId = 9
+                            ImageFileId = new Guid("6763263b-d373-4667-bbbf-88c8d356a827")
                         });
                 });
 
@@ -1603,7 +1579,7 @@ namespace App.Infrastructure.SqlServer.Migrations
                         new
                         {
                             Id = 1,
-                            CreationDate = new DateTime(2022, 7, 22, 20, 28, 13, 309, DateTimeKind.Local).AddTicks(8748),
+                            CreationDate = new DateTime(2022, 8, 7, 2, 59, 8, 864, DateTimeKind.Local).AddTicks(368),
                             ExpertId = 1,
                             IsActive = true,
                             IsDeleted = false,
@@ -1612,7 +1588,7 @@ namespace App.Infrastructure.SqlServer.Migrations
                         new
                         {
                             Id = 2,
-                            CreationDate = new DateTime(2022, 7, 22, 20, 28, 13, 309, DateTimeKind.Local).AddTicks(8779),
+                            CreationDate = new DateTime(2022, 8, 7, 2, 59, 8, 864, DateTimeKind.Local).AddTicks(378),
                             ExpertId = 2,
                             IsActive = true,
                             IsDeleted = false,
@@ -1621,7 +1597,7 @@ namespace App.Infrastructure.SqlServer.Migrations
                         new
                         {
                             Id = 3,
-                            CreationDate = new DateTime(2022, 7, 22, 20, 28, 13, 309, DateTimeKind.Local).AddTicks(8785),
+                            CreationDate = new DateTime(2022, 8, 7, 2, 59, 8, 864, DateTimeKind.Local).AddTicks(379),
                             ExpertId = 3,
                             IsActive = true,
                             IsDeleted = false,
@@ -1630,7 +1606,7 @@ namespace App.Infrastructure.SqlServer.Migrations
                         new
                         {
                             Id = 4,
-                            CreationDate = new DateTime(2022, 7, 22, 20, 28, 13, 309, DateTimeKind.Local).AddTicks(8791),
+                            CreationDate = new DateTime(2022, 8, 7, 2, 59, 8, 864, DateTimeKind.Local).AddTicks(381),
                             ExpertId = 4,
                             IsActive = true,
                             IsDeleted = false,
@@ -1639,7 +1615,7 @@ namespace App.Infrastructure.SqlServer.Migrations
                         new
                         {
                             Id = 5,
-                            CreationDate = new DateTime(2022, 7, 22, 20, 28, 13, 309, DateTimeKind.Local).AddTicks(8795),
+                            CreationDate = new DateTime(2022, 8, 7, 2, 59, 8, 864, DateTimeKind.Local).AddTicks(382),
                             ExpertId = 5,
                             IsActive = true,
                             IsDeleted = false,
@@ -1648,7 +1624,7 @@ namespace App.Infrastructure.SqlServer.Migrations
                         new
                         {
                             Id = 6,
-                            CreationDate = new DateTime(2022, 7, 22, 20, 28, 13, 309, DateTimeKind.Local).AddTicks(8799),
+                            CreationDate = new DateTime(2022, 8, 7, 2, 59, 8, 864, DateTimeKind.Local).AddTicks(384),
                             ExpertId = 6,
                             IsActive = true,
                             IsDeleted = false,
@@ -1657,7 +1633,7 @@ namespace App.Infrastructure.SqlServer.Migrations
                         new
                         {
                             Id = 7,
-                            CreationDate = new DateTime(2022, 7, 22, 20, 28, 13, 309, DateTimeKind.Local).AddTicks(8805),
+                            CreationDate = new DateTime(2022, 8, 7, 2, 59, 8, 864, DateTimeKind.Local).AddTicks(386),
                             ExpertId = 7,
                             IsActive = true,
                             IsDeleted = false,
@@ -1666,7 +1642,7 @@ namespace App.Infrastructure.SqlServer.Migrations
                         new
                         {
                             Id = 8,
-                            CreationDate = new DateTime(2022, 7, 22, 20, 28, 13, 309, DateTimeKind.Local).AddTicks(8809),
+                            CreationDate = new DateTime(2022, 8, 7, 2, 59, 8, 864, DateTimeKind.Local).AddTicks(387),
                             ExpertId = 8,
                             IsActive = true,
                             IsDeleted = false,
@@ -1675,7 +1651,7 @@ namespace App.Infrastructure.SqlServer.Migrations
                         new
                         {
                             Id = 9,
-                            CreationDate = new DateTime(2022, 7, 22, 20, 28, 13, 309, DateTimeKind.Local).AddTicks(8812),
+                            CreationDate = new DateTime(2022, 8, 7, 2, 59, 8, 864, DateTimeKind.Local).AddTicks(389),
                             ExpertId = 9,
                             IsActive = true,
                             IsDeleted = false,
@@ -1718,7 +1694,7 @@ namespace App.Infrastructure.SqlServer.Migrations
                         new
                         {
                             Id = 1,
-                            ComplitionDate = new DateTime(2022, 7, 20, 20, 28, 13, 311, DateTimeKind.Local).AddTicks(2288),
+                            ComplitionDate = new DateTime(2022, 8, 5, 2, 59, 8, 864, DateTimeKind.Local).AddTicks(3059),
                             CustomerId = 1,
                             ExpertServiceId = 1,
                             IsDeleted = false,
@@ -1727,7 +1703,7 @@ namespace App.Infrastructure.SqlServer.Migrations
                         new
                         {
                             Id = 2,
-                            ComplitionDate = new DateTime(2022, 7, 20, 20, 28, 13, 311, DateTimeKind.Local).AddTicks(2327),
+                            ComplitionDate = new DateTime(2022, 8, 5, 2, 59, 8, 864, DateTimeKind.Local).AddTicks(3073),
                             CustomerId = 2,
                             ExpertServiceId = 2,
                             IsDeleted = false,
@@ -1736,7 +1712,7 @@ namespace App.Infrastructure.SqlServer.Migrations
                         new
                         {
                             Id = 3,
-                            ComplitionDate = new DateTime(2022, 7, 20, 20, 28, 13, 311, DateTimeKind.Local).AddTicks(2333),
+                            ComplitionDate = new DateTime(2022, 8, 5, 2, 59, 8, 864, DateTimeKind.Local).AddTicks(3075),
                             CustomerId = 3,
                             ExpertServiceId = 3,
                             IsDeleted = false,
@@ -1745,7 +1721,7 @@ namespace App.Infrastructure.SqlServer.Migrations
                         new
                         {
                             Id = 4,
-                            ComplitionDate = new DateTime(2022, 7, 20, 20, 28, 13, 311, DateTimeKind.Local).AddTicks(2339),
+                            ComplitionDate = new DateTime(2022, 8, 5, 2, 59, 8, 864, DateTimeKind.Local).AddTicks(3076),
                             CustomerId = 4,
                             ExpertServiceId = 4,
                             IsDeleted = false,
@@ -1754,7 +1730,7 @@ namespace App.Infrastructure.SqlServer.Migrations
                         new
                         {
                             Id = 5,
-                            ComplitionDate = new DateTime(2022, 7, 20, 20, 28, 13, 311, DateTimeKind.Local).AddTicks(2345),
+                            ComplitionDate = new DateTime(2022, 8, 5, 2, 59, 8, 864, DateTimeKind.Local).AddTicks(3078),
                             CustomerId = 5,
                             ExpertServiceId = 5,
                             IsDeleted = false,
@@ -1763,7 +1739,7 @@ namespace App.Infrastructure.SqlServer.Migrations
                         new
                         {
                             Id = 6,
-                            ComplitionDate = new DateTime(2022, 7, 20, 20, 28, 13, 311, DateTimeKind.Local).AddTicks(2350),
+                            ComplitionDate = new DateTime(2022, 8, 5, 2, 59, 8, 864, DateTimeKind.Local).AddTicks(3080),
                             CustomerId = 6,
                             ExpertServiceId = 6,
                             IsDeleted = false,
@@ -1772,7 +1748,7 @@ namespace App.Infrastructure.SqlServer.Migrations
                         new
                         {
                             Id = 7,
-                            ComplitionDate = new DateTime(2022, 7, 20, 20, 28, 13, 311, DateTimeKind.Local).AddTicks(2356),
+                            ComplitionDate = new DateTime(2022, 8, 5, 2, 59, 8, 864, DateTimeKind.Local).AddTicks(3081),
                             CustomerId = 7,
                             ExpertServiceId = 7,
                             IsDeleted = false,
@@ -1781,7 +1757,7 @@ namespace App.Infrastructure.SqlServer.Migrations
                         new
                         {
                             Id = 8,
-                            ComplitionDate = new DateTime(2022, 7, 20, 20, 28, 13, 311, DateTimeKind.Local).AddTicks(2362),
+                            ComplitionDate = new DateTime(2022, 8, 5, 2, 59, 8, 864, DateTimeKind.Local).AddTicks(3083),
                             CustomerId = 8,
                             ExpertServiceId = 8,
                             IsDeleted = false,
@@ -1790,7 +1766,7 @@ namespace App.Infrastructure.SqlServer.Migrations
                         new
                         {
                             Id = 9,
-                            ComplitionDate = new DateTime(2022, 7, 20, 20, 28, 13, 311, DateTimeKind.Local).AddTicks(2368),
+                            ComplitionDate = new DateTime(2022, 8, 5, 2, 59, 8, 864, DateTimeKind.Local).AddTicks(3085),
                             CustomerId = 9,
                             ExpertServiceId = 9,
                             IsDeleted = false,
@@ -1805,6 +1781,9 @@ namespace App.Infrastructure.SqlServer.Migrations
                         .HasColumnType("int");
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
+
+                    b.Property<bool>("Accepted")
+                        .HasColumnType("bit");
 
                     b.Property<int>("ExpertId")
                         .HasColumnType("int");
@@ -1836,92 +1815,101 @@ namespace App.Infrastructure.SqlServer.Migrations
                         new
                         {
                             Id = 1,
+                            Accepted = false,
                             ExpertId = 1,
                             OrderId = 1,
                             Price = 100000L,
-                            RegisterDate = new DateTime(2022, 7, 22, 20, 28, 13, 311, DateTimeKind.Local).AddTicks(7685),
+                            RegisterDate = new DateTime(2022, 8, 7, 2, 59, 8, 864, DateTimeKind.Local).AddTicks(3963),
                             RequiredTime = new TimeSpan(0, 3, 0, 0, 0),
-                            StartDate = new DateTime(2022, 7, 23, 20, 28, 13, 311, DateTimeKind.Local).AddTicks(7717)
+                            StartDate = new DateTime(2022, 8, 8, 2, 59, 8, 864, DateTimeKind.Local).AddTicks(3973)
                         },
                         new
                         {
                             Id = 2,
+                            Accepted = false,
                             ExpertId = 2,
                             OrderId = 2,
                             Price = 100000L,
-                            RegisterDate = new DateTime(2022, 7, 22, 20, 28, 13, 311, DateTimeKind.Local).AddTicks(7725),
+                            RegisterDate = new DateTime(2022, 8, 7, 2, 59, 8, 864, DateTimeKind.Local).AddTicks(3975),
                             RequiredTime = new TimeSpan(0, 3, 0, 0, 0),
-                            StartDate = new DateTime(2022, 7, 23, 20, 28, 13, 311, DateTimeKind.Local).AddTicks(7730)
+                            StartDate = new DateTime(2022, 8, 8, 2, 59, 8, 864, DateTimeKind.Local).AddTicks(3977)
                         },
                         new
                         {
                             Id = 3,
+                            Accepted = false,
                             ExpertId = 3,
                             OrderId = 3,
                             Price = 100000L,
-                            RegisterDate = new DateTime(2022, 7, 22, 20, 28, 13, 311, DateTimeKind.Local).AddTicks(7736),
+                            RegisterDate = new DateTime(2022, 8, 7, 2, 59, 8, 864, DateTimeKind.Local).AddTicks(3978),
                             RequiredTime = new TimeSpan(0, 3, 0, 0, 0),
-                            StartDate = new DateTime(2022, 7, 23, 20, 28, 13, 311, DateTimeKind.Local).AddTicks(7740)
+                            StartDate = new DateTime(2022, 8, 8, 2, 59, 8, 864, DateTimeKind.Local).AddTicks(3980)
                         },
                         new
                         {
                             Id = 4,
+                            Accepted = false,
                             ExpertId = 4,
                             OrderId = 4,
                             Price = 100000L,
-                            RegisterDate = new DateTime(2022, 7, 22, 20, 28, 13, 311, DateTimeKind.Local).AddTicks(7746),
+                            RegisterDate = new DateTime(2022, 8, 7, 2, 59, 8, 864, DateTimeKind.Local).AddTicks(3981),
                             RequiredTime = new TimeSpan(0, 3, 0, 0, 0),
-                            StartDate = new DateTime(2022, 7, 23, 20, 28, 13, 311, DateTimeKind.Local).AddTicks(7750)
+                            StartDate = new DateTime(2022, 8, 8, 2, 59, 8, 864, DateTimeKind.Local).AddTicks(3983)
                         },
                         new
                         {
                             Id = 5,
+                            Accepted = false,
                             ExpertId = 5,
                             OrderId = 5,
                             Price = 100000L,
-                            RegisterDate = new DateTime(2022, 7, 22, 20, 28, 13, 311, DateTimeKind.Local).AddTicks(7755),
+                            RegisterDate = new DateTime(2022, 8, 7, 2, 59, 8, 864, DateTimeKind.Local).AddTicks(3985),
                             RequiredTime = new TimeSpan(0, 3, 0, 0, 0),
-                            StartDate = new DateTime(2022, 7, 23, 20, 28, 13, 311, DateTimeKind.Local).AddTicks(7760)
+                            StartDate = new DateTime(2022, 8, 8, 2, 59, 8, 864, DateTimeKind.Local).AddTicks(3986)
                         },
                         new
                         {
                             Id = 6,
+                            Accepted = false,
                             ExpertId = 6,
                             OrderId = 6,
                             Price = 100000L,
-                            RegisterDate = new DateTime(2022, 7, 22, 20, 28, 13, 311, DateTimeKind.Local).AddTicks(7765),
+                            RegisterDate = new DateTime(2022, 8, 7, 2, 59, 8, 864, DateTimeKind.Local).AddTicks(3988),
                             RequiredTime = new TimeSpan(0, 3, 0, 0, 0),
-                            StartDate = new DateTime(2022, 7, 23, 20, 28, 13, 311, DateTimeKind.Local).AddTicks(7769)
+                            StartDate = new DateTime(2022, 8, 8, 2, 59, 8, 864, DateTimeKind.Local).AddTicks(3989)
                         },
                         new
                         {
                             Id = 7,
+                            Accepted = false,
                             ExpertId = 7,
                             OrderId = 7,
                             Price = 100000L,
-                            RegisterDate = new DateTime(2022, 7, 22, 20, 28, 13, 311, DateTimeKind.Local).AddTicks(7774),
+                            RegisterDate = new DateTime(2022, 8, 7, 2, 59, 8, 864, DateTimeKind.Local).AddTicks(3991),
                             RequiredTime = new TimeSpan(0, 3, 0, 0, 0),
-                            StartDate = new DateTime(2022, 7, 23, 20, 28, 13, 311, DateTimeKind.Local).AddTicks(7778)
+                            StartDate = new DateTime(2022, 8, 8, 2, 59, 8, 864, DateTimeKind.Local).AddTicks(3992)
                         },
                         new
                         {
                             Id = 8,
+                            Accepted = false,
                             ExpertId = 8,
                             OrderId = 8,
                             Price = 100000L,
-                            RegisterDate = new DateTime(2022, 7, 22, 20, 28, 13, 311, DateTimeKind.Local).AddTicks(7784),
+                            RegisterDate = new DateTime(2022, 8, 7, 2, 59, 8, 864, DateTimeKind.Local).AddTicks(3994),
                             RequiredTime = new TimeSpan(0, 3, 0, 0, 0),
-                            StartDate = new DateTime(2022, 7, 23, 20, 28, 13, 311, DateTimeKind.Local).AddTicks(7788)
+                            StartDate = new DateTime(2022, 8, 8, 2, 59, 8, 864, DateTimeKind.Local).AddTicks(3995)
                         },
                         new
                         {
                             Id = 9,
+                            Accepted = false,
                             ExpertId = 9,
                             OrderId = 9,
                             Price = 100000L,
-                            RegisterDate = new DateTime(2022, 7, 22, 20, 28, 13, 311, DateTimeKind.Local).AddTicks(7794),
+                            RegisterDate = new DateTime(2022, 8, 7, 2, 59, 8, 864, DateTimeKind.Local).AddTicks(3997),
                             RequiredTime = new TimeSpan(0, 3, 0, 0, 0),
-                            StartDate = new DateTime(2022, 7, 23, 20, 28, 13, 311, DateTimeKind.Local).AddTicks(7798)
+                            StartDate = new DateTime(2022, 8, 8, 2, 59, 8, 864, DateTimeKind.Local).AddTicks(3998)
                         });
                 });
 
@@ -1940,8 +1928,8 @@ namespace App.Infrastructure.SqlServer.Migrations
                         .HasMaxLength(2000)
                         .HasColumnType("nvarchar(2000)");
 
-                    b.Property<int?>("ImageFileId")
-                        .HasColumnType("int");
+                    b.Property<Guid?>("ImageFileId")
+                        .HasColumnType("uniqueidentifier");
 
                     b.Property<bool>("IsActive")
                         .HasColumnType("bit");
@@ -1974,9 +1962,9 @@ namespace App.Infrastructure.SqlServer.Migrations
                         new
                         {
                             Id = 1,
-                            CreationDate = new DateTime(2022, 7, 22, 20, 28, 13, 316, DateTimeKind.Local).AddTicks(3011),
+                            CreationDate = new DateTime(2022, 8, 7, 2, 59, 8, 865, DateTimeKind.Local).AddTicks(7909),
                             Description = "توضیح سرویس 1",
-                            ImageFileId = 10,
+                            ImageFileId = new Guid("0d89d669-9340-4a63-8258-cac3177d81c0"),
                             IsActive = true,
                             IsDeleted = false,
                             Name = "سرویس 1",
@@ -1985,9 +1973,9 @@ namespace App.Infrastructure.SqlServer.Migrations
                         new
                         {
                             Id = 2,
-                            CreationDate = new DateTime(2022, 7, 22, 20, 28, 13, 316, DateTimeKind.Local).AddTicks(3044),
+                            CreationDate = new DateTime(2022, 8, 7, 2, 59, 8, 865, DateTimeKind.Local).AddTicks(7921),
                             Description = "توضیح سرویس 2",
-                            ImageFileId = 11,
+                            ImageFileId = new Guid("778c783f-46da-493a-aa9f-3bccdd3e6340"),
                             IsActive = true,
                             IsDeleted = false,
                             Name = "سرویس 2",
@@ -1996,9 +1984,9 @@ namespace App.Infrastructure.SqlServer.Migrations
                         new
                         {
                             Id = 3,
-                            CreationDate = new DateTime(2022, 7, 22, 20, 28, 13, 316, DateTimeKind.Local).AddTicks(3050),
+                            CreationDate = new DateTime(2022, 8, 7, 2, 59, 8, 865, DateTimeKind.Local).AddTicks(7923),
                             Description = "توضیح سرویس 3",
-                            ImageFileId = 12,
+                            ImageFileId = new Guid("81ba7570-0680-441c-a494-1fadfce4ed8e"),
                             IsActive = true,
                             IsDeleted = false,
                             Name = "سرویس 3",
@@ -2008,9 +1996,9 @@ namespace App.Infrastructure.SqlServer.Migrations
                         new
                         {
                             Id = 4,
-                            CreationDate = new DateTime(2022, 7, 22, 20, 28, 13, 316, DateTimeKind.Local).AddTicks(3055),
+                            CreationDate = new DateTime(2022, 8, 7, 2, 59, 8, 865, DateTimeKind.Local).AddTicks(7926),
                             Description = "توضیح سرویس 4",
-                            ImageFileId = 13,
+                            ImageFileId = new Guid("07c215c9-b16a-4297-a64b-8e67b29a3e65"),
                             IsActive = true,
                             IsDeleted = false,
                             Name = "سرویس 4",
@@ -2020,9 +2008,9 @@ namespace App.Infrastructure.SqlServer.Migrations
                         new
                         {
                             Id = 5,
-                            CreationDate = new DateTime(2022, 7, 22, 20, 28, 13, 316, DateTimeKind.Local).AddTicks(3060),
+                            CreationDate = new DateTime(2022, 8, 7, 2, 59, 8, 865, DateTimeKind.Local).AddTicks(7928),
                             Description = "توضیح سرویس 5",
-                            ImageFileId = 14,
+                            ImageFileId = new Guid("a5958c07-4fdf-44f3-90ef-d5eb9926b08b"),
                             IsActive = true,
                             IsDeleted = false,
                             Name = "سرویس 5",
@@ -2032,9 +2020,9 @@ namespace App.Infrastructure.SqlServer.Migrations
                         new
                         {
                             Id = 6,
-                            CreationDate = new DateTime(2022, 7, 22, 20, 28, 13, 316, DateTimeKind.Local).AddTicks(3065),
+                            CreationDate = new DateTime(2022, 8, 7, 2, 59, 8, 865, DateTimeKind.Local).AddTicks(7930),
                             Description = "توضیح سرویس 6",
-                            ImageFileId = 15,
+                            ImageFileId = new Guid("18c9ffb3-7a99-4a18-81e5-7dff658eb40d"),
                             IsActive = true,
                             IsDeleted = false,
                             Name = "سرویس 6",
@@ -2044,9 +2032,9 @@ namespace App.Infrastructure.SqlServer.Migrations
                         new
                         {
                             Id = 7,
-                            CreationDate = new DateTime(2022, 7, 22, 20, 28, 13, 316, DateTimeKind.Local).AddTicks(3069),
+                            CreationDate = new DateTime(2022, 8, 7, 2, 59, 8, 865, DateTimeKind.Local).AddTicks(7932),
                             Description = "توضیح سرویس 7",
-                            ImageFileId = 16,
+                            ImageFileId = new Guid("0ba23649-6aba-4bd3-b9bb-e4130259ca23"),
                             IsActive = true,
                             IsDeleted = false,
                             Name = "سرویس 7",
@@ -2056,9 +2044,9 @@ namespace App.Infrastructure.SqlServer.Migrations
                         new
                         {
                             Id = 8,
-                            CreationDate = new DateTime(2022, 7, 22, 20, 28, 13, 316, DateTimeKind.Local).AddTicks(3088),
+                            CreationDate = new DateTime(2022, 8, 7, 2, 59, 8, 865, DateTimeKind.Local).AddTicks(7933),
                             Description = "توضیح سرویس 8",
-                            ImageFileId = 17,
+                            ImageFileId = new Guid("e1e63a40-1e97-4807-b52f-e5b1c580d610"),
                             IsActive = true,
                             IsDeleted = false,
                             Name = "سرویس 8",
@@ -2068,9 +2056,9 @@ namespace App.Infrastructure.SqlServer.Migrations
                         new
                         {
                             Id = 9,
-                            CreationDate = new DateTime(2022, 7, 22, 20, 28, 13, 316, DateTimeKind.Local).AddTicks(3092),
+                            CreationDate = new DateTime(2022, 8, 7, 2, 59, 8, 865, DateTimeKind.Local).AddTicks(7935),
                             Description = "توضیح سرویس 9",
-                            ImageFileId = 18,
+                            ImageFileId = new Guid("da215b21-dfb4-4173-9c22-70ae83ca6a01"),
                             IsActive = true,
                             IsDeleted = false,
                             Name = "سرویس 9",
@@ -2237,13 +2225,13 @@ namespace App.Infrastructure.SqlServer.Migrations
 
             modelBuilder.Entity("App.Domain.Core.Customer.Entities.Customer", b =>
                 {
-                    b.HasOne("App.Domain.Core.BaseData.Entities.AppUser", "appUser")
+                    b.HasOne("App.Domain.Core.BaseData.Entities.AppUser", "AppUser")
                         .WithMany()
                         .HasForeignKey("AppUserId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.Navigation("appUser");
+                    b.Navigation("AppUser");
                 });
 
             modelBuilder.Entity("App.Domain.Core.Customer.Entities.Order", b =>
@@ -2321,7 +2309,7 @@ namespace App.Infrastructure.SqlServer.Migrations
 
             modelBuilder.Entity("App.Domain.Core.Expert.Entities.Expert", b =>
                 {
-                    b.HasOne("App.Domain.Core.BaseData.Entities.AppUser", "appUser")
+                    b.HasOne("App.Domain.Core.BaseData.Entities.AppUser", "AppUser")
                         .WithMany()
                         .HasForeignKey("AppUserId")
                         .OnDelete(DeleteBehavior.Cascade)
@@ -2331,9 +2319,9 @@ namespace App.Infrastructure.SqlServer.Migrations
                         .WithOne()
                         .HasForeignKey("App.Domain.Core.Expert.Entities.Expert", "ImageFileId");
 
-                    b.Navigation("ImageFile");
+                    b.Navigation("AppUser");
 
-                    b.Navigation("appUser");
+                    b.Navigation("ImageFile");
                 });
 
             modelBuilder.Entity("App.Domain.Core.Expert.Entities.ExpertService", b =>

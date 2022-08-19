@@ -1,31 +1,40 @@
-using App.Domain.AppServices;
+using App.Domain.AppServices.BaseData;
+using App.Domain.AppServices.Customer;
+using App.Domain.AppServices.Service;
+using App.Domain.Core.BaseData.Contracts.AppServices;
 using App.Domain.Core.BaseData.Contracts.Repositories;
-using App.Domain.Core.Expert.Contracts.Repositories;
-using App.Domain.Core.Service.Contracts.Repositories;
+using App.Domain.Core.BaseData.Contracts.Services;
+using App.Domain.Core.BaseData.Entities;
+using App.Domain.Core.ConfigurationModels;
+using App.Domain.Core.Customer.Contracts.AppServices;
 using App.Domain.Core.Customer.Contracts.Repositories;
+using App.Domain.Core.Customer.Contracts.Services;
+using App.Domain.Core.Expert.Contracts.AppServices;
+using App.Domain.Core.Expert.Contracts.Repositories;
+using App.Domain.Core.Expert.Contracts.Services;
+using App.Domain.Core.Permission.Contracts.Services;
+using App.Domain.Core.Service.Contracts.AppServices;
+using App.Domain.Core.Service.Contracts.Repositories;
+using App.Domain.Core.Service.Contracts.Services;
+using App.Domain.Services.BaseData;
+using App.Domain.Services.Customer;
+using App.Domain.Services.Expert;
+using App.Domain.Services.Permission;
+using App.Domain.Services.Service;
+using App.EndPoint.Mvc.UI.Utilities;
 using App.Infrastructure.Repos.Ef.BaseData;
+using App.Infrastructure.Repos.Ef.Customer;
 using App.Infrastructure.Repos.Ef.Expert;
 using App.Infrastructure.Repos.Ef.Service;
-using App.Infrastructure.Repos.Ef.Customer;
 using App.Infrastructure.SqlServer.Data;
-using Microsoft.EntityFrameworkCore;
 using Microsoft.AspNetCore.Identity;
-using App.Domain.Core.BaseData.Entities;
-using App.Domain.Core.BaseData.Contracts.Services;
-using App.Domain.Services.BaseData;
-using App.Domain.Core.BaseData.Contracts.AppServices;
-using App.Domain.AppServices.BaseData;
-using App.Domain.Core.Expert.Contracts.Services;
-using App.Domain.Services.Expert;
-using App.Domain.Core.Expert.Contracts.AppServices;
-using App.Domain.Core.Customer.Contracts.Services;
-using App.Domain.Services.Customer;
-using App.Domain.Core.Customer.Contracts.AppServices;
-using App.Domain.AppServices.Customer;
+using Microsoft.EntityFrameworkCore;
 
 var builder = WebApplication.CreateBuilder(args);
 builder.Logging.ClearProviders();
-builder.Logging.AddSeq(apiKey: "ZCOF9Stc4sILgBZVYLRb");
+builder.Logging.AddSeq(builder.Configuration.GetSection("Seq"));
+
+builder.Services.AddDistributedMemoryCache();
 
 // Add services to the container.
 var connectionString = builder.Configuration.GetConnectionString("DefaultConnection");
@@ -53,14 +62,14 @@ builder.Services.AddIdentity<AppUser, IdentityRole<int>>(
             options.Password.RequiredUniqueChars = 1;
 
         })
-    .AddEntityFrameworkStores<AppDbContext>();
+    .AddEntityFrameworkStores<AppDbContext>()
+    .AddErrorDescriber<PersianDescriber>();
 
 builder.Services.ConfigureApplicationCookie(options =>
 {
     options.LoginPath = "/Account/Login";
     options.LogoutPath = "/Account/Logout";
-    //options.AccessDeniedPath =
-
+    options.AccessDeniedPath = "/Account/Login";
 });
 
 builder.Services.AddControllersWithViews();
@@ -76,6 +85,7 @@ builder.Services.AddScoped<IFileTypeQueryRepository, FileTypeQueryRepository>();
 builder.Services.AddScoped<IUserService, UserService>();
 builder.Services.AddScoped<IUserAppService, UserAppService>();
 builder.Services.AddScoped<IFileService, FileService>();
+builder.Services.AddScoped<IFileAppService, FileAppService>();
 builder.Services.AddScoped<IFileTypeService, FileTypeService>();
 #endregion BaseData
 
@@ -97,11 +107,19 @@ builder.Services.AddScoped<ITenderQueryRepository, TenderQueryRepository>();
 
 builder.Services.AddScoped<ITenderService, TenderService>();
 builder.Services.AddScoped<ITenderAppService, TenderAppService>();
+builder.Services.AddScoped<ICommentService, CommentService>();
+builder.Services.AddScoped<ICommentAppService, CommentAppService>();
+builder.Services.AddScoped<IExpertServiceService, ExpertServiceService>();
+builder.Services.AddScoped<IExpertServiceAppService, ExpertServiceAppService>();
+builder.Services.AddScoped<IPastWorkService, PastWorkService>();
+builder.Services.AddScoped<IPastWorkAppService, PastWorkAppService>();
 #endregion Expert
 
 #region Service
 builder.Services.AddScoped<IServiceCommandRepository, ServiceCommandRepository>();
 builder.Services.AddScoped<IServiceQueryRepository, ServiceQueryRepository>();
+builder.Services.AddScoped<IServiceService, ServiceService>();
+builder.Services.AddScoped<IServiceAppService, ServiceAppService>();
 #endregion Service
 
 #region Customer
@@ -117,7 +135,14 @@ builder.Services.AddScoped<IOrderAppService, OrderAppService>();
 builder.Services.AddScoped<IOrderStateService, OrderStateService>();
 builder.Services.AddScoped<IOrderStateAppService, OrderStateAppService>();
 #endregion Customer
+
+builder.Services.AddDistributedMemoryCache();
+
+builder.Services.Configure<AppDomainOption>(builder.Configuration.GetSection("AppDomian"));
+
+builder.Services.AddScoped<IPermissionService, PermissionService>();
 var app = builder.Build();
+app.UseExceptionHandlerMiddleware();
 // Configure the HTTP request pipeline.
 if (app.Environment.IsDevelopment())
 {
@@ -125,7 +150,7 @@ if (app.Environment.IsDevelopment())
 }
 else
 {
-    app.UseExceptionHandler("/Home/Error");
+    //app.UseExceptionHandler("/Home/Error");
     // The default HSTS value is 30 days. You may want to change this for production scenarios, see https://aka.ms/aspnetcore-hsts.
     app.UseHsts();
 }

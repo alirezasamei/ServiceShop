@@ -15,39 +15,39 @@ namespace App.Domain.Services.BaseData
             _fileTypeCommandRepository = fileTypeCommandRepository;
             _fileTypeQueryRepository = fileTypeQueryRepository;
         }
-        public async Task<int> Add(string name)
+        public async Task<int> Add(string name, string extention, CancellationToken cancellationToken)
         {
-            int id = await _fileTypeCommandRepository.Add(name);
+            int id = await _fileTypeCommandRepository.Add(name, extention, cancellationToken);
             return id;
         }
 
-        public async Task<int> Delete(int id)
+        public async Task<int> Delete(int id, CancellationToken cancellationToken)
         {
-            int entityId = await _fileTypeCommandRepository.Delete(id);
+            int entityId = await _fileTypeCommandRepository.Delete(id, cancellationToken);
             return entityId;
         }
 
-        public async Task<FileTypeDto> Get(int id)
+        public async Task<FileTypeDto> Get(int id, CancellationToken cancellationToken)
         {
-            var dto = await _fileTypeQueryRepository.Get(id);
+            var dto = await _fileTypeQueryRepository.Get(id, cancellationToken);
             return dto;
         }
 
-        public async Task<FileTypeDto> Get(string name)
+        public async Task<FileTypeDto> Get(string name, CancellationToken cancellationToken)
         {
-            var dto = await _fileTypeQueryRepository.Get(name);
+            var dto = await _fileTypeQueryRepository.Get(name, cancellationToken);
             return dto;
         }
 
-        public async Task<List<FileTypeDto>> GetAll()
+        public async Task<List<FileTypeDto>> GetAll(CancellationToken cancellationToken)
         {
-            var dtos = await _fileTypeQueryRepository.GetAll();
+            var dtos = await _fileTypeQueryRepository.GetAll(cancellationToken);
             return dtos;
         }
 
-        public async Task<int> Update(int id, string name)
+        public async Task<int> Update(int id, string name, string extention, CancellationToken cancellationToken)
         {
-            int entityId = await _fileTypeCommandRepository.Update(id, name);
+            int entityId = await _fileTypeCommandRepository.Update(id, name, extention, cancellationToken);
             return entityId;
         }
     }

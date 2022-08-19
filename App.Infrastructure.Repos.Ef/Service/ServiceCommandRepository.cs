@@ -2,6 +2,7 @@
 using App.Domain.Core.Service.Dtos;
 using App.Infrastructure.SqlServer.Data;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.Logging;
 using ServiceEntities = App.Domain.Core.Service.Entities;
 
 namespace App.Infrastructure.Repos.Ef.Service
@@ -9,11 +10,15 @@ namespace App.Infrastructure.Repos.Ef.Service
     public class ServiceCommandRepository : IServiceCommandRepository
     {
         private readonly AppDbContext _context;
-        public ServiceCommandRepository(AppDbContext context)
+        private readonly ILogger<ServiceCommandRepository> _logger;
+
+        public ServiceCommandRepository(AppDbContext context,
+            ILogger<ServiceCommandRepository> logger)
         {
             _context = context;
+            _logger = logger;
         }
-        public async Task<int> Add(ServiceDto dto)
+        public async Task<int> Add(ServiceDto dto, CancellationToken cancellationToken)
         {
             var entity = new ServiceEntities.Service()
             {
@@ -27,21 +32,33 @@ namespace App.Infrastructure.Repos.Ef.Service
                 Price = dto.Price,
             };
             await _context.Services.AddAsync(entity);
-            await _context.SaveChangesAsync();
+            await _context.SaveChangesAsync(cancellationToken);
             return entity.Id;
         }
 
-        public async Task<int> Delete(int id)
+        public async Task<int> Delete(int id, CancellationToken cancellationToken)
         {
             var entity = await _context.Services.FirstOrDefaultAsync(e => e.Id == id);
-            entity.IsDeleted = false;
-            await _context.SaveChangesAsync();
+            if (entity == null)
+            {
+                _logger.LogError("method {method} of repositoy {repository} is called by serviceId: {wrongId} that there is not in database",
+                    nameof(Delete), nameof(ServiceCommandRepository), id);
+                throw new Exception("there is no comment with id: " + id);
+            }
+            entity.IsDeleted = true;
+            await _context.SaveChangesAsync(cancellationToken);
             return entity.Id;
         }
 
-        public async Task<int> Update(ServiceDto dto)
+        public async Task<int> Update(ServiceDto dto, CancellationToken cancellationToken)
         {
             var entity = await _context.Services.FirstOrDefaultAsync(e => e.Id == dto.Id);
+            if (entity == null)
+            {
+                _logger.LogError("method {method} of repositoy {repository} is called by serviceId: {wrongId} that there is not in database",
+                    nameof(Update), nameof(ServiceCommandRepository), dto.Id);
+                throw new Exception("there is no comment with id: " + dto.Id);
+            }
             entity.CreationDate = dto.CreationDate;
             entity.Description = dto.Description;
             entity.ImageFileId = dto.ImageFileId;
@@ -49,7 +66,7 @@ namespace App.Infrastructure.Repos.Ef.Service
             entity.Name = dto.Name;
             entity.ParentServiceId = dto.ParentServiceId;
             entity.Price = dto.Price;
-            await _context.SaveChangesAsync();
+            await _context.SaveChangesAsync(cancellationToken);
             return entity.Id;
         }
     }

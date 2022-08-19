@@ -10,5 +10,6 @@ namespace App.Domain.Core.BaseData.Dtos
     {
         public int Id { get; set; }
         public string Name { get; set; }
+        public string Extention { get; set; }
     }
 }

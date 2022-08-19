@@ -1,0 +1,46 @@
+﻿@model IEnumerable<ServiceViewModel>
+@{
+    ViewData["Title"] = "صفحه اصلی";
+}
+<base href="~/" />
+<div class="pb-lg-5">
+    <div class="text-center border-bottom-danger flex-column justify-content-center">
+        <img src="~/img/Header-banner.svg" class="banner-picture" />
+        <h3><<< بده ما درستش می کنیم >>></h3>
+        <form class="user bs-searchbox" asp-controller="Home" asp-action="Search" method="get">
+            <div class="form-group row justify-content-center">
+                <input type="search" id="searchInput" class="form-control form-control-user col-3" placeholder="کلید واژه..." name="keyWord" required />
+                <button type="submit" id="searchBtn" class="btn btn-outline-primary btn-user col-1">جستجو</button>
+            </div>
+        </form>
+    </div>
+</div>
+@if (Model.Any())
+{
+    <div class="row justify-content-center">
+        @foreach (var item in Model)
+        {
+            <div class="col-xl-3 col-md-6">
+                <a class="col-xl-3 col-md-6 text-center service" asp-controller="Home" asp-action="Index" asp-route-id="@item.Id">
+                    <div class="card border-left-warning shadow h-100 py-2">
+                        <div class="card-body">
+                            <div class="row no-gutters align-items-center">
+                                <div class="col mr-2">
+                                    <div class="text-xs font-weight-bold text-warning text-uppercase mb-1">
+                                        @item.Name
+                                    </div>
+                                </div>
+                                <div class="col-auto">
+                                    <img class="img-service rounded-circle mb-4" src=@item.ImageUrl alt="@item.Name">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </a>
+            </div>
+        }
+    </div>
+}
+else{
+    <h3>موردی یافت نشد!</h3>
+}

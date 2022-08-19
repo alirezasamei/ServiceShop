@@ -1,14 +1,11 @@
 ﻿using App.Domain.Core.BaseData.Contracts.AppServices;
 using App.Domain.Core.BaseData.Dtos;
 using App.Domain.Core.BaseData.Entities;
-using App.Domain.Core.BaseData.Enums;
-using App.EndPoint.Mvc.UI.Areas.Admin.Models;
+using App.EndPoint.Mvc.UI.Models;
 using AutoMapper;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.AspNetCore.Mvc.Rendering;
-using System.Security.Claims;
 
 namespace App.EndPoint.Mvc.UI.Areas.Admin.Controllers
 {
@@ -21,12 +18,12 @@ namespace App.EndPoint.Mvc.UI.Areas.Admin.Controllers
         private readonly IMapper _mapper;
         private readonly ILogger<UserController> _logger;
 
-        public UserController(IUserAppService appUserAppService,
+        public UserController(IUserAppService userAppService,
             SignInManager<AppUser> signInManager,
             IMapper mapper,
             ILogger<UserController> logger)
         {
-            _userAppService = appUserAppService;
+            _userAppService = userAppService;
             _signInManager = signInManager;
             _mapper = mapper;
             _logger = logger;
@@ -34,10 +31,12 @@ namespace App.EndPoint.Mvc.UI.Areas.Admin.Controllers
         public async Task<ActionResult> Index(string keyWord, CancellationToken cancellationToken)
         {
             _logger.LogTrace("start method {methodName}", nameof(Index));
-            ViewBag.UserName = this.User.FindFirstValue(ClaimTypes.Name);
-            var model = _mapper.Map<List<UserListViewModel>>(await _userAppService.GetAll(keyWord));
+
+            var dtos = await _userAppService.GetAll(keyWord, cancellationToken);
+            var model = _mapper.Map<List<UserListViewModel>>(dtos);
+            _logger.LogInformation("List of users has read from database");
             if (model.Count == 0)
-                _logger.LogWarning("something is wrong. result of {AppService} is empty", "UserAppService");
+                _logger.LogWarning("something is wrong. result of {appService} is empty", "UserAppService");
             else
                 _logger.LogDebug("count of model is {modelCount}", model.Count);
             _logger.LogTrace("finish method {methodName}", nameof(Index));
@@ -46,14 +45,12 @@ namespace App.EndPoint.Mvc.UI.Areas.Admin.Controllers
 
         public async Task<IActionResult> Details(int id, CancellationToken cancellationToken)
         {
-            ViewBag.UserName = this.User.FindFirstValue(ClaimTypes.Name);
-            var model = _mapper.Map<UserDetailViewModel>(await _userAppService.Get(id));
+            var model = _mapper.Map<UserDetailViewModel>(await _userAppService.Get(id, cancellationToken));
             return View(model);
         }
 
-        public async Task<IActionResult> Create(CancellationToken cancellationToken)
+        public IActionResult Create()
         {
-            ViewBag.UserName = this.User.FindFirstValue(ClaimTypes.Name);
             return View();
         }
 
@@ -66,7 +63,7 @@ namespace App.EndPoint.Mvc.UI.Areas.Admin.Controllers
             if (ModelState.IsValid)
             {
                 var dto = _mapper.Map<AppUserDetailDto>(model);
-                var result = await _userAppService.Add(dto, userImage);
+                var result = await _userAppService.Add(dto, userImage, cancellationToken);
                 if (result.Succeeded)
                 {
                     _logger.LogInformation("user {User} was added by admin", dto);
@@ -86,8 +83,7 @@ namespace App.EndPoint.Mvc.UI.Areas.Admin.Controllers
 
         public async Task<IActionResult> Edit(int id, CancellationToken cancellationToken)
         {
-            ViewBag.UserName = this.User.FindFirstValue(ClaimTypes.Name);
-            var model = _mapper.Map<UserEditViewModel>(await _userAppService.Get(id));
+            var model = _mapper.Map<UserEditViewModel>(await _userAppService.Get(id, cancellationToken));
             return View(model);
         }
 
@@ -100,7 +96,7 @@ namespace App.EndPoint.Mvc.UI.Areas.Admin.Controllers
             if (ModelState.IsValid)
             {
                 var dto = _mapper.Map<AppUserDetailDto>(model);
-                var result = await _userAppService.Update(dto, userImage);
+                var result = await _userAppService.Update(dto, userImage, cancellationToken);
                 if (result.Succeeded)
                 {
                     _logger.LogInformation("user {User} was added by admin", dto);
@@ -120,7 +116,7 @@ namespace App.EndPoint.Mvc.UI.Areas.Admin.Controllers
 
         public async Task<IActionResult> Delete(int id, CancellationToken cancellationToken)
         {
-            await _userAppService.Delete(id);
+            await _userAppService.Delete(id, cancellationToken);
             return RedirectToAction(nameof(Index));
         }
     }

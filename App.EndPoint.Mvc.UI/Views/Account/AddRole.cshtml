@@ -1,0 +1,30 @@
+﻿@model RoleEnum
+@{
+    Layout = "_LoginLayout";
+    ViewData["Title"] = "افزودن نقش";
+}
+<div class="card o-hidden border-0 shadow-lg my-5">
+    <div class="card-body p-0">
+        <!-- Nested Row within Card Body -->
+        <div class="row">
+            <img class="col-lg-5 d-none d-lg-block" bg-register-image src="~/img/Register.jpg"></img>
+            <div class="col-lg-7">
+                <div class="p-5">
+                    <div asp-validation-summary="All" class="text-danger"></div>
+                    <form class="user" asp-controller="Account" asp-action="AddRole" method="post">
+                        <input hidden name="role" value=@Model />
+                        <button type="submit" class="btn btn-primary btn-user btn-block">
+                            افزودن نقش @(Model==RoleEnum.expert?"متخصص":"مشتری")
+                        </button>
+                    </form>
+                    <hr>
+                    <div class="text-center">
+                        <a class="small" asp-controller="Home" asp-action="Index">بازگشت به صفحه اصلی</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+

@@ -4,7 +4,7 @@ namespace App.Domain.Core.Expert.Contracts.Repositories
 {
     public interface ITenderQueryRepository
     {
-        Task<List<TenderDto>> GetAll();
-        Task<TenderDto?> Get(int id);
+        Task<List<TenderDto>> GetAll(CancellationToken cancellationToken);
+        Task<TenderDto?> Get(int id, CancellationToken cancellationToken);
     }
 }

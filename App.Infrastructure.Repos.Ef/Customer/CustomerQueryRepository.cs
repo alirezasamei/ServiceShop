@@ -12,20 +12,24 @@ namespace App.Infrastructure.Repos.Ef.Customer
         {
             _context = context;
         }
-        public async Task<List<CustomerDto>> GetAll() =>
-             await _context.Customers.Where(p => !p.appUser.IsDeleted).Select(p => new CustomerDto()
+        public async Task<List<CustomerDto>> GetAll(CancellationToken cancellationToken) =>
+             await _context.Customers.Where(p => !p.AppUser.IsDeleted).Select(p => new CustomerDto()
              {
                  Id = p.Id,
                  AppUserId = p.AppUserId,
                  Address = p.Address,
-             }).ToListAsync();
+             }).ToListAsync(cancellationToken);
 
-        public async Task<CustomerDto?> Get(int appUserId) =>
-            await _context.Customers.Where(p => p.appUser.Id == appUserId && !p.appUser.IsDeleted).Select(p => new CustomerDto()
+        public async Task<CustomerDto?> Get(int appUserId, CancellationToken cancellationToken) =>
+            await _context.Customers.Where(p => p.AppUser.Id == appUserId && !p.AppUser.IsDeleted).Select(p => new CustomerDto()
             {
                 Id = p.Id,
                 AppUserId = p.AppUserId,
                 Address = p.Address,
-            }).FirstOrDefaultAsync();
+            }).FirstOrDefaultAsync(cancellationToken);
+
+        public async Task<bool> DoseExists(int appUserId, CancellationToken cancellationToken) =>
+            await _context.Customers.AnyAsync(p => p.AppUser.Id == appUserId && !p.AppUser.IsDeleted, cancellationToken);
+
     }
 }

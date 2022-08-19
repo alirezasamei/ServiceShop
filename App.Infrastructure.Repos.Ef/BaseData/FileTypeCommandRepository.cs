@@ -12,31 +12,33 @@ namespace App.Infrastructure.Repos.Ef.BaseData
         {
             _context = context;
         }
-        public async Task<int> Add(string name)
+        public async Task<int> Add(string name, string extention, CancellationToken cancellationToken)
         {
             var entity = new FileType()
             {
                 Name = name,
+                Extention = extention,
                 IsDeleted = false,
             };
             await _context.FileTypes.AddAsync(entity);
-            await _context.SaveChangesAsync();
+            await _context.SaveChangesAsync(cancellationToken);
             return entity.Id;
         }
 
-        public async Task<int> Delete(int id)
+        public async Task<int> Delete(int id, CancellationToken cancellationToken)
         {
             var entity = await _context.FileTypes.FirstOrDefaultAsync(e => e.Id == id);
             entity.IsDeleted = true;
-            await _context.SaveChangesAsync();
+            await _context.SaveChangesAsync(cancellationToken);
             return entity.Id;
         }
 
-        public async Task<int> Update(int id, string name)
+        public async Task<int> Update(int id, string name, string extention, CancellationToken cancellationToken)
         {
             var entity = await _context.FileTypes.FirstOrDefaultAsync(e => e.Id == id);
             entity.Name = name;
-            await _context.SaveChangesAsync();
+            entity.Extention = extention;
+            await _context.SaveChangesAsync(cancellationToken);
             return entity.Id;
         }
     }

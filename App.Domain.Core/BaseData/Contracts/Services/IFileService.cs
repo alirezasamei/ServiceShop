@@ -4,11 +4,10 @@ namespace App.Domain.Core.BaseData.Contracts.Services
 {
     public interface IFileService
     {
-        Task<int> Add(FileDto dto);
-        Task<int> Update(FileDto dto);
-        Task<int> Delete(int id);
-        Task<List<FileDto>> GetAll();
-        Task<FileDto?> Get(int id);
-        Task<FileDto?> Get(string userName);
+        Task<Guid> Add(FileDto dto, CancellationToken cancellationToken);
+        Task<Guid> Update(FileDto dto, CancellationToken cancellationToken);
+        Task<Guid> Delete(string id, CancellationToken cancellationToken);
+        Task<List<FileDto>> GetAll(CancellationToken cancellationToken);
+        Task<FileDto?> Get(string id, CancellationToken cancellationToken);
     }
 }

@@ -8,7 +8,7 @@ namespace App.Domain.Core.Customer.Entities
     {
         public int Id { get; set; }
         public int AppUserId { get; set; }
-        public AppUser appUser { get; set; }
+        public AppUser AppUser { get; set; }
         [StringLength(500)]
         public string? Address { get; set; }
 

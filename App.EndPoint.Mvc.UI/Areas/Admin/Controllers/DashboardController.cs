@@ -1,6 +1,5 @@
 ﻿using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
-using System.Security.Claims;
 
 namespace App.EndPoint.Mvc.UI.Areas.Admin.Controllers
 {
@@ -10,7 +9,6 @@ namespace App.EndPoint.Mvc.UI.Areas.Admin.Controllers
     {
         public IActionResult Index()
         {
-            ViewBag.UserName = this.User.FindFirstValue(ClaimTypes.Name);
             return View();
         }
     }

@@ -12,49 +12,49 @@ namespace App.Infrastructure.Repos.Ef.Service
         {
             _context = context;
         }
-        public async Task<List<ServiceDto>> GetAll() =>
+        public async Task<List<ServiceDto>> GetAll(CancellationToken cancellationToken) =>
              await _context.Services.Where(p => !p.IsDeleted).Select(p => new ServiceDto()
              {
                  Id = p.Id,
                  CreationDate = DateTime.Now,
                  Description = p.Description,
                  ImageFileId = p.ImageFileId,
-                 ImageFileName = p.ImageFile.NameWithExtention,
+                 ImageFileName = Path.ChangeExtension(p.ImageFile.Name, p.ImageFile.FileType.Extention),
                  IsActive = p.IsActive,
                  Name = p.Name,
                  ParentService = p.ParentService.Name,
                  ParentServiceId = p.ParentServiceId,
                  Price = p.Price,
-             }).ToListAsync();
+             }).ToListAsync(cancellationToken);
 
-        public async Task<ServiceDto?> Get(int id) =>
+        public async Task<ServiceDto?> Get(int id, CancellationToken cancellationToken) =>
             await _context.Services.Where(p => p.Id == id & !p.IsDeleted).Select(p => new ServiceDto()
             {
                 Id = p.Id,
                 CreationDate = DateTime.Now,
                 Description = p.Description,
                 ImageFileId = p.ImageFileId,
-                ImageFileName = p.ImageFile.NameWithExtention,
+                ImageFileName = Path.ChangeExtension(p.ImageFile.Name, p.ImageFile.FileType.Extention),
                 IsActive = p.IsActive,
                 Name = p.Name,
                 ParentService = p.ParentService.Name,
                 ParentServiceId = p.ParentServiceId,
                 Price = p.Price,
-            }).FirstOrDefaultAsync();
+            }).FirstOrDefaultAsync(cancellationToken);
 
-        public async Task<ServiceDto?> Get(string name) =>
+        public async Task<ServiceDto?> Get(string name, CancellationToken cancellationToken) =>
             await _context.Services.Where(p => p.Name == name & !p.IsDeleted).Select(p => new ServiceDto()
             {
                 Id = p.Id,
                 CreationDate = DateTime.Now,
                 Description = p.Description,
                 ImageFileId = p.ImageFileId,
-                ImageFileName = p.ImageFile.NameWithExtention,
+                ImageFileName = Path.ChangeExtension(p.ImageFile.Name, p.ImageFile.FileType.Extention),
                 IsActive = p.IsActive,
                 Name = p.Name,
                 ParentService = p.ParentService.Name,
                 ParentServiceId = p.ParentServiceId,
                 Price = p.Price,
-            }).FirstOrDefaultAsync();
+            }).FirstOrDefaultAsync(cancellationToken);
     }
 }

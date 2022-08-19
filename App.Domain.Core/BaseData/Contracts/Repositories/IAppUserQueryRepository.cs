@@ -5,7 +5,7 @@ namespace App.Domain.Core.BaseData.Contracts.Repositories
     public interface IAppUserQueryRepository
     {
         Task<List<AppUserDto>> GetAll();
-        Task<AppUserDto?> Get(int id);
-        Task<AppUserDto?> Get(string userName);
+        Task<AppUserDto?> Get(int id, CancellationToken cancellationToken);
+        Task<AppUserDto?> Get(string userName, CancellationToken cancellationToken);
     }
 }

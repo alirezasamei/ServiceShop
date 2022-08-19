@@ -6,7 +6,6 @@
     ViewData["Title"] = $"لیست {faName}‌ها";
     int rowCount = 1;
 }
-
 <div class="d-flex justify-content-between">
     <h3>لیست @(faName)‌ها</h3>
     <form class="col-4" method="get">
@@ -38,11 +37,11 @@
             <th scope="col">
                 @Html.DisplayNameFor(model => model.Name)
             </th>
-            <th scope="col">
-                @Html.DisplayNameFor(model => model.Email))
+            <th scope="col" colspan=2>
+                @Html.DisplayNameFor(model => model.Email)
             </th>
-            <th scope="col">
-                @Html.DisplayNameFor(model => model.PhoneNumber))
+            <th scope="col" colspan=2>
+                @Html.DisplayNameFor(model => model.PhoneNumber)
             </th>
             <th scope="col">
                 @Html.DisplayNameFor(model => model.Roles)
@@ -56,6 +55,7 @@
             <th scope="col">عملیات</th>
         </tr>
     </thead>
+
     <tbody>
         @foreach (var item in Model)
         {
@@ -65,8 +65,8 @@
                 </td>
                 <td>@item.UserName</td>
                 <td>@item.Name</td>
+                <td>@item.Email</td>
                 <td>
-                    @item.Email
                     @if (item.EmailConfirmed)
                     {
                         <span class="btn-success btn-circle btn-sm" type="checkbox" disabled>
@@ -80,8 +80,8 @@
                         </span>
                     }
                 </td>
-                <td>
-                    @item.PhoneNumber
+                <td>@item.PhoneNumber</td>
+                <td>                    
                     @if (item.PhoneNumberConfirmed)
                     {
                         <span class="btn-success btn-circle btn-sm" type="checkbox" disabled>
@@ -97,16 +97,17 @@
                 </td>
 
                 <td>
-                    <table class="table-sm table-info">
+                    <table class="table-sm d-flex justify-content-center">
                         <tr>
-                        @foreach (var role in item.Roles)
-                        {
+                            @foreach (var role in item.Roles)
+                            {
                                 <td class="breadcrumb-item">@role.GetDisplayName()</td>
-                        }
+                            }
                         </tr>
                     </table>
                 </td>
-                <td>@item.SubmitDate.ToString("yyyy/MM/dd - dddd")</td>
+                <td>@item.SubmitDate.ToShamsi()</td>
+
                 <td>@(item.IsActive ? "فعال":"غیر فعال")</td>
                 <td>
                     <a class="btn btn-info" asp-area="Admin" asp-controller="@enName" asp-action="Details" asp-route-id=@item.Id>

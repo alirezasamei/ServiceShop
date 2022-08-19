@@ -13,7 +13,7 @@ namespace App.Infrastructure.Repos.Ef.Expert
         {
             _context = context;
         }
-        public async Task<int> Add(ExpertDto dto)
+        public async Task<int> Add(ExpertDto dto, CancellationToken cancellationToken)
         {
             var entity = new ExpertEntities.Expert()
             {
@@ -22,17 +22,17 @@ namespace App.Infrastructure.Repos.Ef.Expert
                 ImageFileId = dto.ImageFileId,
             };
             await _context.Experts.AddAsync(entity);
-            await _context.SaveChangesAsync();
+            await _context.SaveChangesAsync(cancellationToken);
             return entity.Id;
         }
 
-        public async Task<int> Update(ExpertDto dto)
+        public async Task<int> Update(ExpertDto dto, CancellationToken cancellationToken)
         {
-            var entity = await _context.Experts.FirstOrDefaultAsync(e => e.Id == dto.Id);
+            var entity = await _context.Experts.FirstOrDefaultAsync(e => e.Id == dto.Id || e.AppUserId == dto.AppUserId);
             entity.AppUserId = dto.AppUserId;
             entity.Address = dto.Address;
             entity.ImageFileId = dto.ImageFileId;
-            await _context.SaveChangesAsync();
+            await _context.SaveChangesAsync(cancellationToken);
             return entity.Id;
         }
     }

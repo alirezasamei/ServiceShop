@@ -34,8 +34,8 @@
             <td>@Model.Order.Customer</td>
             <td>@Model.Order.Service</td>
             <td>@Model.Order.OrderState</td>
-            <td>@Model.Order.RegisterDate</td>
-            <td>@Model.Order.TendersCount</td>
+            <td>@(Convert.ToDateTime(Model.Order.RegisterDate).ToShamsi())</td>
+            <td>@Model.Tenders.Count</td>
         </tr>
     </tbody>
 </table>
@@ -82,10 +82,10 @@
                     @(rowCount++)
                 </td>
                 <td>@item.Expert</td>
-                <td>@item.Price</td>
-                <td>@item.RegisterDate</td>
+                <td>@(((long)item.Price).ToString("#,##0"))</td>
+                <td>@(Convert.ToDateTime(item.RegisterDate).ToShamsi())</td>
                 <td>@item.RequiredTime</td>
-                <td>@item.StartDate</td>
+                <td>@(Convert.ToDateTime(item.StartDate).ToShamsi())</td>
                 <td>
                     <a id="delete" class="btn btn-danger" data-toggle="modal" data-target="#deleteModal" data-id="@item.Id" data-name="@item.Expert">
                         حذف

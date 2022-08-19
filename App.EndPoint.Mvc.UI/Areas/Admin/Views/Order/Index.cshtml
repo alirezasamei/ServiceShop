@@ -9,10 +9,10 @@
 
 <div class="d-flex justify-content-between">
     <h3>لیست @(faName)‌ها</h3>
-    <form class="col-4" method="get">
+    <form class="col-4" method="get" asp-area="Admin" asp-controller="@enName" asp-action="Index">
         <div class="input-group">
             <input type="search" class="form-control rounded" placeholder="کلید واژه..." name="keyWord" />
-            <button type="submit" class="btn btn-outline-primary" asp-area="Admin" asp-controller="@enName" asp-action="Index">جستجو</button>
+            <button type="submit" class="btn btn-outline-primary">جستجو</button>
             <a class="btn btn-primary" asp-area="Admin" asp-controller="@enName" asp-action="Index">نمایش همه</a>
         </div>
     </form>
@@ -60,13 +60,13 @@
                 <td>@item.Customer</td>
                 <td>@item.Service</td>
                 <td>@item.OrderState</td>
-                <td>@item.RegisterDate</td>
+                <td>@(Convert.ToDateTime(item.RegisterDate).ToShamsi())</td>
                 <td>@item.TendersCount</td>
                 <td>
                     @*<a class="btn btn-info" asp-area="Admin" asp-controller="@enName" asp-action="Details" asp-route-id=@item.Id>
                         نمایش
-                    </a>
-                    |*@
+                        </a>
+                        |*@
                     <a class="btn btn-primary" asp-area="Admin" asp-controller="@enName" asp-action="Edit" asp-route-id=@item.Id>
                         ویرایش
                     </a>

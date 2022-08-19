@@ -10,10 +10,10 @@ namespace App.Domain.Core.BaseData.Enums
     public enum RoleEnum : int
     {
         [Display(Name ="ادمین")]
-        Admin = 1,
+        admin = 1,
         [Display(Name ="متخصص")]
-        Expert = 2,
+        expert = 2,
         [Display(Name ="مشتری")]
-        Customer = 3,
+        customer = 3,
     }
 }

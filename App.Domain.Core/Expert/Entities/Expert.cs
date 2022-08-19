@@ -8,9 +8,9 @@ namespace App.Domain.Core.Expert.Entities
     {
         public int Id { get; set; }
         public int AppUserId { get; set; }
-        public AppUser appUser { get; set; }
+        public AppUser AppUser { get; set; }
         public BaseDataEntity.File? ImageFile { get; set; }
-        public int? ImageFileId { get; set; }
+        public Guid? ImageFileId { get; set; }
         [StringLength(500)]
         public string? Address { get; set; }
 

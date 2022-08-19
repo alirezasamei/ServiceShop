@@ -4,8 +4,8 @@ namespace App.Domain.Core.Expert.Contracts.Repositories
 {
     public interface IExpertServiceCommandRepository
     {
-        Task<int> Add(ExpertServiceDto dto);
-        Task<int> Update(ExpertServiceDto dto);
-        Task<int> Delete(int id);
+        Task<int> Add(ExpertServiceDto dto, CancellationToken cancellationToken);
+        Task<int> Update(ExpertServiceDto dto, CancellationToken cancellationToken);
+        Task<int> Delete(int id, CancellationToken cancellationToken);
     }
 }

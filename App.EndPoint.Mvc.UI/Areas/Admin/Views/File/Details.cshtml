@@ -1,0 +1,125 @@
+﻿@model FileViewModel
+@{
+        string faName = "فایل";
+    string enName = "File";
+    ViewData["Title"] = $"مشاهده {faName}";
+}
+<base href="~/" />
+<div class="container">
+    <div class="main-body">
+
+        <!-- Breadcrumb -->
+        <nav aria-label="breadcrumb" class="main-breadcrumb">
+            <ol class="breadcrumb">
+                <li class="breadcrumb-item"><a asp-area="Admin" asp-controller="Dashboard" asp-action="Index">داشبورد</a></li>
+                <li class="breadcrumb-item"><a asp-area="Admin" asp-controller="@enName" asp-action="Index">فایل ها</a></li>
+                <li class="breadcrumb-item active" aria-current="page">@Model.NameWithExtention</li>
+            </ol>
+        </nav>
+        <!-- /Breadcrumb -->
+
+        <div class="row gutters-sm">
+            <div class="col-md-4 mb-3 align-self-baseline">
+                <div class="card">
+                    <div class="card-body">
+                        <div class="d-flex flex-column align-items-center text-center">
+                            <img src="@Model.FileUrl" alt="تصویر فابل" class="rounded-circle" width="150">
+                            <div class="mt-3">
+                                <h4>@Model.NameWithExtention</h4>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-8">
+                <div class="card mb-3">
+                    <div class="card-body">
+                        <div class="row">
+                            <div class="col-sm-3">
+                                <h6 class="mb-0"><label asp-for=NameWithExtention></label></h6>
+                            </div>
+                            <div class="col-sm-9 text-secondary">
+                                @Model.NameWithExtention
+                            </div>
+                        </div>
+                        <hr>
+
+                        <div class="row">
+                            <div class="col-sm-3">
+                                <h6 class="mb-0"><label asp-for=ExpertServiceId></label></h6>
+                            </div>
+                            <div class="col-sm-9 text-secondary">
+                                @Model.ExpertService
+                            </div>
+                        </div>
+                        <hr>
+
+                        <div class="row">
+                            <div class="col-sm-3">
+                                <h6 class="mb-0"><label asp-for=ServiceId></label></h6>
+                            </div>
+                            <div class="col-sm-9 text-secondary">
+                                @Model.Service
+                            </div>
+                        </div>
+                        <hr>
+
+                        <div class="row">
+                            <div class="col-sm-3">
+                                <h6 class="mb-0"><label asp-for=Description></label></h6>
+                            </div>
+                            <div class="col-sm-9 text-secondary">
+                                @Model.Description
+                            </div>
+                        </div>
+                        <hr>
+
+                        <div class="row">
+                            <div class="col-sm-12">
+                                <a id="delete" class="btn btn-danger" data-toggle="modal" data-target="#deleteModal" data-id="@Model.Id" data-name="@Model.NameWithExtention">
+                                    حذف
+                                </a>
+                                @*<a class="btn btn-info " target="__blank" asp-area="Admin" asp-controller="User" asp-action="Edit" asp-route-id="@Model.Id">ویرایش</a>*@
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Modal -->
+<div class="modal fade" id="deleteModal" tabindex="-1" aria-labelledby="deleteModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="deleteModalLabel">حذف @faName</h5>
+                <button class="close" type="button" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">×</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                آیا از حذف @faName <span id="modalShowFor" class="text-info"></span> اطمینان دارید؟
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">
+                    خیر
+                </button>
+                <a class="btn btn-danger" id="submitDelete">
+                    بله
+                </a>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+
+    $(document).on("click","#delete", function(){
+        var id=$(this).data('id');
+        var name=$(this).data('name');
+        $(".modal-footer #submitDelete").attr("href","/Admin/@enName/Delete/" + id);
+        $("#modalShowFor").html(name);
+    });
+</script>

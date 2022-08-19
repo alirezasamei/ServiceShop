@@ -47,52 +47,67 @@ namespace App.Domain.Services.BaseData
         }
 
 
-        public async Task<IdentityResult> Add(AppUserDetailDto dto)
+        public async Task<IdentityResult> Add(AppUserDetailDto dto, CancellationToken cancellationToken)
         {
             var user = _mapper.Map<AppUserDto>(dto);
-            var result = await _appUserCommandRepository.Add(user);
-            dto.Id = user.Id;
-            if (dto.Roles.Contains(RoleEnum.Expert))
-                _expertCommandRepository.Add(_mapper.Map<ExpertDto>(dto));
-            if (dto.Roles.Contains(RoleEnum.Customer))
-                _customerCommandRepository.Add(_mapper.Map<CustomerDto>(dto));
+            var result = await _appUserCommandRepository.Add(user, cancellationToken);
+            if (result.Succeeded)
+            {
+                dto.Id = user.Id;
+                if (dto.Roles.Contains(RoleEnum.expert))
+                    await _expertCommandRepository.Add(_mapper.Map<ExpertDto>(dto), cancellationToken);
+                if (dto.Roles.Contains(RoleEnum.customer))
+                    await _customerCommandRepository.Add(_mapper.Map<CustomerDto>(dto), cancellationToken);
+            }
             return result;
         }
 
-        public async Task<IdentityResult> Delete(int id)
+        public async Task<int> ConvertUserIdToCustomerId(int id, CancellationToken cancellationToken)
         {
-            return await _appUserCommandRepository.Delete(id);
+            var customer = await _customerQueryRepository.Get(id, cancellationToken);
+            return customer.Id;
+        }
+
+        public async Task<int> ConvertUserIdToExpertId(int id, CancellationToken cancellationToken)
+        {
+            var expert = await _expertQueryRepository.Get(id, cancellationToken);
+            return expert.Id;
+        }
+
+        public async Task<IdentityResult> Delete(int id, CancellationToken cancellationToken)
+        {
+            return await _appUserCommandRepository.Delete(id, cancellationToken);
 
         }
-        public async Task<AppUserDetailDto?> Get(int id)
+        public async Task<AppUserDetailDto?> Get(int id, CancellationToken cancellationToken)
         {
             var user = new AppUserDetailDto();
-            var appuser = await _appUserQueryRepository.Get(id);
+            var appuser = await _appUserQueryRepository.Get(id, cancellationToken);
             _mapper.Map(appuser, user);
-            if (user.Roles.Contains(RoleEnum.Expert))
+            if (user.Roles.Contains(RoleEnum.expert))
             {
-                var expert = await _expertQueryRepository.Get(id);
+                var expert = await _expertQueryRepository.Get(id, cancellationToken);
                 if (expert != null)
                 {
                     _mapper.Map(expert, user);
-                    user.ImageUrl = expert.ImageFileName == null ? null : Path.Combine("Upload", expert.ImageFileName);
+                    user.ImageUrl = expert.ImageFileId is null ? null : Path.Combine("Upload", Path.ChangeExtension(expert.ImageFileId.ToString(), Path.GetExtension(expert.ImageFileName)));
                 }
             }
-            if (user.Roles.Contains(RoleEnum.Customer))
+            if (user.Roles.Contains(RoleEnum.customer))
             {
-                var customer = await _customerQueryRepository.Get(id);
+                var customer = await _customerQueryRepository.Get(id, cancellationToken);
                 if (customer != null)
                     _mapper.Map(customer, user);
             }
             return user;
         }
 
-        public async Task<AppUserDto?> Get(string userName)
+        public async Task<AppUserDto?> Get(string userName, CancellationToken cancellationToken)
         {
-            return await _appUserQueryRepository.Get(userName);
+            return await _appUserQueryRepository.Get(userName, cancellationToken);
         }
 
-        public async Task<List<AppUserDto>> GetAll()
+        public async Task<List<AppUserDto>> GetAll(CancellationToken cancellationToken)
         {
             _logger.LogTrace("Start method {methodName}", nameof(GetAll));
             var users = await _appUserQueryRepository.GetAll();
@@ -100,9 +115,29 @@ namespace App.Domain.Services.BaseData
             return users;
         }
 
-        public async Task<IdentityResult> Update(AppUserDetailDto dto)
+        public async Task<IdentityResult> Update(AppUserDetailDto dto, CancellationToken cancellationToken)
         {
-            return await _appUserCommandRepository.Update(dto);
+            if (dto.Roles.Contains(RoleEnum.expert))
+                if (!await _expertQueryRepository.DoseExists(dto.Id, cancellationToken))
+                {
+                    await _expertCommandRepository.Add(_mapper.Map<ExpertDto>(dto), cancellationToken);
+                }
+                else
+                {
+                    await _expertCommandRepository.Update(_mapper.Map<ExpertDto>(dto), cancellationToken);
+                }
+
+            if (dto.Roles.Contains(RoleEnum.customer))
+                if (!await _customerQueryRepository.DoseExists(dto.Id, cancellationToken))
+                {
+                    await _customerCommandRepository.Add(_mapper.Map<CustomerDto>(dto), cancellationToken);
+                }
+                else
+                {
+                    await _customerCommandRepository.Update(_mapper.Map<CustomerDto>(dto), cancellationToken);
+                }
+
+            return await _appUserCommandRepository.Update(dto, cancellationToken);
         }
     }
 }

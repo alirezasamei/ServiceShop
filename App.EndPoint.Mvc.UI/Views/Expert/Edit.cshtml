@@ -1,0 +1,84 @@
+﻿@model UserEditViewModel
+
+@{
+    ViewData["Title"] = "ویرایش";
+}
+<div class="col-12 row">
+    <div class="card-body p-0 ">
+        <!-- Nested Row within Card Body -->
+        <div class="row flex-row justify-content-center">
+            <div class="col-lg-8">
+                <div class="p-5">
+                    <div class="text-center">
+                        <h1 class="h4 text-gray-900 mb-4">ویرایش حساب کاربری</h1>
+                    </div>
+                    <div asp-validation-summary="All" class="text-danger"></div>
+                    <form class="user" asp-action="Edit" method="post">
+                        <input hidden asp-for="Id" value=@Model.Id />
+                        <input hidden asp-for="ImageFileId" value=@Model.ImageFileId />
+                        <div class="form-group row">
+                            <div class="col-sm-6 mb-3 mb-sm-0">
+                                <input type="text" class="form-control form-control-user input" asp-for=Name placeholder=" ">
+                                <div class="cut cut-long"></div>
+                                <label asp-for=Name class="placeholder"></label>
+                                <span asp-validation-for=Name class="text-danger"></span>
+                            </div>
+                            <div class="col-sm-6">
+                                <input type="text" class="form-control form-control-user input" asp-for=UserName placeholder=" ">
+                                <div class="cut"></div>
+                                <label class="placeholder">@Html.DisplayNameFor(model=>model.UserName)</label>
+                                <span asp-validation-for=UserName class="text-danger"></span>
+                                <div class="custom-control custom-checkbox small">
+                                    <input type="checkbox" class="custom-control-input" asp-for=IsActive disabled>
+                                    <label class="custom-control-label" for="customCheck">
+                                        فعال
+                                    </label>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <div class="col-sm-6 mb-3 mb-sm-0">
+                                <input type="email" class="form-control form-control-user input" asp-for=Email placeholder=" ">
+                                <div class="cut cut-short"></div>
+                                <label class="placeholder">@Html.DisplayNameFor(model=>model.Email)</label>
+                                <span asp-validation-for=Email class="text-danger"></span>
+                                <div class="custom-control custom-checkbox small">
+                                    <input type="checkbox" class="custom-control-input" asp-for=EmailConfirmed disabled>
+                                    <label class="custom-control-label" for="customCheck">
+                                        فعال
+                                    </label>
+                                </div>
+                            </div>
+                            <div class="col-sm-6">
+                                <input type="tel" class="form-control form-control-user input" asp-for=PhoneNumber placeholder=" ">
+                                <div class="cut"></div>
+                                <label class="placeholder">@Html.DisplayNameFor(model=>model.PhoneNumber)</label>
+                                <span asp-validation-for=PhoneNumber class="text-danger"></span>
+                                <div class="custom-control custom-checkbox small">
+                                    <input type="checkbox" class="custom-control-input" asp-for=PhoneNumberConfirmed disabled>
+                                    <label class="custom-control-label" for="customCheck">
+                                        فعال
+                                    </label>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <div class="col-sm-12 mb-3 mb-sm-0">
+                                <input type="text" class="form-control form-control-user input" asp-for=Address placeholder=" " />
+                                <div class="cut"></div>
+                                <label class="placeholder">@Html.DisplayNameFor(model=>model.Address)</label>
+                                <span asp-validation-for=Address class="text-danger"></span>
+                            </div>
+                        </div>
+                        <div class="container">
+                            <button type="submit" class="btn btn-primary btn-user btn-block col-sm-6 mb-3 mb-sm-0">
+                                ویرایش کاربر
+                            </button>
+                            <a class="btn btn-danger btn-user btn-block col-sm-6" asp-action="Index">انصراف</a>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

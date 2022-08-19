@@ -12,46 +12,36 @@ namespace App.Infrastructure.Repos.Ef.BaseData
         {
             _context = context;
         }
-        public async Task<List<FileDto>> GetAll() =>
+        public async Task<List<FileDto>> GetAll(CancellationToken cancellationToken) =>
              await _context.Files.Where(p => !p.IsDeleted).Select(p => new FileDto()
              {
                  Id = p.Id,
                  CreationDate = p.CreationDate,
                  Description = p.Description,
+                 ExpertService = p.ExpertService == null ? null : p.ExpertService.Expert.AppUser.Name + "/" + p.ExpertService.Service.Name,
                  ExpertServiceId = p.ExpertServiceId,
                  FileType = p.FileType.Name,
+                 Extention = p.FileType.Extention,
                  FileTypeId = p.FileTypeId,
-                 NameWithExtention = p.NameWithExtention,
+                 Name = p.Name,
                  Service = p.Service.Name,
                  ServiceId = p.ServiceId,
-             }).ToListAsync();
+             }).ToListAsync(cancellationToken);
 
-        public async Task<FileDto?> Get(int id) =>
-            await _context.Files.Where(p => p.Id == id && !p.IsDeleted).Select(p => new FileDto()
+        public async Task<FileDto?> Get(string id, CancellationToken cancellationToken) =>
+            await _context.Files.Where(p => p.Id.ToString() == id && !p.IsDeleted).Select(p => new FileDto()
             {
                 Id = p.Id,
                 CreationDate = p.CreationDate,
                 Description = p.Description,
+                ExpertService = p.ExpertService == null ? null : p.ExpertService.Expert.AppUser.Name + "/" + p.ExpertService.Service.Name,
                 ExpertServiceId = p.ExpertServiceId,
                 FileType = p.FileType.Name,
+                Extention = p.FileType.Extention,
                 FileTypeId = p.FileTypeId,
-                NameWithExtention = p.NameWithExtention,
+                Name = p.Name,
                 Service = p.Service.Name,
                 ServiceId = p.ServiceId,
-            }).FirstOrDefaultAsync();
-
-        public async Task<FileDto?> Get(string name) =>
-            await _context.Files.Where(p => p.NameWithExtention == name && !p.IsDeleted).Select(p => new FileDto()
-            {
-                Id = p.Id,
-                CreationDate = p.CreationDate,
-                Description = p.Description,
-                ExpertServiceId = p.ExpertServiceId,
-                FileType = p.FileType.Name,
-                FileTypeId = p.FileTypeId,
-                NameWithExtention = p.NameWithExtention,
-                Service = p.Service.Name,
-                ServiceId = p.ServiceId,
-            }).FirstOrDefaultAsync();
+            }).FirstOrDefaultAsync(cancellationToken);
     }
 }

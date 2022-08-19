@@ -52,7 +52,7 @@ namespace App.Infrastructure.Repos.Ef.BaseData
             return dtos;
         }
 
-        public async Task<AppUserDto?> Get(int id)
+        public async Task<AppUserDto?> Get(int id, CancellationToken cancellationToken)
         {
             var user = await _userManager.Users.Where(p => p.Id == id && !p.IsDeleted).FirstOrDefaultAsync();
             var dto = new AppUserDto()
@@ -71,7 +71,7 @@ namespace App.Infrastructure.Repos.Ef.BaseData
             return dto;
         }
 
-        public async Task<AppUserDto?> Get(string userName)
+        public async Task<AppUserDto?> Get(string userName, CancellationToken cancellationToken)
         {
             var user = await _userManager.Users.Where(p => p.UserName == userName && !p.IsDeleted).FirstOrDefaultAsync();
             var dto = new AppUserDto()

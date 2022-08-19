@@ -6,6 +6,8 @@
         public int CustomerId { get; set; }
         public string Customer { get; set; }
         public int ExpertServiceId { get; set; }
+        public string Expert { get; set; }
+        public string Service { get; set; }
         public long? Price { get; set; }
         public DateTime? ComplitionDate { get; set; }
     }

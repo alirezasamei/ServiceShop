@@ -1,7 +1,6 @@
 ﻿using App.Domain.Core.BaseData.Contracts.Repositories;
 using App.Domain.Core.BaseData.Contracts.Services;
 using App.Domain.Core.BaseData.Dtos;
-using Microsoft.AspNetCore.Identity;
 
 namespace App.Domain.Services.BaseData
 {
@@ -16,39 +15,35 @@ namespace App.Domain.Services.BaseData
             _fileQueryRepository = fileQueryRepository;
             _fileCommandRepository = fileCommandRepository;
         }
-        public async Task<int> Add(FileDto dto)
+        public async Task<Guid> Add(FileDto dto, CancellationToken cancellationToken)
         {
-            int id = await _fileCommandRepository.Add(dto);
+            var id = await _fileCommandRepository.Add(dto, cancellationToken);
             return id;
         }
 
-        public async Task<int> Delete(int id)
+        public async Task<Guid> Delete(string id, CancellationToken cancellationToken)
         {
-            int entityId = await _fileCommandRepository.Delete(id);
+            var entityId = await _fileCommandRepository.Delete(id, cancellationToken);
             return entityId;
         }
 
-        public async Task<FileDto?> Get(int id)
+        public async Task<FileDto?> Get(string id, CancellationToken cancellationToken)
         {
-            var dto = await _fileQueryRepository.Get(id);
+            var dto = await _fileQueryRepository.Get(id, cancellationToken);
+            dto.FileUrl = Path.ChangeExtension(Path.Combine("Upload", dto.Name), dto.Extention);
             return dto;
         }
 
-        public async Task<FileDto?> Get(string userName)
+        public async Task<List<FileDto>> GetAll(CancellationToken cancellationToken)
         {
-            var dto = await _fileQueryRepository.Get(userName);
-            return dto;
-        }
-
-        public async Task<List<FileDto>> GetAll()
-        {
-            var dtos = await _fileQueryRepository.GetAll();
+            var dtos = await _fileQueryRepository.GetAll(cancellationToken);
+            dtos.ForEach(d => d.FileUrl = Path.ChangeExtension(Path.Combine("Upload", d.Name), d.Extention));
             return dtos;
         }
 
-        public async Task<int> Update(FileDto dto)
+        public async Task<Guid> Update(FileDto dto, CancellationToken cancellationToken)
         {
-            int entityId = await _fileCommandRepository.Update(dto);
+            var entityId = await _fileCommandRepository.Update(dto, cancellationToken);
             return entityId;
         }
     }

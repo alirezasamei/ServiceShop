@@ -1,0 +1,149 @@
+﻿@model IEnumerable<CommentViewModel>
+
+@{
+    string faName = "نظر";
+    string enName = "Comment";
+    ViewData["Title"] = $"لیست {faName}ات";
+    int rowCount = 1;
+}
+
+<div class="d-flex justify-content-between">
+    <h3>لیست @(faName)‌ات</h3>
+    <form class="col-6" method="get" asp-area="Admin" asp-controller="@enName" asp-action="Index">
+        <div class="input-group">
+            <div class="input-group col-6 center">
+                <div class="col-8">
+                    <label>
+                        <span>تایید شده</span>
+                        @Html.RadioButton("isConfirmed",true)
+                    </label>
+                    <label>
+                        <span>تایید نشده</span>
+                        @Html.RadioButton("isConfirmed",false)
+                    </label>
+                </div>
+                <div class="col-4">
+                    <label>
+                        <span>هردو</span>
+                        @Html.RadioButton("isConfirmed","")
+                    </label>
+                </div>
+            </div>
+            <input type="search" class="form-control rounded" placeholder="کلید واژه..." name="keyWord" />
+            <button type="submit" class="btn btn-outline-primary">جستجو</button>
+            <a class="btn btn-primary" asp-area="Admin" asp-controller="@enName" asp-action="Index">نمایش همه</a>
+        </div>
+    </form>
+    <div>
+        @*<a href="" class="btn btn-success btn-default btn-rounded waves-effect waves-light" data-toggle="modal" data-target="#darkModalForm">
+            جدید
+            </a>*@
+        <a class="btn btn-success" asp-area="Admin" asp-controller="@enName" asp-action="Create">جدید</a>
+
+    </div>
+</div>
+<hr>
+
+<table class="table table-striped table-hover text-center">
+    <thead>
+        <tr>
+            <th scope="col">
+                #
+            </th>
+            <th scope="col">
+                @Html.DisplayNameFor(model => model.Expert)
+            </th>
+            <th scope="col">
+                @Html.DisplayNameFor(model => model.Service)
+            </th>
+            <th scope="col">
+                @Html.DisplayNameFor(model => model.Customer)
+            </th>
+            <th scope="col" class="col-2">
+                @Html.DisplayNameFor(model => model.Title)
+            </th>
+            <th scope="col" class="col-5">
+                @Html.DisplayNameFor(model => model.Text)
+            </th>
+            <th scope="col">
+                @Html.DisplayNameFor(model => model.LikeCount)
+            </th>
+            <th scope="col">
+                @Html.DisplayNameFor(model => model.DislikeCount)
+            </th>
+            <th scope="col">
+                @Html.DisplayNameFor(model => model.IsConfirmed)
+            </th>
+            <th scope="col" class="col-2">عملیات</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td scope="row">
+                    @(rowCount++)
+                </td>
+                <td>@item.Expert</td>
+                <td>@item.Service</td>
+                <td>@item.Customer</td>
+                <td>@item.Title</td>
+                <td>@item.Text</td>
+                <td>@item.LikeCount</td>
+                <td>@item.DislikeCount</td>
+                <td>
+                        <input class="form-check-input" type="checkbox" checked="@item.IsConfirmed" disabled>
+                </td>
+                <td>
+                    @*<a class="btn btn-info" asp-area="Admin" asp-controller="@enName" asp-action="Details" asp-route-id=@item.Id>
+                        نمایش
+                        </a>
+                        |*@
+                    <a class="btn btn-primary" asp-area="Admin" asp-controller="@enName" asp-action="ChangeConfirmState" asp-route-id=@item.Id>
+                        تغییر وضعیت
+                    </a>
+                    @*<a class="btn btn-primary" asp-area="Admin" asp-controller="@enName" asp-action="Edit" asp-route-id=@item.Id>
+                    </a>*@
+                    |
+                    <a id="delete" class="btn btn-danger" data-toggle="modal" data-target="#deleteModal" data-id="@item.Id" data-name="@item.Customer">
+                        حذف
+                    </a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+<!-- Modal -->
+<div class="modal fade" id="deleteModal" tabindex="-1" aria-labelledby="deleteModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="deleteModalLabel">حذف @faName</h5>
+                <button class="close" type="button" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">×</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                آیا از حذف @faName <span id="modalShowFor" class="text-info"></span> اطمینان دارید؟
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">
+                    خیر
+                </button>
+                <a class="btn btn-danger" id="submitDelete">
+                    بله
+                </a>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+
+    $(document).on("click","#delete", function(){
+        var id=$(this).data('id');
+        var name=$(this).data('name');
+        $(".modal-footer #submitDelete").attr("href","/Admin/@enName/Delete/" + id);
+        $("#modalShowFor").html(name);
+    });
+</script>

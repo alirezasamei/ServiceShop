@@ -13,7 +13,7 @@ namespace App.Infrastructure.Repos.Ef.Expert
         {
             _context = context;
         }
-        public async Task<int> Add(ExpertServiceDto dto)
+        public async Task<int> Add(ExpertServiceDto dto, CancellationToken cancellationToken)
         {
             var entity = new ExpertService()
             {
@@ -24,26 +24,26 @@ namespace App.Infrastructure.Repos.Ef.Expert
                 ServiceId = dto.ServiceId,
             };
             await _context.ExpertServices.AddAsync(entity);
-            await _context.SaveChangesAsync();
+            await _context.SaveChangesAsync(cancellationToken);
             return entity.Id;
         }
 
-        public async Task<int> Delete(int id)
+        public async Task<int> Delete(int id, CancellationToken cancellationToken)
         {
             var entity = await _context.ExpertServices.FirstOrDefaultAsync(e => e.Id == id);
-            entity.IsDeleted = false;
-            await _context.SaveChangesAsync();
+            entity.IsDeleted = true;
+            await _context.SaveChangesAsync(cancellationToken);
             return entity.Id;
         }
 
-        public async Task<int> Update(ExpertServiceDto dto)
+        public async Task<int> Update(ExpertServiceDto dto, CancellationToken cancellationToken)
         {
             var entity = await _context.ExpertServices.FirstOrDefaultAsync(e => e.Id == dto.Id);
             entity.CreationDate = dto.CreationDate;
             entity.ExpertId = dto.ExpertId;
             entity.IsActive = dto.IsActive;
             entity.ServiceId = dto.ServiceId;
-            await _context.SaveChangesAsync();
+            await _context.SaveChangesAsync(cancellationToken);
             return entity.Id;
         }
     }

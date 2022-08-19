@@ -1,0 +1,173 @@
+﻿@model OrderTenderViewModel
+
+@{
+    string faName = "پیشنهاد";
+    ViewData["Title"] = $"لیست {faName}‌ها";
+    int rowCount = 1;
+}
+<div class="d-flex justify-content-between">
+    <h3>سفارش</h3>
+</div>
+<hr />
+<table class="table table-striped table-hover text-center">
+    <thead>
+        <tr>
+            <th scope="col">
+                @Html.DisplayNameFor(model=>model.Order.Customer)
+            </th>
+            <th scope="col">
+                @Html.DisplayNameFor(model=>model.Order.Service)
+            </th>
+            <th scope="col">
+                @Html.DisplayNameFor(model=>model.Order.OrderState)
+            </th>
+            <th scope="col">
+                @Html.DisplayNameFor(model=>model.Order.RegisterDate)
+            </th>
+            <th scope="col">
+                @Html.DisplayNameFor(model=>model.Order.TendersCount)
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>@Model.Order.Customer</td>
+            <td>@Model.Order.Service</td>
+            <td>@Model.Order.OrderState</td>
+            <td>@(Convert.ToDateTime(Model.Order.RegisterDate).ToShamsi())</td>
+            <td>@Model.Order.TendersCount</td>
+        </tr>
+    </tbody>
+</table>
+<hr />
+
+
+<div class="d-flex justify-content-between">
+    <h3>لیست @(faName)‌ها</h3>
+</div>
+<hr />
+
+<table class="table table-striped table-hover text-center">
+    <thead>
+        <tr>
+            <th scope="col">
+                #
+            </th>
+            <th scope="col">
+                @Html.DisplayNameFor(model => model.Tenders.First().Expert)
+            </th>
+            <th scope="col">
+                @Html.DisplayNameFor(model => model.Tenders.First().Price)
+            </th>
+            <th scope="col">
+                @Html.DisplayNameFor(model => model.Tenders.First().RegisterDate)
+            </th>
+            <th scope="col">
+                @Html.DisplayNameFor(model => model.Tenders.First().RequiredTime)
+            </th>
+            <th scope="col">
+                @Html.DisplayNameFor(model => model.Tenders.First().StartDate)
+            </th>
+            <th scope="col">
+                @Html.DisplayNameFor(model => model.Tenders.First().Accepted)
+            </th>
+            <th scope="col">عملیات</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model.Tenders)
+        {
+            <tr>
+                <td scope="row">
+                    @(rowCount++)
+                </td>
+                <td>@item.Expert</td>
+                <td>@(((long)item.Price).ToString("#,##0"))</td>
+                <td>@(Convert.ToDateTime(item.RegisterDate).ToShamsi())</td>
+                <td>@item.RequiredTime</td>
+                <td>@(Convert.ToDateTime(item.StartDate).ToShamsi())</td>
+                <td><input class="form-check-input" type="checkbox" checked="@item.Accepted" disabled></td>
+                <td>
+                    @if (item.Accepted)
+                    {
+                        <a id="cancel" class="btn btn-danger" data-toggle="modal" data-target="#cancelModal" data-id="@item.Id" data-name="@item.Expert">
+                            لغو
+                        </a>
+                    }
+                    else
+                    {
+                        <a id="accept" class="btn btn-success  @(Model.Order.OrderStateId == (int)OrderStateEnum.WaitingForArriveExpert ? "disabled" : "")"
+                   data-toggle="modal" data-target="#acceptModal" data-id="@item.Id" data-name="@item.Expert">
+                            تایید
+                        </a>
+                    }
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+<!-- Modal -->
+<div class="modal fade" id="acceptModal" tabindex="-1" aria-labelledby="acceptModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="acceptModalLabel">تایید @faName</h5>
+                <button class="close" type="button" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">×</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                آیا از تایید @faName <span id="modalShowForAccept" class="text-info"></span> اطمینان دارید؟
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">
+                    خیر
+                </button>
+                <a class="btn btn-danger" id="submitAccept">
+                    بله
+                </a>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="modal fade" id="cancelModal" tabindex="-1" aria-labelledby="cancelModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="cancelModalLabel">لغو @faName</h5>
+                <button class="close" type="button" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">×</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                آیا از لغو @faName <span id="modalShowForCancel" class="text-info"></span> اطمینان دارید؟
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">
+                    خیر
+                </button>
+                <a class="btn btn-danger" id="submitCancel">
+                    بله
+                </a>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+
+    $(document).on("click","#accept", function(){
+        var id=$(this).data('id');
+        var name=$(this).data('name');
+        $(".modal-footer #submitAccept").attr("href","/Order/AcceptTender/" + id);
+        $("#modalShowForAccept").html(name);
+    });
+
+    $(document).on("click","#cancel", function(){
+        var id=$(this).data('id');
+        var name=$(this).data('name');
+        $(".modal-footer #submitCancel").attr("href","/Order/CancelTender/" + id);
+        $("#modalShowForCancel").html(name);
+    });
+</script>

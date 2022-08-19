@@ -77,7 +77,7 @@
                                 <span asp-validation-for="Roles" class="text-danger"></span>
                             </div>
                         </div>
-                        <div class="mb-3">
+                        <div class="mb-3" id="userImage">
                             <label for="formFile" class="form-label">تصویر کاربر</label>
                             <input class="form-control" type="file" id="formFile" name="userImage">
                         </div>
@@ -93,3 +93,18 @@
         </div>
     </div>
 </div>
+<script>
+    $(document).ready(function(){
+        if(!$(".selectpicker").val().includes("@((int)RoleEnum.expert)")){
+            $("#userImage").hide();
+        }
+            $(".selectpicker").change(function(){
+                if(!$(this).val().includes("@((int)RoleEnum.expert)")){
+                    $("#userImage").hide();
+                }
+                else{
+                    $("#userImage").show();
+                }
+            })
+    })
+</script>

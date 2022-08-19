@@ -16,7 +16,7 @@ namespace App.Domain.Core.BaseData.Dtos
         public DateTime SubmitDate { get; set; }
         public bool IsActive { get; set; }
         public string? Address { get; set; }
-        public int? ImageFileId { get; set; }
+        public Guid? ImageFileId { get; set; }
         public string? ImageUrl { get; set; }
     }
 }

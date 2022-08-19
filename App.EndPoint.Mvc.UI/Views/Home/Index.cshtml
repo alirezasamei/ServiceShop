@@ -1,7 +1,30 @@
-﻿@{
-    ViewData["Title"] = "Home Page";
+﻿@model IEnumerable<ServiceViewModel>
+@{
+    ViewData["Title"] = "صفحه اصلی";
 }
-<div class="text-center">
-    <h1 class="display-4">خوش آمدید</h1>
-    <p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
+<base href="~/" />
+<div class="pb-lg-5">
+    <div class="text-center border-bottom-danger flex-column justify-content-center">
+        <img src="~/img/Header-banner.svg" class="banner-picture" />
+        <h3><<< بده ما درستش می کنیم >>></h3>
+        <form class="user bs-searchbox" asp-controller="Home" asp-action="Search" method="get">
+            <div class="form-group row justify-content-center">
+                <input type="search" id="searchInput" class="form-control form-control-user col-3" placeholder="کلید واژه..." name="keyWord" required />
+                <button type="submit" id="searchBtn" class="btn btn-outline-primary btn-user col-1">جستجو</button>
+            </div>
+        </form>
+    </div>
+</div>
+<div class="row justify-content-center">
+    <div class="row justify-content-center col-8">
+        @foreach (var item in Model)
+        {
+            <figure class="row col-md-2 col-sm-6">
+                <a class="mb-4 text-center service" asp-controller="Home" asp-action="Index" asp-route-id="@item.Id">
+                    <img class="img-service rounded-circle mb-4" src=@item.ImageUrl alt="@item.Name">
+                    <figcaption>@item.Name</figcaption>
+                </a>
+            </figure>
+        }
+    </div>
 </div>

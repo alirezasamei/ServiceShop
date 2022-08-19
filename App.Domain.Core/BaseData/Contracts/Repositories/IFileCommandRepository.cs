@@ -4,8 +4,8 @@ namespace App.Domain.Core.BaseData.Contracts.Repositories
 {
     public interface IFileCommandRepository
     {
-        Task<int> Add(FileDto dto);
-        Task<int> Update(FileDto dto);
-        Task<int> Delete(int id);
+        Task<Guid> Add(FileDto dto, CancellationToken cancellationToken);
+        Task<Guid> Update(FileDto dto, CancellationToken cancellationToken);
+        Task<Guid> Delete(string id, CancellationToken cancellationToken);
     }
 }

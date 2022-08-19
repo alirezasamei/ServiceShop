@@ -31,17 +31,20 @@ namespace App.Infrastructure.SqlServer.Data
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             base.OnModelCreating(modelBuilder);
+            var guid = new List<Guid>();
+            for (int i = 0; i < 28; i++)
+                guid.Add(Guid.NewGuid());
 
             modelBuilder.Entity<AppUser>(entity => entity.HasData(
-                new AppUser { Id = 1, AccessFailedCount = 0, ConcurrencyStamp = " ", Email = "AppUser1@a.com", EmailConfirmed = true, IsActive = true, IsDeleted = false, LockoutEnabled = true, Name = "AppUser1 ",   PhoneNumber = "09123456789", PhoneNumberConfirmed = true, TwoFactorEnabled = false, UserName = "AppUser1username", SubmitDate = DateTime.Now, SecurityStamp = " " },
-                new AppUser { Id = 2, AccessFailedCount = 0, ConcurrencyStamp = " ", Email = "AppUser2@a.com", EmailConfirmed = true, IsActive = true, IsDeleted = false, LockoutEnabled = true, Name = "AppUser2 ",   PhoneNumber = "09123456789", PhoneNumberConfirmed = true, TwoFactorEnabled = false, UserName = "AppUser2username", SubmitDate = DateTime.Now, SecurityStamp = " " },
-                new AppUser { Id = 3, AccessFailedCount = 0, ConcurrencyStamp = " ", Email = "AppUser3@a.com", EmailConfirmed = true, IsActive = true, IsDeleted = false, LockoutEnabled = true, Name = "AppUser3 ",   PhoneNumber = "09123456789", PhoneNumberConfirmed = true, TwoFactorEnabled = false, UserName = "AppUser3username", SubmitDate = DateTime.Now, SecurityStamp = " " },
-                new AppUser { Id = 4, AccessFailedCount = 0, ConcurrencyStamp = " ", Email = "AppUser4@a.com", EmailConfirmed = true, IsActive = true, IsDeleted = false, LockoutEnabled = true, Name = "AppUser4 ",   PhoneNumber = "09123456789", PhoneNumberConfirmed = true, TwoFactorEnabled = false, UserName = "AppUser4username", SubmitDate = DateTime.Now, SecurityStamp = " " },
-                new AppUser { Id = 5, AccessFailedCount = 0, ConcurrencyStamp = " ", Email = "AppUser5@a.com", EmailConfirmed = true, IsActive = true, IsDeleted = false, LockoutEnabled = true, Name = "AppUser5 ",   PhoneNumber = "09123456789", PhoneNumberConfirmed = true, TwoFactorEnabled = false, UserName = "AppUser5username", SubmitDate = DateTime.Now, SecurityStamp = " " },
-                new AppUser { Id = 6, AccessFailedCount = 0, ConcurrencyStamp = " ", Email = "AppUser6@a.com", EmailConfirmed = true, IsActive = true, IsDeleted = false, LockoutEnabled = true, Name = "AppUser6 ",   PhoneNumber = "09123456789", PhoneNumberConfirmed = true, TwoFactorEnabled = false, UserName = "AppUser6username", SubmitDate = DateTime.Now, SecurityStamp = " " },
-                new AppUser { Id = 7, AccessFailedCount = 0, ConcurrencyStamp = " ", Email = "AppUser7@a.com", EmailConfirmed = true, IsActive = true, IsDeleted = false, LockoutEnabled = true, Name = "AppUser7 ",   PhoneNumber = "09123456789", PhoneNumberConfirmed = true, TwoFactorEnabled = false, UserName = "AppUser7username", SubmitDate = DateTime.Now, SecurityStamp = " " },
-                new AppUser { Id = 8, AccessFailedCount = 0, ConcurrencyStamp = " ", Email = "AppUser8@a.com", EmailConfirmed = true, IsActive = true, IsDeleted = false, LockoutEnabled = true, Name = "AppUser8 ",   PhoneNumber = "09123456789", PhoneNumberConfirmed = true, TwoFactorEnabled = false, UserName = "AppUser8username", SubmitDate = DateTime.Now, SecurityStamp = " " },
-                new AppUser { Id = 9, AccessFailedCount = 0, ConcurrencyStamp = " ", Email = "AppUser9@a.com", EmailConfirmed = true, IsActive = true, IsDeleted = false, LockoutEnabled = true, Name = "AppUser9 ",   PhoneNumber = "09123456789", PhoneNumberConfirmed = true, TwoFactorEnabled = false, UserName = "AppUser9username", SubmitDate = DateTime.Now, SecurityStamp = " " },
+                new AppUser { Id = 1, AccessFailedCount = 0, ConcurrencyStamp = " ", Email = "AppUser1@a.com", EmailConfirmed = true, IsActive = true, IsDeleted = false, LockoutEnabled = true, Name = "AppUser1 ", PhoneNumber = "09123456789", PhoneNumberConfirmed = true, TwoFactorEnabled = false, UserName = "AppUser1username", SubmitDate = DateTime.Now, SecurityStamp = " " },
+                new AppUser { Id = 2, AccessFailedCount = 0, ConcurrencyStamp = " ", Email = "AppUser2@a.com", EmailConfirmed = true, IsActive = true, IsDeleted = false, LockoutEnabled = true, Name = "AppUser2 ", PhoneNumber = "09123456789", PhoneNumberConfirmed = true, TwoFactorEnabled = false, UserName = "AppUser2username", SubmitDate = DateTime.Now, SecurityStamp = " " },
+                new AppUser { Id = 3, AccessFailedCount = 0, ConcurrencyStamp = " ", Email = "AppUser3@a.com", EmailConfirmed = true, IsActive = true, IsDeleted = false, LockoutEnabled = true, Name = "AppUser3 ", PhoneNumber = "09123456789", PhoneNumberConfirmed = true, TwoFactorEnabled = false, UserName = "AppUser3username", SubmitDate = DateTime.Now, SecurityStamp = " " },
+                new AppUser { Id = 4, AccessFailedCount = 0, ConcurrencyStamp = " ", Email = "AppUser4@a.com", EmailConfirmed = true, IsActive = true, IsDeleted = false, LockoutEnabled = true, Name = "AppUser4 ", PhoneNumber = "09123456789", PhoneNumberConfirmed = true, TwoFactorEnabled = false, UserName = "AppUser4username", SubmitDate = DateTime.Now, SecurityStamp = " " },
+                new AppUser { Id = 5, AccessFailedCount = 0, ConcurrencyStamp = " ", Email = "AppUser5@a.com", EmailConfirmed = true, IsActive = true, IsDeleted = false, LockoutEnabled = true, Name = "AppUser5 ", PhoneNumber = "09123456789", PhoneNumberConfirmed = true, TwoFactorEnabled = false, UserName = "AppUser5username", SubmitDate = DateTime.Now, SecurityStamp = " " },
+                new AppUser { Id = 6, AccessFailedCount = 0, ConcurrencyStamp = " ", Email = "AppUser6@a.com", EmailConfirmed = true, IsActive = true, IsDeleted = false, LockoutEnabled = true, Name = "AppUser6 ", PhoneNumber = "09123456789", PhoneNumberConfirmed = true, TwoFactorEnabled = false, UserName = "AppUser6username", SubmitDate = DateTime.Now, SecurityStamp = " " },
+                new AppUser { Id = 7, AccessFailedCount = 0, ConcurrencyStamp = " ", Email = "AppUser7@a.com", EmailConfirmed = true, IsActive = true, IsDeleted = false, LockoutEnabled = true, Name = "AppUser7 ", PhoneNumber = "09123456789", PhoneNumberConfirmed = true, TwoFactorEnabled = false, UserName = "AppUser7username", SubmitDate = DateTime.Now, SecurityStamp = " " },
+                new AppUser { Id = 8, AccessFailedCount = 0, ConcurrencyStamp = " ", Email = "AppUser8@a.com", EmailConfirmed = true, IsActive = true, IsDeleted = false, LockoutEnabled = true, Name = "AppUser8 ", PhoneNumber = "09123456789", PhoneNumberConfirmed = true, TwoFactorEnabled = false, UserName = "AppUser8username", SubmitDate = DateTime.Now, SecurityStamp = " " },
+                new AppUser { Id = 9, AccessFailedCount = 0, ConcurrencyStamp = " ", Email = "AppUser9@a.com", EmailConfirmed = true, IsActive = true, IsDeleted = false, LockoutEnabled = true, Name = "AppUser9 ", PhoneNumber = "09123456789", PhoneNumberConfirmed = true, TwoFactorEnabled = false, UserName = "AppUser9username", SubmitDate = DateTime.Now, SecurityStamp = " " },
                 new AppUser { Id = 10, AccessFailedCount = 0, ConcurrencyStamp = " ", Email = "AppUser10@a.com", EmailConfirmed = true, IsActive = true, IsDeleted = false, LockoutEnabled = true, Name = "AppUser10", PhoneNumber = "09123456789", PhoneNumberConfirmed = true, TwoFactorEnabled = false, UserName = "AppUser10username", SubmitDate = DateTime.Now, SecurityStamp = " " },
                 new AppUser { Id = 11, AccessFailedCount = 0, ConcurrencyStamp = " ", Email = "AppUser11@a.com", EmailConfirmed = true, IsActive = true, IsDeleted = false, LockoutEnabled = true, Name = "AppUser11", PhoneNumber = "09123456789", PhoneNumberConfirmed = true, TwoFactorEnabled = false, UserName = "AppUser11username", SubmitDate = DateTime.Now, SecurityStamp = " " },
                 new AppUser { Id = 12, AccessFailedCount = 0, ConcurrencyStamp = " ", Email = "AppUser12@a.com", EmailConfirmed = true, IsActive = true, IsDeleted = false, LockoutEnabled = true, Name = "AppUser12", PhoneNumber = "09123456789", PhoneNumberConfirmed = true, TwoFactorEnabled = false, UserName = "AppUser12username", SubmitDate = DateTime.Now, SecurityStamp = " " },
@@ -68,15 +71,15 @@ namespace App.Infrastructure.SqlServer.Data
                 entity.HasMany(p => p.Tenders).WithOne(d => d.Expert).HasForeignKey(d => d.ExpertId);
                 entity.HasMany(p => p.ExpertServices).WithOne(d => d.Expert).HasForeignKey(d => d.ExpertId);
                 entity.HasData(
-                    new Expert { Id = 01, Address = "آدرس متخصص 1", AppUserId = 1, ImageFileId = 1 },
-                    new Expert { Id = 02, Address = "آدرس متخصص 2", AppUserId = 2, ImageFileId = 2 },
-                    new Expert { Id = 03, Address = "آدرس متخصص 3", AppUserId = 3, ImageFileId = 3 },
-                    new Expert { Id = 04, Address = "آدرس متخصص 4", AppUserId = 4, ImageFileId = 4 },
-                    new Expert { Id = 05, Address = "آدرس متخصص 5", AppUserId = 5, ImageFileId = 5 },
-                    new Expert { Id = 06, Address = "آدرس متخصص 6", AppUserId = 6, ImageFileId = 6 },
-                    new Expert { Id = 07, Address = "آدرس متخصص 7", AppUserId = 7, ImageFileId = 7 },
-                    new Expert { Id = 08, Address = "آدرس متخصص 8", AppUserId = 8, ImageFileId = 8 },
-                    new Expert { Id = 09, Address = "آدرس متخصص 9", AppUserId = 9, ImageFileId = 9 }
+                    new Expert { Id = 01, Address = "آدرس متخصص 1", AppUserId = 1, ImageFileId = guid[01] },
+                    new Expert { Id = 02, Address = "آدرس متخصص 2", AppUserId = 2, ImageFileId = guid[02] },
+                    new Expert { Id = 03, Address = "آدرس متخصص 3", AppUserId = 3, ImageFileId = guid[03] },
+                    new Expert { Id = 04, Address = "آدرس متخصص 4", AppUserId = 4, ImageFileId = guid[04] },
+                    new Expert { Id = 05, Address = "آدرس متخصص 5", AppUserId = 5, ImageFileId = guid[05] },
+                    new Expert { Id = 06, Address = "آدرس متخصص 6", AppUserId = 6, ImageFileId = guid[06] },
+                    new Expert { Id = 07, Address = "آدرس متخصص 7", AppUserId = 7, ImageFileId = guid[07] },
+                    new Expert { Id = 08, Address = "آدرس متخصص 8", AppUserId = 8, ImageFileId = guid[08] },
+                    new Expert { Id = 09, Address = "آدرس متخصص 9", AppUserId = 9, ImageFileId = guid[09] }
                     );
             });
             modelBuilder.Entity<ExpertService>(entity =>
@@ -106,33 +109,33 @@ namespace App.Infrastructure.SqlServer.Data
                 entity.HasIndex(e => e.ServiceId);
                 entity.HasOne(p => p.FileType).WithMany().HasForeignKey(d => d.FileTypeId);
                 entity.HasData(
-                    new BaseDataEntities.File { Id = 1, CreationDate = DateTime.Now, Description = "توضیح فایل 01", NameWithExtention = "File01.jpg", FileTypeId = 1, IsDeleted = false },
-                    new BaseDataEntities.File { Id = 2, CreationDate = DateTime.Now, Description = "توضیح فایل 02", NameWithExtention = "File02.jpg", FileTypeId = 1, IsDeleted = false },
-                    new BaseDataEntities.File { Id = 3, CreationDate = DateTime.Now, Description = "توضیح فایل 03", NameWithExtention = "File03.jpg", FileTypeId = 1, IsDeleted = false },
-                    new BaseDataEntities.File { Id = 4, CreationDate = DateTime.Now, Description = "توضیح فایل 04", NameWithExtention = "File04.jpg", FileTypeId = 1, IsDeleted = false },
-                    new BaseDataEntities.File { Id = 5, CreationDate = DateTime.Now, Description = "توضیح فایل 05", NameWithExtention = "File05.jpg", FileTypeId = 1, IsDeleted = false },
-                    new BaseDataEntities.File { Id = 6, CreationDate = DateTime.Now, Description = "توضیح فایل 06", NameWithExtention = "File06.jpg", FileTypeId = 1, IsDeleted = false },
-                    new BaseDataEntities.File { Id = 7, CreationDate = DateTime.Now, Description = "توضیح فایل 07", NameWithExtention = "File07.jpg", FileTypeId = 1, IsDeleted = false },
-                    new BaseDataEntities.File { Id = 8, CreationDate = DateTime.Now, Description = "توضیح فایل 08", NameWithExtention = "File08.jpg", FileTypeId = 1, IsDeleted = false },
-                    new BaseDataEntities.File { Id = 9, CreationDate = DateTime.Now, Description = "توضیح فایل 09", NameWithExtention = "File09.jpg", FileTypeId = 1, IsDeleted = false },
-                    new BaseDataEntities.File { Id = 10, CreationDate = DateTime.Now, Description = "توضیح فایل 10", NameWithExtention = "File10.jpg", FileTypeId = 1, IsDeleted = false },
-                    new BaseDataEntities.File { Id = 11, CreationDate = DateTime.Now, Description = "توضیح فایل 11", NameWithExtention = "File11.jpg", FileTypeId = 1, IsDeleted = false },
-                    new BaseDataEntities.File { Id = 12, CreationDate = DateTime.Now, Description = "توضیح فایل 12", NameWithExtention = "File12.jpg", FileTypeId = 1, IsDeleted = false },
-                    new BaseDataEntities.File { Id = 13, CreationDate = DateTime.Now, Description = "توضیح فایل 13", NameWithExtention = "File13.jpg", FileTypeId = 1, IsDeleted = false },
-                    new BaseDataEntities.File { Id = 14, CreationDate = DateTime.Now, Description = "توضیح فایل 14", NameWithExtention = "File14.jpg", FileTypeId = 1, IsDeleted = false },
-                    new BaseDataEntities.File { Id = 15, CreationDate = DateTime.Now, Description = "توضیح فایل 15", NameWithExtention = "File15.jpg", FileTypeId = 1, IsDeleted = false },
-                    new BaseDataEntities.File { Id = 16, CreationDate = DateTime.Now, Description = "توضیح فایل 16", NameWithExtention = "File16.jpg", FileTypeId = 1, IsDeleted = false },
-                    new BaseDataEntities.File { Id = 17, CreationDate = DateTime.Now, Description = "توضیح فایل 17", NameWithExtention = "File17.jpg", FileTypeId = 1, IsDeleted = false },
-                    new BaseDataEntities.File { Id = 18, CreationDate = DateTime.Now, Description = "توضیح فایل 18", NameWithExtention = "File18.jpg", FileTypeId = 1, IsDeleted = false },
-                    new BaseDataEntities.File { Id = 19, CreationDate = DateTime.Now, Description = "توضیح فایل 19", NameWithExtention = "File19.jpg", FileTypeId = 1, IsDeleted = false, ExpertServiceId = 1 },
-                    new BaseDataEntities.File { Id = 20, CreationDate = DateTime.Now, Description = "توضیح فایل 20", NameWithExtention = "File20.jpg", FileTypeId = 1, IsDeleted = false, ExpertServiceId = 2 },
-                    new BaseDataEntities.File { Id = 21, CreationDate = DateTime.Now, Description = "توضیح فایل 21", NameWithExtention = "File21.jpg", FileTypeId = 1, IsDeleted = false, ExpertServiceId = 3 },
-                    new BaseDataEntities.File { Id = 22, CreationDate = DateTime.Now, Description = "توضیح فایل 22", NameWithExtention = "File22.jpg", FileTypeId = 1, IsDeleted = false, ExpertServiceId = 4 },
-                    new BaseDataEntities.File { Id = 23, CreationDate = DateTime.Now, Description = "توضیح فایل 23", NameWithExtention = "File23.jpg", FileTypeId = 1, IsDeleted = false, ExpertServiceId = 5 },
-                    new BaseDataEntities.File { Id = 24, CreationDate = DateTime.Now, Description = "توضیح فایل 24", NameWithExtention = "File24.jpg", FileTypeId = 1, IsDeleted = false, ExpertServiceId = 6 },
-                    new BaseDataEntities.File { Id = 25, CreationDate = DateTime.Now, Description = "توضیح فایل 25", NameWithExtention = "File25.jpg", FileTypeId = 1, IsDeleted = false, ExpertServiceId = 7 },
-                    new BaseDataEntities.File { Id = 26, CreationDate = DateTime.Now, Description = "توضیح فایل 26", NameWithExtention = "File26.jpg", FileTypeId = 1, IsDeleted = false, ExpertServiceId = 8 },
-                    new BaseDataEntities.File { Id = 27, CreationDate = DateTime.Now, Description = "توضیح فایل 27", NameWithExtention = "File27.jpg", FileTypeId = 1, IsDeleted = false, ExpertServiceId = 9 }
+                    new BaseDataEntities.File { Id = guid[01], CreationDate = DateTime.Now, Description = "توضیح فایل 01", Name = "File01", FileTypeId = 1, IsDeleted = false },
+                    new BaseDataEntities.File { Id = guid[02], CreationDate = DateTime.Now, Description = "توضیح فایل 02", Name = "File02", FileTypeId = 1, IsDeleted = false },
+                    new BaseDataEntities.File { Id = guid[03], CreationDate = DateTime.Now, Description = "توضیح فایل 03", Name = "File03", FileTypeId = 1, IsDeleted = false },
+                    new BaseDataEntities.File { Id = guid[04], CreationDate = DateTime.Now, Description = "توضیح فایل 04", Name = "File04", FileTypeId = 1, IsDeleted = false },
+                    new BaseDataEntities.File { Id = guid[05], CreationDate = DateTime.Now, Description = "توضیح فایل 05", Name = "File05", FileTypeId = 1, IsDeleted = false },
+                    new BaseDataEntities.File { Id = guid[06], CreationDate = DateTime.Now, Description = "توضیح فایل 06", Name = "File06", FileTypeId = 1, IsDeleted = false },
+                    new BaseDataEntities.File { Id = guid[07], CreationDate = DateTime.Now, Description = "توضیح فایل 07", Name = "File07", FileTypeId = 1, IsDeleted = false },
+                    new BaseDataEntities.File { Id = guid[08], CreationDate = DateTime.Now, Description = "توضیح فایل 08", Name = "File08", FileTypeId = 1, IsDeleted = false },
+                    new BaseDataEntities.File { Id = guid[09], CreationDate = DateTime.Now, Description = "توضیح فایل 09", Name = "File09", FileTypeId = 1, IsDeleted = false },
+                    new BaseDataEntities.File { Id = guid[10], CreationDate = DateTime.Now, Description = "توضیح فایل 10", Name = "File10", FileTypeId = 1, IsDeleted = false },
+                    new BaseDataEntities.File { Id = guid[11], CreationDate = DateTime.Now, Description = "توضیح فایل 11", Name = "File11", FileTypeId = 1, IsDeleted = false },
+                    new BaseDataEntities.File { Id = guid[12], CreationDate = DateTime.Now, Description = "توضیح فایل 12", Name = "File12", FileTypeId = 1, IsDeleted = false },
+                    new BaseDataEntities.File { Id = guid[13], CreationDate = DateTime.Now, Description = "توضیح فایل 13", Name = "File13", FileTypeId = 1, IsDeleted = false },
+                    new BaseDataEntities.File { Id = guid[14], CreationDate = DateTime.Now, Description = "توضیح فایل 14", Name = "File14", FileTypeId = 1, IsDeleted = false },
+                    new BaseDataEntities.File { Id = guid[15], CreationDate = DateTime.Now, Description = "توضیح فایل 15", Name = "File15", FileTypeId = 1, IsDeleted = false },
+                    new BaseDataEntities.File { Id = guid[16], CreationDate = DateTime.Now, Description = "توضیح فایل 16", Name = "File16", FileTypeId = 1, IsDeleted = false },
+                    new BaseDataEntities.File { Id = guid[17], CreationDate = DateTime.Now, Description = "توضیح فایل 17", Name = "File17", FileTypeId = 1, IsDeleted = false },
+                    new BaseDataEntities.File { Id = guid[18], CreationDate = DateTime.Now, Description = "توضیح فایل 18", Name = "File18", FileTypeId = 1, IsDeleted = false },
+                    new BaseDataEntities.File { Id = guid[19], CreationDate = DateTime.Now, Description = "توضیح فایل 19", Name = "File19", FileTypeId = 1, IsDeleted = false, ExpertServiceId = 1 },
+                    new BaseDataEntities.File { Id = guid[20], CreationDate = DateTime.Now, Description = "توضیح فایل 20", Name = "File20", FileTypeId = 1, IsDeleted = false, ExpertServiceId = 2 },
+                    new BaseDataEntities.File { Id = guid[21], CreationDate = DateTime.Now, Description = "توضیح فایل 21", Name = "File21", FileTypeId = 1, IsDeleted = false, ExpertServiceId = 3 },
+                    new BaseDataEntities.File { Id = guid[22], CreationDate = DateTime.Now, Description = "توضیح فایل 22", Name = "File22", FileTypeId = 1, IsDeleted = false, ExpertServiceId = 4 },
+                    new BaseDataEntities.File { Id = guid[23], CreationDate = DateTime.Now, Description = "توضیح فایل 23", Name = "File23", FileTypeId = 1, IsDeleted = false, ExpertServiceId = 5 },
+                    new BaseDataEntities.File { Id = guid[24], CreationDate = DateTime.Now, Description = "توضیح فایل 24", Name = "File24", FileTypeId = 1, IsDeleted = false, ExpertServiceId = 6 },
+                    new BaseDataEntities.File { Id = guid[25], CreationDate = DateTime.Now, Description = "توضیح فایل 25", Name = "File25", FileTypeId = 1, IsDeleted = false, ExpertServiceId = 7 },
+                    new BaseDataEntities.File { Id = guid[26], CreationDate = DateTime.Now, Description = "توضیح فایل 26", Name = "File26", FileTypeId = 1, IsDeleted = false, ExpertServiceId = 8 },
+                    new BaseDataEntities.File { Id = guid[27], CreationDate = DateTime.Now, Description = "توضیح فایل 27", Name = "File27", FileTypeId = 1, IsDeleted = false, ExpertServiceId = 9 }
                     );
             });
             modelBuilder.Entity<Comment>(entity =>
@@ -192,15 +195,15 @@ namespace App.Infrastructure.SqlServer.Data
                 entity.HasIndex(e => e.OrderId);
                 entity.HasOne(p => p.Order).WithMany(d => d.Tenders).HasForeignKey(d => d.OrderId).OnDelete(DeleteBehavior.NoAction);
                 entity.HasData(
-                    new Tender { Id = 1, ExpertId = 1, OrderId = 1, Price = 100000, RegisterDate = DateTime.Now, RequiredTime = TimeSpan.FromHours(3), StartDate = DateTime.Now + TimeSpan.FromDays(1) },
-                    new Tender { Id = 2, ExpertId = 2, OrderId = 2, Price = 100000, RegisterDate = DateTime.Now, RequiredTime = TimeSpan.FromHours(3), StartDate = DateTime.Now + TimeSpan.FromDays(1) },
-                    new Tender { Id = 3, ExpertId = 3, OrderId = 3, Price = 100000, RegisterDate = DateTime.Now, RequiredTime = TimeSpan.FromHours(3), StartDate = DateTime.Now + TimeSpan.FromDays(1) },
-                    new Tender { Id = 4, ExpertId = 4, OrderId = 4, Price = 100000, RegisterDate = DateTime.Now, RequiredTime = TimeSpan.FromHours(3), StartDate = DateTime.Now + TimeSpan.FromDays(1) },
-                    new Tender { Id = 5, ExpertId = 5, OrderId = 5, Price = 100000, RegisterDate = DateTime.Now, RequiredTime = TimeSpan.FromHours(3), StartDate = DateTime.Now + TimeSpan.FromDays(1) },
-                    new Tender { Id = 6, ExpertId = 6, OrderId = 6, Price = 100000, RegisterDate = DateTime.Now, RequiredTime = TimeSpan.FromHours(3), StartDate = DateTime.Now + TimeSpan.FromDays(1) },
-                    new Tender { Id = 7, ExpertId = 7, OrderId = 7, Price = 100000, RegisterDate = DateTime.Now, RequiredTime = TimeSpan.FromHours(3), StartDate = DateTime.Now + TimeSpan.FromDays(1) },
-                    new Tender { Id = 8, ExpertId = 8, OrderId = 8, Price = 100000, RegisterDate = DateTime.Now, RequiredTime = TimeSpan.FromHours(3), StartDate = DateTime.Now + TimeSpan.FromDays(1) },
-                    new Tender { Id = 9, ExpertId = 9, OrderId = 9, Price = 100000, RegisterDate = DateTime.Now, RequiredTime = TimeSpan.FromHours(3), StartDate = DateTime.Now + TimeSpan.FromDays(1) }
+                    new Tender { Id = 1, ExpertId = 1, OrderId = 1, Price = 100000, RegisterDate = DateTime.Now, RequiredTime = TimeSpan.FromHours(3), StartDate = DateTime.Now + TimeSpan.FromDays(1), Accepted = false },
+                    new Tender { Id = 2, ExpertId = 2, OrderId = 2, Price = 100000, RegisterDate = DateTime.Now, RequiredTime = TimeSpan.FromHours(3), StartDate = DateTime.Now + TimeSpan.FromDays(1), Accepted = false },
+                    new Tender { Id = 3, ExpertId = 3, OrderId = 3, Price = 100000, RegisterDate = DateTime.Now, RequiredTime = TimeSpan.FromHours(3), StartDate = DateTime.Now + TimeSpan.FromDays(1), Accepted = false },
+                    new Tender { Id = 4, ExpertId = 4, OrderId = 4, Price = 100000, RegisterDate = DateTime.Now, RequiredTime = TimeSpan.FromHours(3), StartDate = DateTime.Now + TimeSpan.FromDays(1), Accepted = false },
+                    new Tender { Id = 5, ExpertId = 5, OrderId = 5, Price = 100000, RegisterDate = DateTime.Now, RequiredTime = TimeSpan.FromHours(3), StartDate = DateTime.Now + TimeSpan.FromDays(1), Accepted = false },
+                    new Tender { Id = 6, ExpertId = 6, OrderId = 6, Price = 100000, RegisterDate = DateTime.Now, RequiredTime = TimeSpan.FromHours(3), StartDate = DateTime.Now + TimeSpan.FromDays(1), Accepted = false },
+                    new Tender { Id = 7, ExpertId = 7, OrderId = 7, Price = 100000, RegisterDate = DateTime.Now, RequiredTime = TimeSpan.FromHours(3), StartDate = DateTime.Now + TimeSpan.FromDays(1), Accepted = false },
+                    new Tender { Id = 8, ExpertId = 8, OrderId = 8, Price = 100000, RegisterDate = DateTime.Now, RequiredTime = TimeSpan.FromHours(3), StartDate = DateTime.Now + TimeSpan.FromDays(1), Accepted = false },
+                    new Tender { Id = 9, ExpertId = 9, OrderId = 9, Price = 100000, RegisterDate = DateTime.Now, RequiredTime = TimeSpan.FromHours(3), StartDate = DateTime.Now + TimeSpan.FromDays(1), Accepted = false }
                     );
             });
             modelBuilder.Entity<Service>(entity =>
@@ -209,15 +212,15 @@ namespace App.Infrastructure.SqlServer.Data
                 entity.HasMany(p => p.ExpertServices).WithOne(d => d.Service).HasForeignKey(d => d.ServiceId);
                 entity.HasMany(p => p.ServiceFiles).WithOne(d => d.Service).HasForeignKey(d => d.ServiceId);
                 entity.HasData(
-                    new Service { Id = 1, CreationDate = DateTime.Now, Description = "توضیح سرویس 1", ImageFileId = 10, IsActive = true, IsDeleted = false, Name = "سرویس 1", Price = 100000 },
-                    new Service { Id = 2, CreationDate = DateTime.Now, Description = "توضیح سرویس 2", ImageFileId = 11, IsActive = true, IsDeleted = false, Name = "سرویس 2", Price = 100000 },
-                    new Service { Id = 3, CreationDate = DateTime.Now, Description = "توضیح سرویس 3", ImageFileId = 12, IsActive = true, IsDeleted = false, Name = "سرویس 3", ParentServiceId = 1, Price = 100000 },
-                    new Service { Id = 4, CreationDate = DateTime.Now, Description = "توضیح سرویس 4", ImageFileId = 13, IsActive = true, IsDeleted = false, Name = "سرویس 4", ParentServiceId = 1, Price = 100000 },
-                    new Service { Id = 5, CreationDate = DateTime.Now, Description = "توضیح سرویس 5", ImageFileId = 14, IsActive = true, IsDeleted = false, Name = "سرویس 5", ParentServiceId = 1, Price = 100000 },
-                    new Service { Id = 6, CreationDate = DateTime.Now, Description = "توضیح سرویس 6", ImageFileId = 15, IsActive = true, IsDeleted = false, Name = "سرویس 6", ParentServiceId = 2, Price = 100000 },
-                    new Service { Id = 7, CreationDate = DateTime.Now, Description = "توضیح سرویس 7", ImageFileId = 16, IsActive = true, IsDeleted = false, Name = "سرویس 7", ParentServiceId = 2, Price = 100000 },
-                    new Service { Id = 8, CreationDate = DateTime.Now, Description = "توضیح سرویس 8", ImageFileId = 17, IsActive = true, IsDeleted = false, Name = "سرویس 8", ParentServiceId = 2, Price = 100000 },
-                    new Service { Id = 9, CreationDate = DateTime.Now, Description = "توضیح سرویس 9", ImageFileId = 18, IsActive = true, IsDeleted = false, Name = "سرویس 9", ParentServiceId = 2, Price = 100000 }
+                    new Service { Id = 1, CreationDate = DateTime.Now, Description = "توضیح سرویس 1", ImageFileId = guid[10], IsActive = true, IsDeleted = false, Name = "سرویس 1", Price = 100000 },
+                    new Service { Id = 2, CreationDate = DateTime.Now, Description = "توضیح سرویس 2", ImageFileId = guid[11], IsActive = true, IsDeleted = false, Name = "سرویس 2", Price = 100000 },
+                    new Service { Id = 3, CreationDate = DateTime.Now, Description = "توضیح سرویس 3", ImageFileId = guid[12], IsActive = true, IsDeleted = false, Name = "سرویس 3", ParentServiceId = 1, Price = 100000 },
+                    new Service { Id = 4, CreationDate = DateTime.Now, Description = "توضیح سرویس 4", ImageFileId = guid[13], IsActive = true, IsDeleted = false, Name = "سرویس 4", ParentServiceId = 1, Price = 100000 },
+                    new Service { Id = 5, CreationDate = DateTime.Now, Description = "توضیح سرویس 5", ImageFileId = guid[14], IsActive = true, IsDeleted = false, Name = "سرویس 5", ParentServiceId = 1, Price = 100000 },
+                    new Service { Id = 6, CreationDate = DateTime.Now, Description = "توضیح سرویس 6", ImageFileId = guid[15], IsActive = true, IsDeleted = false, Name = "سرویس 6", ParentServiceId = 2, Price = 100000 },
+                    new Service { Id = 7, CreationDate = DateTime.Now, Description = "توضیح سرویس 7", ImageFileId = guid[16], IsActive = true, IsDeleted = false, Name = "سرویس 7", ParentServiceId = 2, Price = 100000 },
+                    new Service { Id = 8, CreationDate = DateTime.Now, Description = "توضیح سرویس 8", ImageFileId = guid[17], IsActive = true, IsDeleted = false, Name = "سرویس 8", ParentServiceId = 2, Price = 100000 },
+                    new Service { Id = 9, CreationDate = DateTime.Now, Description = "توضیح سرویس 9", ImageFileId = guid[18], IsActive = true, IsDeleted = false, Name = "سرویس 9", ParentServiceId = 2, Price = 100000 }
                     );
             });
             modelBuilder.Entity<Customer>(entity =>
@@ -255,7 +258,7 @@ namespace App.Infrastructure.SqlServer.Data
                     );
             });
             modelBuilder.Entity<FileType>(entity => entity.HasData(
-                new FileType { Id = 1, Name = "Image", IsDeleted = false }
+                new FileType { Id = 1, Name = "Image", IsDeleted = false, Extention = "jpg" }
                 ));
             modelBuilder.Entity<OrderState>(entity => entity.HasData(
                 new OrderState { Id = 1, Name = "در حال بررسی", IsDeleted = false },

@@ -1,0 +1,17 @@
+﻿
+<script language="javascript" type="text/javascript">
+    $(document).ready(function () {
+        $("#SelectedExpert").change(function () {
+            $.get('/Admin/Service/ServicesOfExpert/' + $(this).val(), function (response) {
+                var Services = $.evalJSON(response);
+                var ddlSelectedService = $("#SelectedService");
+                // clear all previous options
+                $("#SelectedService > option").remove();
+                // populate the products
+                for (i = 0; i < products.length; i++) {
+                    ddlSelectedProduct.append($("<option />").val(products[i].Value).text(products[i].Text));
+                }
+            });
+        });
+    });
+</script>

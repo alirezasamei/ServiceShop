@@ -12,30 +12,32 @@ namespace App.Infrastructure.Repos.Ef.Expert
         {
             _context = context;
         }
-        public async Task<List<TenderDto>> GetAll() =>
+        public async Task<List<TenderDto>> GetAll(CancellationToken cancellationToken) =>
              await _context.Tenders.Select(p => new TenderDto()
              {
                  Id = p.Id,
-                 Expert = p.Expert.appUser.Name,
+                 Expert = p.Expert.AppUser.Name,
                  ExpertId = p.ExpertId,
                  OrderId = p.OrderId,
                  Price = p.Price,
+                 Accepted = p.Accepted,
                  RegisterDate = p.RegisterDate,
                  RequiredTime = p.RequiredTime,
                  StartDate = p.StartDate,
-             }).ToListAsync();
+             }).ToListAsync(cancellationToken);
 
-        public async Task<TenderDto?> Get(int id) =>
+        public async Task<TenderDto?> Get(int id, CancellationToken cancellationToken) =>
             await _context.Tenders.Where(p => p.Id == id).Select(p => new TenderDto()
             {
                 Id = p.Id,
-                Expert = p.Expert.appUser.Name,
+                Expert = p.Expert.AppUser.Name,
                 ExpertId = p.ExpertId,
                 OrderId = p.OrderId,
                 Price = p.Price,
+                Accepted = p.Accepted,
                 RegisterDate = p.RegisterDate,
                 RequiredTime = p.RequiredTime,
                 StartDate = p.StartDate,
-            }).FirstOrDefaultAsync();
+            }).FirstOrDefaultAsync(cancellationToken);
     }
 }

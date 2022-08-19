@@ -4,6 +4,8 @@
     {
         public int Id { get; set; }
         public int ExpertServiceId { get; set; }
+        public string Expert { get; set; }
+        public string Service { get; set; }
         public int CustomerId { get; set; }
         public string Customer { get; set; }
         public string Title { get; set; }

@@ -12,26 +12,54 @@ namespace App.Infrastructure.Repos.Ef.Expert
         {
             _context = context;
         }
-        public async Task<List<PastWorkDto>> GetAll() =>
+        public async Task<List<PastWorkDto>> GetAll(CancellationToken cancellationToken) =>
              await _context.PastWorks.Where(p => !p.IsDeleted).Select(p => new PastWorkDto()
              {
                  Id = p.Id,
                  ComplitionDate = p.ComplitionDate,
                  ExpertServiceId = p.ExpertServiceId,
                  Price = p.Price,
-                 Customer = p.Customer.appUser.Name,
+                 Customer = p.Customer.AppUser.Name,
                  CustomerId = p.CustomerId,
-             }).ToListAsync();
+             }).ToListAsync(cancellationToken);
 
-        public async Task<PastWorkDto?> Get(int id) =>
+        public async Task<PastWorkDto?> Get(int id, CancellationToken cancellationToken) =>
             await _context.PastWorks.Where(p => p.Id == id && !p.IsDeleted).Select(p => new PastWorkDto()
             {
                 Id = p.Id,
                 ComplitionDate = p.ComplitionDate,
                 ExpertServiceId = p.ExpertServiceId,
+                Service = p.ExpertService.Service.Name,
+                Expert = p.ExpertService.Expert.AppUser.Name,
                 Price = p.Price,
-                Customer = p.Customer.appUser.Name,
+                Customer = p.Customer.AppUser.Name,
                 CustomerId = p.CustomerId,
-            }).FirstOrDefaultAsync();
+            }).FirstOrDefaultAsync(cancellationToken);
+
+        public async Task<List<PastWorkDto>> GetByCustomerId(int id, CancellationToken cancellationToken) =>
+             await _context.PastWorks.Where(p => !p.IsDeleted && p.CustomerId == id).Select(p => new PastWorkDto()
+             {
+                 Id = p.Id,
+                 ComplitionDate = p.ComplitionDate,
+                 ExpertServiceId = p.ExpertServiceId,
+                 Service = p.ExpertService.Service.Name,
+                 Expert = p.ExpertService.Expert.AppUser.Name,
+                 Price = p.Price,
+                 Customer = p.Customer.AppUser.Name,
+                 CustomerId = p.CustomerId,
+             }).ToListAsync(cancellationToken);
+
+        public async Task<List<PastWorkDto>> GetByExpertId(int id, CancellationToken cancellationToken) =>
+             await _context.PastWorks.Where(p => !p.IsDeleted && p.ExpertService.ExpertId == id).Select(p => new PastWorkDto()
+             {
+                 Id = p.Id,
+                 ComplitionDate = p.ComplitionDate,
+                 ExpertServiceId = p.ExpertServiceId,
+                 Service = p.ExpertService.Service.Name,
+                 Expert = p.ExpertService.Expert.AppUser.Name,
+                 Price = p.Price,
+                 Customer = p.Customer.AppUser.Name,
+                 CustomerId = p.CustomerId,
+             }).ToListAsync(cancellationToken);
     }
 }

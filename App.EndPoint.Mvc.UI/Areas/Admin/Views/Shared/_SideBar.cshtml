@@ -1,7 +1,7 @@
 ﻿<ul class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion" id="accordionSidebar">
 
     <!-- Sidebar - Brand -->
-    <a class="sidebar-brand d-flex align-items-center justify-content-center" asp-area="Admin" asp-controller="Dashboard" asp-action="Index">
+    <a class="sidebar-brand d-flex align-items-center justify-content-center" asp-area="" asp-controller="Home" asp-action="Index">
         <div class="sidebar-brand-icon rotate-n-15">
             <i class="fas fa-laugh-wink"></i>
         </div>
@@ -29,19 +29,10 @@
 
     <!-- Nav Item - Pages Collapse Menu -->
     <li class="nav-item">
-        <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseOne"
-           aria-expanded="true" aria-controls="collapseOne">
+        <a class="nav-link collapsed" asp-area="Admin" asp-controller="User" asp-action="Index">
             <i class="fas fa-fw fa-cog"></i>
             <span>مدیریت کاربران</span>
         </a>
-        <div id="collapseOne" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
-            <div class="bg-white py-2 collapse-inner rounded">
-                <a class="collapse-item" asp-area="Admin" asp-controller="User" asp-action="Index" asp-route-id=@((int)RoleEnum.Admin)>ادمین</a>
-                <a class="collapse-item" asp-area="Admin" asp-controller="User" asp-action="Index" asp-route-id=@((int)RoleEnum.Expert)>متخصص</a>
-                <a class="collapse-item" asp-area="Admin" asp-controller="User" asp-action="Index" asp-route-id=@((int)RoleEnum.Customer)>مشتری</a>
-                <a class="collapse-item" asp-area="Admin" asp-controller="User" asp-action="Index">همه</a>
-            </div>
-        </div>
     </li>
 
     <!-- Nav Item - Pages Collapse Menu -->
@@ -53,9 +44,9 @@
         </a>
         <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
             <div class="bg-white py-2 collapse-inner rounded">
-                <a class="collapse-item" asp-area="Admin" asp-controller="Service" asp-action="Index">سرویس ها</a>
+                <a class="collapse-item" asp-area="Admin" asp-controller="Service" asp-action="Index">سرویس ها</a>@*
                 <a class="collapse-item" asp-area="Admin" asp-controller="EvaluationTitle" asp-action="Index">عناوین ارزیابی</a>
-                <a class="collapse-item" asp-area="Admin" asp-controller="FileType" asp-action="Index">فایل های قابل ذخیره</a>
+                <a class="collapse-item" asp-area="Admin" asp-controller="FileType" asp-action="Index">فایل های قابل ذخیره</a>*@
             </div>
         </div>
     </li>
@@ -70,7 +61,9 @@
         <div id="collapseThree" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
             <div class="bg-white py-2 collapse-inner rounded">
                 <a class="collapse-item" asp-area="Admin" asp-controller="Order" asp-action="Index">سفارشات</a>
-                <a class="collapse-item" asp-area="Admin" asp-controller="PastWork" asp-action="Index">کارهای انجام شده</a>
+                <a class="collapse-item" asp-area="Admin" asp-controller="Comment" asp-action="Index">نظرات</a>
+                <a class="collapse-item" asp-area="Admin" asp-controller="File" asp-action="Index">فایل ها</a>@*
+                <a class="collapse-item" asp-area="Admin" asp-controller="PastWork" asp-action="Index">کارهای انجام شده</a>*@
             </div>
         </div>
     </li>
@@ -78,7 +71,7 @@
     <hr class="sidebar-divider">
 
     <!-- Heading -->
-    <div class="sidebar-heading">
+@*    <div class="sidebar-heading">
         Addons
     </div>
 
@@ -121,17 +114,17 @@
 
     <!-- Divider -->
     <hr class="sidebar-divider d-none d-md-block">
-
+*@
     <!-- Sidebar Toggler (Sidebar) -->
     <div class="text-center d-none d-md-inline">
         <button class="rounded-circle border-0" id="sidebarToggle"></button>
     </div>
 
     <!-- Sidebar Message -->
-    <div class="sidebar-card d-none d-lg-flex">
+@*    <div class="sidebar-card d-none d-lg-flex">
         <img class="sidebar-card-illustration mb-2" src="img/undraw_rocket.svg" alt="...">
         <p class="text-center mb-2"><strong>SB Admin Pro</strong> is packed with premium features, components, and more!</p>
         <a class="btn btn-success btn-sm" href="https://startbootstrap.com/theme/sb-admin-pro">Upgrade to Pro!</a>
-    </div>
+    </div>*@
 
 </ul>
